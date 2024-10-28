@@ -1,0 +1,23 @@
+.banner{
+    max-width: 100%;
+    height: fit-content;
+    background-color: #1E2D5B;
+    padding-bottom: 4rem;
+    margin-bottom: 4rem;
+}
+h1,h2{
+    color: white;
+    line-height: 0.9;
+    
+}
+.card {
+    border-radius: 15px;
+    aspect-ratio: 2 / 2.5; 
+}
+.card-img-top{
+    border-radius: 15px;
+    border-bottom-left-radius: 0; 
+}
+.cards{
+    aspect-ratio: 0 !important;
+}

@@ -1,0 +1,18 @@
+
+h1{
+    color: white;
+    font-weight: bolder;
+}
+
+.banner-img img {
+    width: 100%;
+    height: auto;
+}
+@media (max-width: 576px) {
+
+}
+@media screen and (max-width: 768px) {
+  .head-tag{
+    font-size: 1.5rem;
+  }
+}

@@ -1,0 +1,14 @@
+.divider:after,
+.divider:before {
+content: "";
+flex: 1;
+height: 1px;
+background: #eee;
+}
+i.fab.fa-google {
+    background: linear-gradient(90deg, #DB4437, #F4B400, #0F9D58, #4285F4);
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-size: 30px;
+    vertical-align: bottom;
+}

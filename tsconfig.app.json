@@ -1,0 +1,32 @@
+{
+  "compilerOptions": {
+    "outDir": "./out-tsc/app",
+    "sourceMap": true,
+    "declaration": false,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "target": "es2022",
+    "typeRoots": [
+      "node_modules/@types"
+    ],
+    "lib": [
+      "es2018",
+      "dom"
+    ],
+    "skipLibCheck": true
+  },
+  "include": [
+    "src/**/*.ts",
+    "src/**/*.html",
+    "src/**/*.css"
+  ],
+  "exclude": [
+    "node_modules",
+    "**/*.spec.ts", // Exclude all spec files
+    "src/app/app.config.server.ts", // Exclude unused config file
+    "src/app/contact-us/contact-form/contact-form.component.ts", // Exclude unused component file
+    "src/main.server.ts" // Exclude unused server file
+  ]
+}

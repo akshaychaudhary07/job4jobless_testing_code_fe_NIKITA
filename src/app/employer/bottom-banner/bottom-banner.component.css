@@ -1,0 +1,14 @@
+
+.banner-img {
+    background-image: url('https://github.com/job4jobless/Images/blob/main/Banners/Employer-bottom-banner52.jpg?raw=true');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+  @media (max-width: 576px) {
+
+  }
+  @media screen and (max-width: 768px) {
+ 
+  }

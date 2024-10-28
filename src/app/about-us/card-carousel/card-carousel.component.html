@@ -1,0 +1,24 @@
+<div class="carousel">
+  <div
+    class="carousel-inner"
+    [style.width]="cards.length * (100 / 3) + '%'"
+    [style.transform]="'translateX(-' + currentIndex * (100 / 3) + '%)'"
+  >
+  <div class="card" *ngFor="let card of cards; trackBy: trackById">
+      <div class="card-image">
+        <img [src]="card.image" alt="" class="card-img" />
+      </div>
+      <div class="card-content">
+        <h2 class="name">{{ card.title }}</h2>
+        <p class="description">{{ card.description }}</p>
+      </div>
+    </div>
+  </div>
+  <button (click)="prevSlide()" class="carousel-button prev-button">
+    Previous
+  </button>
+  <button (click)="nextSlide()" class="carousel-button next-button">
+    Next
+  </button>
+</div>
+<div class="border00"></div>
