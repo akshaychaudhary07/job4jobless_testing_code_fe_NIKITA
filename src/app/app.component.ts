@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Renderer2 } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
@@ -32,7 +32,7 @@ export class AppComponent implements OnInit {
   title = 'jobproject';
   showExtraComponents: boolean = true;
 
-  constructor(private router: Router, private visibilityService: VisibilityService) {}
+  constructor(private router: Router, private renderer: Renderer2) {}
 
   ngOnInit() {
     // Subscribe to router events
@@ -42,6 +42,18 @@ export class AppComponent implements OnInit {
         this.showExtraComponents = !event.urlAfterRedirects.includes('/about-us');
       }
     });
+    this.router.events
+      .pipe(filter(event => event instanceof NavigationEnd))
+      .subscribe((event: NavigationEnd) => {
+        // Add or remove class based on route
+        if (event.url === '/login-page') {
+          this.renderer.addClass(document.body, 'login-page');
+        } else {
+          this.renderer.removeClass(document.body, 'login-page');
+        }
+      });
   }
+  }
+  
 
-}
+

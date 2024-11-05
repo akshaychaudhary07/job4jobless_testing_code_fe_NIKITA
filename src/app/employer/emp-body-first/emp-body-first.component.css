@@ -1,6 +1,5 @@
 h1,h4 {
     color: #1E2D5B;
-
 }
 img.card-img-top.w-100 {
     border-radius: 15px;
@@ -10,6 +9,22 @@ img.card-img-top.w-100 {
     border-radius: 15px;
     aspect-ratio: 2/ 2.1;   
 }
-
-
+@media (max-width: 768px) {
+    .row-w{
+        width: 
+        100%!important;
+    }
+    .card {
+        aspect-ratio: 2/ 2.5;
+    }
+}
+@media (max-width: 567px) {
+    .row-w div{
+        width: 
+        100%!important;
+    }
+    .card {
+        aspect-ratio: auto;
+    }
+}
 

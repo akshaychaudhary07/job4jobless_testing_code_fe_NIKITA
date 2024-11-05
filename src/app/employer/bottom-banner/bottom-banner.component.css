@@ -5,10 +5,11 @@
     background-position: center;
     background-repeat: no-repeat;
   }
-
-  @media (max-width: 576px) {
-
-  }
   @media screen and (max-width: 768px) {
- 
+    .box-1 h1,h3{
+      font-size: 1rem!important;
+    }
+    .cus-w{
+      max-width: 100%!important;
+    }
   }

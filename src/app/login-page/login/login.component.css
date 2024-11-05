@@ -12,3 +12,16 @@ i.fab.fa-google {
     font-size: 30px;
     vertical-align: bottom;
 }
+.pass-btn {
+    right: 10px; 
+    top: 50%;
+    transform: translateY(-50%); 
+    background: transparent;
+    cursor: pointer;
+  }
+  @media (max-width: 576px) {
+  .box{
+    max-width: 350px!important;
+    padding: 25px!important;
+  }
+}

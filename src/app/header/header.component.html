@@ -1,24 +1,32 @@
 <div class="center-container">
-  <nav class="navbar navbar-expand-lg navbar-light">
-    <div class="container">
-      <a routerlink="/" class="navbar-brand" href="/"
-        ><img
+  <div class="container-fluid px-0">
+    <nav
+      class="navbar navbar-expand-lg navbar-light d-flex justify-content-between align-items-center"
+    >
+      <a routerlink="/" class="navbar-brand" href="/">
+        <img
           src="https://raw.githubusercontent.com/suraj9594/J4J-Website-Images/main/j4j%20Header%20logo.png"
           width="200"
-          class="image-thumbnail d-inline-block align-top" /></a
-      ><button
-        type="button"
-        data-bs-toggle="collapse"
-        data-bs-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
-        class="navbar-toggler"
+          class="image-thumbnail d-inline-block align-top"
+        />
+      </a>
+
+      <button
+      type="button"
+      class="navbar-toggler"
+      (click)="toggleNavbar()"
+      aria-controls="navbarSupportedContent"
+      [attr.aria-expanded]="!isCollapsed"
+      aria-label="Toggle navigation"
+    >
+      <i class="fa-solid fa-bars-staggered"></i>
+    </button>
+
+      <div
+        id="navbarSupportedContent"
+        class="collapse navbar-collapse justify-content-end gap-3 "[ngClass]="{'show': !isCollapsed}"
       >
-        <i class="fa-solid fa-bars-staggered"></i>
-      </button>
-      <div id="navbarSupportedContent" class="collapse navbar-collapse">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <ul class="navbar-nav mb-2 mb-lg-0">
           <li class="nav-item">
             <a
               routerlinkactive="active"
@@ -60,10 +68,8 @@
               >Employer</a
             >
           </li>
-
-    
         </ul>
-        <!---->
+
         <button
           type="button"
           routerLink="/login-page"
@@ -71,13 +77,9 @@
           tabindex="0"
         >
           Start Job Hunting
-          <span class="mx-2"
-            ><i class="fa-solid fa-chevron-right"></i
-          ></span></button
-        >
-        <!---->
+          <span class="mx-2"><i class="fa-solid fa-chevron-right"></i></span>
+        </button>
       </div>
-    </div>
-  </nav>
-  <!---->
+    </nav>
+  </div>
 </div>

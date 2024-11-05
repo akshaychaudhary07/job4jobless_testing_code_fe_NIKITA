@@ -1,14 +1,18 @@
 
-<div class="banner-img  pb-5">
+<div class="banner-img pb-5 position-relative text-white overflow-hidden">
   <img
     src="https://github.com/job4jobless/Images/blob/main/Banners/About-us-Banner%20wo%20text.jpg?raw=true"
     alt="Banner Image"
-    class="img-fluid"
+    class="img-fluid w-100 h-auto"
   />
-  <div class="elements">
-    <h1>Simplying Job Search</h1>
-    <h3>Fueling Careers, Building futures...</h3>
+  <div class="elements position-absolute custom-start-28 custom-top-6  text-center">
+    <h1 class="fs-1 fw-bolder d-none d-md-block text-white">Simplifying Job Search</h1>
+    <h3 class="fw-bold d-none d-md-block text-white">Fueling Careers, Building futures...</h3>
+    <!-- Smaller text for mobile -->
+    <h1 class="fs-3 fw-bolder d-md-none text-white">Simplifying Job Search</h1>
+    <h3 class="fw-normal d-md-none text-white">Fueling Careers, Building futures...</h3>
   </div>
 </div>
+
 
 <app-about-content></app-about-content>

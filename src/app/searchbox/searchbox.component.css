@@ -1,104 +1,36 @@
-.searchbox {
-    font-family: 'Poppins', sans-serif;
-    color: #2F3847;
-  }
-h4{
-   line-height: 8rem;
-   font-size: 33px;
-   font-weight: bolder;
-}
-h1{
-    color: #1E2D5B;
-    font-weight: bolder;
-}
-.card{
-   padding: 0rem;
+
+ .card {
+   padding: 0;
    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
    border: none;
-}
-.card-body {
+ }
+ .card-body {
    margin-top: -2rem;
    text-align: center;
-}
-.btn-color{
+ }
+ .btn-color {
    background-color: #1E2D5B;
    color: white;
-}
-.row-w{
-   width: 100%;
-}
-.row-wt{
-   width: 145%;
-}
-.row-wtt{
-   width: 133%;
-}
- @media screen and (max-width: 768px) { 
-   .card.card-ab {
-       margin-top: -4rem!important;
-   }
-   .row-ab{
-      width: fit-content!important;
-   }
-   .row-bc{
-      width: fit-content!important;
-   }
-   .row-wt {
-      width: 160%;
-      margin-left: -3rem;
+ } 
+@media (max-width: 1024px) {
+  .cus-w {
+   width: 100% !important;
+  }
+  .card, .card-small {
+    aspect-ratio: 0!important; 
+    height: auto;
   }
 }
-@media (max-width: 870px) {
-   .row-ab{
-      width: fit-content!important;
+@media screen and (max-width: 1600px) {
+  .cus-m{
+    margin-top: -5rem!important;
    }
-   .row-bc{
-      width: fit-content!important;
+   .cus-w {
+    width: 100% !important;
    }
-   .card.card-ab {
-      margin-top: 0rem!important;
-  }
 }
-
-@media (width: 1024px) {
-   .card-ab {
-      margin-top: -11rem!important;
+@media (max-width: 768px) {
+  .cus-m{
+   margin-top: -1rem!important;
   }
-  .elements {
-    top: 15%;
-  }
-}
-@media (max-width: 576px) {
-   .card {
-      margin-bottom: 1rem;
-      aspect-ratio: auto!important;
-   }
-   .row-wtt {
-      width: fit-content;
-  }
-   .card-ab{
-      margin-top: 0rem!important;
-   }
-   .row-ab{
-      margin-left: -2rem !important;
-      width: 125% !important;  
-   }
-   .row-bc {
-      width: 125% !important;
-  }
-  .row-w {
-   width: fit-content;
-}
-  .row-wt {
-   width: fit-content;
-   margin-left: auto;
-}
  }
- @media (max-width: 375px) {
-   .row-bc {
-      width: 130% !important;
-  }
-  .row-ab{
-   width: 130% !important;  
-}
-}

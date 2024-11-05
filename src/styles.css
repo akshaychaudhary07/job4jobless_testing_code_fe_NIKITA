@@ -6,3 +6,7 @@
     font-family: 'Poppins', sans-serif;
     color: #2F3847;
 }
+body.login-page app-header,
+body.login-page app-footer {
+  display: none;
+}

@@ -1,14 +1,7 @@
-.banner{
-    max-width: 100%;
-    height: fit-content;
-    background-color: #1E2D5B;
-    padding-bottom: 4rem;
-    margin-bottom: 4rem;
-}
+
 h1,h2{
     color: white;
-    line-height: 0.9;
-    
+    line-height: 0.9;  
 }
 .card {
     border-radius: 15px;
@@ -21,3 +14,35 @@ h1,h2{
 .cards{
     aspect-ratio: 0 !important;
 }
+
+@media (max-width: 768px) {
+.row-w {
+    width: 100%!important;
+}
+.row-wt {
+    width: 56%!important;
+}
+.card {
+    aspect-ratio: 1 / 1.55;
+}
+}
+
+  @media screen and (max-width: 1024px) {
+    .card {
+      aspect-ratio: 2/3.553!important;
+  }
+  }
+  @media (max-width: 576px) {
+    .row-w {
+        width: 100%!important;
+    }
+    .card {
+        aspect-ratio: 0 !important;
+    }
+    .custom-right{
+        padding-right: 0.5rem!important;
+    }
+    .row-wt {
+        width: 100%!important;
+    }
+  }

@@ -1,60 +1,42 @@
 <main>
-  <!-- <div class="container-fluid">
-
-    <div class="banner-text" style="padding-top: 1.5rem">
-      <div
-        class="content-box d-flex align-items-center justify-content-center"
-        style="gap: 5rem"
-      >
-        <div
-          class="form-control w-50 d-flex justify-content-center align-items-baseline"
-        >
-     
-          <input
-            type="search"
-            placeholder="Job Title, Skils, Company, Designation etc"
-          />
-
-          <input type="search" placeholder="location" />
-          <button class="btn head-btn m-2 p-2" type="submit">Find Jobs</button>
-        </div>
-        <div class="text">
-          <p class="txt-para">
-            <span>Get Your </span> <br />
-            <span style="color: aquamarine; margin-left: -1rem"
-              >Dream Job
-            </span>
-            <br />
-            <span> With Us.</span>
-          </p>
-        </div>
-      </div>
-    </div>
-  </div> -->
-
-  <!-- --grid-- -->
-  <div class="banner-text" style="padding-top: 1.5rem">
+  <div class="banner-text mw-100 h-auto">
     <div class="container">
-      <div class="row g-3">
-        <div class="col-12 col-md-8 d-flex box">
-          <input
-            type="search"
-            class="no-border-input"
-            placeholder="Job Title, Skils, Company, Designation etc"
-          />
-          <input type="search" placeholder="location" class="no-border-input" />
-          <button class="btn head-btn m-2 p-2" type="submit">Find Jobs</button>
+      <div class="row g-3 align-items-center flex-wrap-reverse">
+        <!-- First Column for Inputs and Button -->
+        <div class="col-12 col-md-8 bg-white flex-box">
+          <div
+            class="d-flex flex-wrap flex-column flex-md-row justify-content-between justify-content-md-start"
+          >
+            <input
+              type="search"
+              class="no-border-input flex-fill me-2 mb-2"
+              placeholder="Job Title, Skills, Company, Designation etc"
+            />
+
+    
+            <!-- <div
+              class="d-none d-md-block mx-md-2"
+              style="width: 1px; height: 40px; background-color: black"
+            ></div> -->
+
+            <input
+              type="search"
+              placeholder="Location"
+              class="no-border-input flex-fill me-2 mb-2 border-left"
+            />
+            <button class="btn head-btn flex-shrink-0 mx-auto" type="submit">
+              Find Jobs
+            </button>
+          </div>
         </div>
 
-        <div class="col-12 col-md-4">
+        <!-- Second Column for Text Content -->
+        <div class="col-12 col-md-4 text-center text-md-start custom-width">
           <div class="text">
-            <p class="txt-para">
-              <span>Get Your </span> <br />
-              <span style="color: aquamarine; margin-left: -1rem"
-                >Dream Job
-              </span>
-              <br />
-              <span> With Us.</span>
+            <p class="txt-para text-white fs-3">
+              <span class="text-white">Get Your </span><br />
+              <span style="color: aquamarine">Dream Job</span><br />
+              <span class="text-white">With Us.</span>
             </p>
           </div>
         </div>
@@ -63,4 +45,4 @@
   </div>
 </main>
 <app-searchbox></app-searchbox>
-<app-feature> </app-feature>
+<app-feature></app-feature>

@@ -13,23 +13,24 @@
     font-family: 'Poppins', sans-serif;
     color: #2F3847;
   }
-  
   .footer a {
     color: #1E2E5C;
   }
-  
   .footer a:hover {
     color: #0056b3;
   }
-  
-  .social-list li {
-    margin: 0 10px;
+  ul.social-list{
+    margin-left: -1rem;
   }
-  
   .contact-details p {
     margin-bottom: 5px;
   }
-  
   .non-bold-text {
     font-weight: normal;
+  }
+  @media screen and (max-width: 758px) {
+    ul.social-list{
+      display: block !important;
+      column-count: 6 !important;
+    }
   }

@@ -60,13 +60,15 @@
       </div>
       <div class="col-md-2">
         <h6 class="fw-bold">Social Media</h6>
-        <ul class="social-list list-unstyled d-flex flex-row flex-md-column">
-          <li>
-            <a href="https://www.facebook.com/profile.php?id=61555763121261"
-              ><i class="fa-brands fa-facebook fa-2x" style="color: #3b5998"></i
-            ></a>
+        <ul
+          class="social-list list-unstyled d-flex flex-wrap justify-content-center"
+        >
+          <li class="col-4 d-none d-md-block text-center mb-3">
+            <a href="https://www.facebook.com/profile.php?id=61555763121261">
+              <i class="fa-brands fa-facebook fa-2x" style="color: #3b5998"></i>
+            </a>
           </li>
-          <li>
+          <li class="col-4 d-none d-md-block text-center mb-3">
             <a
               href="https://twitter.com/Job4Jobless"
               class="text-decoration-none"
@@ -77,32 +79,78 @@
               ></i>
             </a>
           </li>
-          <li>
+          <li class="col-4 d-none d-md-block text-center mb-3">
             <a
               href="https://www.linkedin.com/company/99274968/admin/feed/posts/"
-              ><i class="fa-brands fa-linkedin fa-2x" style="color: #0077b5"></i
-            ></a>
+            >
+              <i class="fa-brands fa-linkedin fa-2x" style="color: #0077b5"></i>
+            </a>
           </li>
-          <li >
-            <a href="javascript:void(0);" (click)="sendWhatsAppMessage()"
-              ><i class="fa-brands fa-whatsapp fa-2x" style="color: #25d366"></i
-            ></a>
+          <li class="col-4 d-none d-md-block text-center mb-3">
+            <a href="javascript:void(0);" (click)="sendWhatsAppMessage()">
+              <i class="fa-brands fa-whatsapp fa-2x" style="color: #25d366"></i>
+            </a>
           </li>
-          <li>
-            <a href="https://www.instagram.com/job4jobless/"
-              ><i
+          <li class="col-4 d-none d-md-block text-center mb-3">
+            <a href="https://www.instagram.com/job4jobless/">
+              <i
                 class="fa-brands fa-instagram fa-2x"
                 style="color: #c13584"
-              ></i
-            ></a>
+              ></i>
+            </a>
           </li>
-          <li>
-            <a href="https://www.pinterest.com/job4jobless/"
-              ><i
+          <li class="col-4 d-none d-md-block text-center mb-3">
+            <a href="https://www.pinterest.com/job4jobless/">
+              <i
                 class="fa-brands fa-pinterest fa-2x"
                 style="color: #bd081c"
-              ></i
-            ></a>
+              ></i>
+            </a>
+          </li>
+          <!-- For mobile view, add all icons in a single row -->
+          <li class="col-12 d-md-none text-center mb-3">
+            <a href="https://www.facebook.com/profile.php?id=61555763121261">
+              <i class="fa-brands fa-facebook fa-2x" style="color: #3b5998"></i>
+            </a>
+          </li>
+          <li class="col-12 d-md-none text-center mb-3">
+            <a
+              href="https://twitter.com/Job4Jobless"
+              class="text-decoration-none"
+            >
+              <i
+                class="fa-brands fa-x-twitter fa-2x"
+                style="color: #000000"
+              ></i>
+            </a>
+          </li>
+          <li class="col-12 d-md-none text-center mb-3">
+            <a
+              href="https://www.linkedin.com/company/99274968/admin/feed/posts/"
+            >
+              <i class="fa-brands fa-linkedin fa-2x" style="color: #0077b5"></i>
+            </a>
+          </li>
+          <li class="col-12 d-md-none text-center mb-3">
+            <a href="javascript:void(0);" (click)="sendWhatsAppMessage()">
+              <i class="fa-brands fa-whatsapp fa-2x" style="color: #25d366"></i>
+            </a>
+          </li>
+          <li class="col-12 d-md-none text-center mb-3">
+            <a href="https://www.instagram.com/job4jobless/">
+              <i
+                class="fa-brands fa-instagram fa-2x"
+                style="color: #c13584"
+              ></i>
+            </a>
+          </li>
+          <li class="col-12 d-md-none text-center mb-3">
+            <a href="https://www.pinterest.com/job4jobless/">
+              <i
+                class="fa-brands fa-pinterest fa-2x"
+                style="color: #bd081c"
+              ></i>
+            </a>
           </li>
         </ul>
       </div>
@@ -120,4 +168,3 @@
     </p>
   </div>
 </footer>
-
