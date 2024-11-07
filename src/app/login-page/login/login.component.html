@@ -1,20 +1,22 @@
 <section
-  class="vh-100 d-flex align-items-center justify-content-center pt-4"
+  class="vh-100 d-flex align-items-center justify-content-center pt-2"
   style="background: #101a3a"
 >
   <div
-    class="container box bg-white mt-4 border border-2"
-    style="border-radius: 35px; max-width: 460px; padding: 40px"
+    class="container box bg-white mt-2 border border-2"
+    style="border-radius: 35px; max-width: 460px; padding: 20px"
   >
     <div class="d-flex justify-content-center">
-      <img
-        src="https://raw.githubusercontent.com/suraj9594/J4J-Website-Images/main/j4j%20Header%20logo.png"
-        width="200"
-        class="image-thumbnail d-inline-block align-top"
-      />
+      <a routerlink="/" class="navbar-logo" href="/">
+        <img
+          src="https://raw.githubusercontent.com/suraj9594/J4J-Website-Images/main/j4j%20Header%20logo.png"
+          width="200"
+          class="image-thumbnail d-inline-block align-top"
+        />
+      </a>
     </div>
 
-    <h3 class="text-center mt-5 mb-5">Login As Job Seeker</h3>
+    <h3 class="text-center mt-3 mb-3">Login As Job Seeker</h3>
     <form>
       <!-- Email input -->
       <div data-mdb-input-init class="form-outline mb-4">
@@ -34,11 +36,16 @@
           placeholder="Password"
           class="form-control form-control-lg"
         />
-        <button type="button" (click)="togglePasswordVisibility()" class="btn pass-btn position-absolute z-1 border-0 ">
-          <i [class]="isPasswordVisible ? 'fas fa-eye-slash' : 'fas fa-eye'"></i>
+        <button
+          type="button"
+          (click)="togglePasswordVisibility()"
+          class="btn pass-btn position-absolute z-1 border-0"
+        >
+          <i
+            [class]="isPasswordVisible ? 'fas fa-eye-slash' : 'fas fa-eye'"
+          ></i>
         </button>
       </div>
-      
 
       <div class="d-flex justify-content-between align-items-center mb-4">
         <a

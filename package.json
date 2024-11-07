@@ -10,6 +10,7 @@
     "serve:ssr:jobproject": "node dist/jobproject/server/server.mjs",
     "prerender": "ng run jobproject:prerender"
   },
+  
   "private": true,
   "dependencies": {
     "@angular/animations": "^18.2.0",

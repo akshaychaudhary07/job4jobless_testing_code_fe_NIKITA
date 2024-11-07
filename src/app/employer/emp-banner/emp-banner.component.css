@@ -18,3 +18,8 @@
     top: 38% !important;
   }
 }
+@media screen and (min-width: 1030px) and (max-width: 1360px) {
+  .top-50 {
+    top: 30% !important;
+  }
+}

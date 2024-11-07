@@ -25,11 +25,38 @@ button.btn {
 .border00{
    border-bottom: 1px solid #e2dada;
   }
+  @media screen and (min-width: 578px) and (max-width: 767px) {
+    .custom-flex-sm {
+        flex-direction: column-reverse !important;
+      }
+      .custom-pad{
+        padding-right: 0rem!important;
+    }
+      .form-box {
+        padding: 1rem;
+        margin-left: -0.8rem;
+        width: auto;
+    }
+   }
+   @media screen and (min-width:  770px) and (max-width: 1100px) {
+    .map-container {
+        height: auto;
+    }
+  
+    .form-box {
+        width: auto;
+    }
+   }
   @media (max-width: 576px) {
     .map-container {
         height: 300px;
-        margin: 0rem -1rem!important;
-        padding: 0rem 0.8rem!important;
+    }
+    .custom-pad{
+        padding-right: 0rem!important;
+    }
+    .form-box {
+        margin-left: -0.8rem;
+        width: auto;
     }
     .custom-flex-sm {
         flex-direction: column-reverse !important;

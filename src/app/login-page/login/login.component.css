@@ -19,9 +19,15 @@ i.fab.fa-google {
     background: transparent;
     cursor: pointer;
   }
+  .container.box {
+    margin: auto !important;
+    display: block;
+}
   @media (max-width: 576px) {
   .box{
-    max-width: 350px!important;
-    padding: 25px!important;
+    max-width: 320px !important;
   }
+  button.btn {
+    width: fit-content !important;
+}
 }

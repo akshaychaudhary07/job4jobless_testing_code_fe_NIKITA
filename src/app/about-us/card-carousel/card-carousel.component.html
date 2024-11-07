@@ -1,24 +1,36 @@
 <div class="carousel">
   <div
     class="carousel-inner"
-    [style.width]="cards.length * (100 / 3) + '%'"
-    [style.transform]="'translateX(-' + currentIndex * (100 / 3) + '%)'"
-  >
-  <div class="card" *ngFor="let card of cards; trackBy: trackById">
-      <div class="card-image">
-        <img [src]="card.image" alt="" class="card-img" />
-      </div>
-      <div class="card-content">
-        <h2 class="name">{{ card.title }}</h2>
-        <p class="description">{{ card.description }}</p>
+    [style.width]="100 * (minPerSlide + 1) + '%'">
+    <div class="carousel-item" *ngFor="let card of getVisibleCards(currentIndex)">
+      <div class="card">
+        <img [src]="card.image" class="card-img-top" alt="{{ card.title }}">
+        <div class="card-body">
+          <h5 class="card-title">{{ card.title }}</h5>
+          <p class="card-text">{{ card.description }}</p>
+        </div>
       </div>
     </div>
   </div>
-  <button (click)="prevSlide()" class="carousel-button prev-button">
-    Previous
+
+  <!-- Carousel controls -->
+  <button class="carousel-control-prev" (click)="currentIndex = (currentIndex - 1 + allCards.length) % allCards.length">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
   </button>
-  <button (click)="nextSlide()" class="carousel-button next-button">
-    Next
+  <button class="carousel-control-next" (click)="nextSlide()">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
   </button>
 </div>
+
+
+
+
+
+
+
+
+
+
 <div class="border00"></div>

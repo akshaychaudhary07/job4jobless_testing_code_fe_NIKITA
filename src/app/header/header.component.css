@@ -32,4 +32,12 @@
       max-width: 1200px;
     }
   }
+  @media (min-width: 768px) and (max-width: 990px) {
+    .navbar-nav .nav-link {
+      padding-left: 15px;
+  }
+  .head-btn {
+      margin-left: 12px;
+  }
+}
 

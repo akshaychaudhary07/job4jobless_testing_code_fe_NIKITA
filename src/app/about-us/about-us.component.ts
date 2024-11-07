@@ -1,4 +1,11 @@
 import { Component } from '@angular/core';
+
+
+
+
+
+
+
 import { CommonModule } from '@angular/common';
 import { HeaderComponent } from '../header/header.component';
 import { AboutContentComponent } from './about-content/about-content.component';

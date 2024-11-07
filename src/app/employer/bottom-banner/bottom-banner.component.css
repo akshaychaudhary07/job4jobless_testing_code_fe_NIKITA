@@ -5,11 +5,23 @@
     background-position: center;
     background-repeat: no-repeat;
   }
+  @media screen and (max-width: 567px) {
+    .flex-box{
+      flex-direction: column;
+      gap: 1rem;
+      text-align: center;
+    }
+  }
   @media screen and (max-width: 768px) {
     .box-1 h1,h3{
       font-size: 1rem!important;
     }
     .cus-w{
       max-width: 100%!important;
+    }
+  }
+  @media screen and (min-width: 769px) and (max-width: 1024px) {
+    .box-1 h1,h3{
+      font-size: 1rem!important;
     }
   }
