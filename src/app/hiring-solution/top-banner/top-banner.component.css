@@ -1,0 +1,8 @@
+@media (max-width: 1400px) {
+    .form-box{
+        max-width: 100%!important;
+    }
+    .cus-w{
+        max-width: 100%!important;
+    }
+}

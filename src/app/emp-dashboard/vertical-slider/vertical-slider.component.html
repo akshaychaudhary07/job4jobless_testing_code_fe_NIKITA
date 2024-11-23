@@ -1,0 +1,81 @@
+<div
+  class="d-flex align-items-start"
+  style="
+    padding-left: 20px;
+    height: 100vh;
+    position: relative;
+    background: #ebf3fe;
+  "
+>
+  <!-- Vertical Line -->
+  <div
+    class="position-absolute"
+    style="top: 0; bottom: 0; left: 4rem; width: 2px; background-color: #ddd"
+  ></div>
+
+  <!-- Circles Container -->
+  <div
+    class="d-flex flex-column align-items-center"
+    style="position: relative; margin-left: 20px"
+  >
+    <!-- Create Job Post Circle (First Circle) -->
+    <a
+      [routerLink]="['/create-job-post']" 
+      class="btn btn-circle mb-4"
+      role="button"
+      aria-label="Navigate to Create Job Post"
+      (click)="setActive(1)"
+    >
+      <div class="circle bg-primary"></div>
+    </a>
+
+    <!-- Other Circles (For other components) -->
+    <a
+      [routerLink]="['/component2']"
+      class="btn btn-circle mb-4"
+      role="button"
+      aria-label="Navigate to Component 2"
+      (click)="setActive(2)"
+    >
+      <div class="circle bg-primary"></div>
+    </a>
+    <a
+      [routerLink]="['/component3']"
+      class="btn btn-circle"
+      role="button"
+      aria-label="Navigate to Component 3"
+      (click)="setActive(3)"
+    >
+      <div class="circle bg-primary"></div>
+    </a>
+  </div>
+
+  <!-- Headings -->
+  <div class="d-flex flex-column align-items-start" style="margin-left: 3rem">
+    <h2
+      class="fw-bolder pb-3"
+      style="color: #1e2d5b!important; margin-bottom: 20px"
+      [ngClass]="{ 'text-muted': activeStep !== 1, 'text-primary': activeStep === 1 }"
+    >
+      Create a Job Post
+    </h2>
+
+    <div *ngIf="activeStep === 1">
+      <app-create-job-post></app-create-job-post> 
+    </div>
+
+    <h3
+      [ngClass]="{ 'text-muted': activeStep !== 2, 'text-primary': activeStep === 2 }"
+    >
+      Heading 2
+    </h3>
+    <h3
+      [ngClass]="{ 'text-muted': activeStep !== 3, 'text-primary': activeStep === 3 }"
+    >
+      Heading 3
+    </h3>
+  </div>
+</div>
+
+
+<!-- <app-create-job-post></app-create-job-post> -->

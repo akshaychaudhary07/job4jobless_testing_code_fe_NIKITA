@@ -1,0 +1,7 @@
+@media (max-width: 600px) {
+    .cus-indent{
+        margin-left: 0rem!important;
+        text-indent: 0rem!important;
+        text-align: start!important;
+    }
+}
