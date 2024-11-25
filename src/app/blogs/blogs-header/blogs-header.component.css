@@ -1,0 +1,17 @@
+@media (max-width:992px){
+    .navbar-collapse {
+         margin-left: 0rem!important;
+     }
+     ul.nav {
+         flex-direction: column;
+         align-items: flex-start;
+         align-content: flex-start;
+         line-height: 0;
+     }
+ }
+ @media (min-width: 990px) and (max-width: 1240px) {
+    .navbar-collapse {
+        margin-left: 0rem!important;
+    }
+  }
+  
