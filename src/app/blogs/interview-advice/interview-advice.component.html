@@ -1,0 +1,43 @@
+<section class="interview-advice py-4 pt-5" style="background-color: var(--background-color);">
+    <div class="container">
+      <!-- Dynamic Heading and View All -->
+      <div class="d-flex justify-content-between align-items-center mb-4">
+        <h1 class="m-0 fw-bolder fs-1" style="color: var(--primary-color);">{{ heading }}</h1>
+        <p
+          class="m-0"
+          role="button"
+          (click)="toggleViewAll()"
+          style="color: var(--primary-color); cursor: pointer"
+        >
+          {{ showAll ? 'Show Less' : viewAllText }}
+        </p>
+      </div>
+  
+      <!-- Dynamic Cards Section -->
+      <div class="row mt-5">
+        <div
+          class="col-lg-4 col-md-6 mb-4"
+          *ngFor="let card of visibleCards"
+        >
+          <div
+            class="card border-0"
+            style="background-color: var(--background-color);"
+          >
+            <img
+              [src]="card.image"
+              [alt]="card.title"
+              class="card-img-top"
+              style="border-radius: 15px;"
+            />
+            <div class="card-body border-0 mt-2" style="padding-left: 0rem;">
+              <h3 class="card-title">{{ card.title }}</h3>
+              <p class="card-text mt-3">{{ card.description }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+<app-bottom-sec></app-bottom-sec>
+ 
