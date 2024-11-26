@@ -1,0 +1,17 @@
+.btn-outline-primary:not(:disabled):not(.disabled).active, .btn-outline-primary:not(:disabled):not(.disabled):active, .show>.btn-outline-primary.dropdown-toggle {
+    background: var(--primary-color);
+    color: white!important;
+}
+.btn:hover {
+    background: var(--primary-color);
+    color: white!important;
+}
+@media (max-width:600px) {
+    section.advice-career {
+        padding: 1rem!important;
+        padding-left: 1rem!important;
+    }
+    .cus-gap{
+        gap: 12px!important;
+    }
+}
