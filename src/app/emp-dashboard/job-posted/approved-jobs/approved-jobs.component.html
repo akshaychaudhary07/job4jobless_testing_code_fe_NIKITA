@@ -1,0 +1,295 @@
+<section
+  class="approved-jobs pt-4 pb-5"
+  style="background-color: var(--background-color)"
+>
+  <!-- --top-section-- -->
+  <div class="container mt-4 p-0" style="max-width: 60%">
+    <div
+      class="d-flex justify-content-between align-items-center flex-wrap"
+      style="gap: 12px"
+    >
+      <!-- Heading -->
+      <h2
+        class="mb-3 mb-md-0 fw-bolder fs-1"
+        style="color: var(--primary-color)"
+      >
+        {{ heading }}
+      </h2>
+
+      <!-- Search Bar -->
+      <div class="cus-width position-relative w-50">
+        <!-- Search Input -->
+        <input
+          type="search"
+          id="form1"
+          class="form-control border-0"
+          [placeholder]="'Search ' + heading"
+          aria-label="'Search ' + heading"
+          style="border-radius: 35px; padding: 25px"
+        />
+        <!-- Search Icon -->
+        <i
+          class="fas fa-search position-absolute"
+          style="
+            top: 50%;
+            right: 20px;
+            transform: translateY(-50%);
+            color: var(--primary-color);
+          "
+        ></i>
+      </div>
+    </div>
+  </div>
+
+  <!-- ----filter-section---- -->
+  <div class="container mt-5" style="margin-bottom: 2.5rem">
+    <div class="row d-flex align-items-center" style="margin-left: 1rem">
+      <!-- Label for Sort By -->
+      <div
+        class="col-auto m-0 pe-0 mw-100!important me-2"
+        style="flex: 0 0 auto; color: var(--primary-color)"
+      >
+        <label for="filterBy" class="mb-0">Sort by:</label>
+      </div>
+
+      <!-- Filter Dropdown -->
+      <div
+        class="col-auto m-0 p-0 border-0"
+        style="flex: 0 0 auto; max-width: auto"
+      >
+        <select
+          class="form-select form-select-sm border-0"
+          id="filterBy"
+          [(ngModel)]="selectedFilter"
+          (change)="applyFilter()"
+        >
+          <option value="today" selected>Today</option>
+          <option value="all">All Time</option>
+          <option value="3days">3 Days Ago</option>
+          <option value="1month">1 Month Ago</option>
+        </select>
+      </div>
+    </div>
+  </div>
+
+  <!-- Card Section (Filtered Cards Displayed by Default) -->
+  <div class="cards-section" style="margin-left: 1.5rem">
+    <div class="container mt-4">
+      <div class="row">
+        <!-- Loop through filteredItems to display each card -->
+        <div
+          class="col-md-4 col-sm-12 mb-4 w-auto"
+          *ngFor="let item of filteredItems; let i = index"
+        >
+          <div class="card border-0" style="border-radius: 17px">
+            <div class="card-body">
+              <div
+                class="d-flex justify-content-between align-items-center pb-2"
+              >
+                <!-- Toggle between input and static view for title -->
+                <h4
+                  class="card-title fw-bolder mb-0"
+                  style="color: var(--primary-color)"
+                >
+                  <input
+                    *ngIf="item.isEditing"
+                    [(ngModel)]="item.title"
+                    class="form-control form-control-sm"
+                  />
+                  <span
+                    *ngIf="!item.isEditing"
+                    style="color: var(--primary-color)"
+                    >{{ item.title }}</span
+                  >
+                </h4>
+                <button
+                  class="btn btn-sm"
+                  style="color: var(--primary-color)"
+                  (click)="toggleEdit(item)"
+                >
+                  {{ item.isEditing ? "Save" : "Edit" }}
+                </button>
+              </div>
+
+              <!-- Editable Company and Job ID -->
+              <div class="d-flex justify-content-between mt-2 mb-3">
+                <input
+                  *ngIf="item.isEditing"
+                  [(ngModel)]="item.company"
+                  class="form-control form-control-sm"
+                />
+                <span *ngIf="!item.isEditing">{{ item.company }}</span>
+                <span>Job ID: {{ item.jobId }}</span>
+              </div>
+
+              <!-- Editable Location and Experience -->
+              <div class="d-flex justify-content-between mt-2 mb-3">
+                <div class="d-flex">
+                  <i class="fas fa-map-marker-alt me-2"></i>
+                  <input
+                    *ngIf="item.isEditing"
+                    [(ngModel)]="item.location"
+                    class="form-control form-control-sm"
+                  />
+                  <span *ngIf="!item.isEditing">{{ item.location }}</span>
+                </div>
+                <div class="d-flex align-items-center">
+                  <i class="fas fa-briefcase me-2"></i>
+                  <input
+                    *ngIf="item.isEditing"
+                    [(ngModel)]="item.experience"
+                    class="form-control form-control-sm"
+                  />
+                  <span *ngIf="!item.isEditing">{{ item.experience }}</span>
+                </div>
+              </div>
+
+              <!-- Editable Salary -->
+              <div class="d-flex align-items-center mt-2">
+                <i class="fas fa-wallet me-2"></i>
+                <input
+                  *ngIf="item.isEditing"
+                  [(ngModel)]="item.salary"
+                  class="form-control form-control-sm"
+                />
+                <span *ngIf="!item.isEditing">{{ item.salary }}</span>
+              </div>
+
+              <div
+                class="d-flex flex-wrap justify-content-between mt-3"
+                style="gap: 12px"
+              >
+                <button
+                  (click)="toggleLastCard()"
+                  class="btn text-white"
+                  style="background-color: var(--primary-color)"
+                >
+                  SHOW DESCRIPTION
+                </button>
+                <button
+                  class="btn text-white"
+                  style="
+                    background-color: var(--primary-color);
+                    padding-right: 1.5rem;
+                  "
+                >
+                  VIEW APPLICANTS
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- --last-btn-- -->
+  <div class="d-flex flex-wrap justify-content-center mt-3" style="gap: 12px">
+    <!-- PREV Button -->
+    <button
+      class="btn text-white btn-secondary fw-bold"
+      (click)="goToPrevPage()"
+      style="padding-left: 4rem; padding-right: 4rem"
+    >
+      PREV
+    </button>
+
+    <!-- NEXT Button -->
+    <button
+      class="btn text-white fw-bold"
+      (click)="goToNextPage()"
+      style="
+        background-color: var(--primary-color);
+        padding-left: 4rem;
+        padding-right: 4rem;
+      "
+    >
+      NEXT
+    </button>
+  </div>
+
+  <!-- ----onClick of descriptions---- -->
+  <div *ngIf="showLastCard" class="mt-5">
+    <div
+      class="card p-3 mb-3 shadow-sm border-0"
+      style="max-width: 400px; margin: auto; border-radius: 17px"
+    >
+      <!-- Card Header -->
+      <h4
+        class="card-title text-start fw-bolder"
+        style="color: var(--primary-color)"
+      >
+        Account Executive
+      </h4>
+      <h6 class="text-center">Xyz Company</h6>
+
+      <!-- Card Body -->
+      <div class="row mt-3">
+        <!-- Align Fields to the Left -->
+        <div class="col-12">
+          <div class="d-flex flex-wrap">
+            <div class="w-100 mb-1">
+              <strong>Name </strong>
+              <span style="padding-left: 3rem">Name</span>
+            </div>
+            <div class="w-100 mb-1">
+              <strong>Email </strong>
+              <span class="" style="padding-left: 3rem"
+                >xyz.zyx98&#64;gmail.com</span
+              >
+            </div>
+            <div class="w-100 mb-1">
+              <strong>Resume </strong>
+              <span style="padding-left: 2.4rem">Open</span>
+            </div>
+            <div class="w-100 mb-1">
+              <strong>Location </strong>
+              <span style="padding-left: 2.4rem">Delhi, India</span>
+            </div>
+            <div class="w-100 mb-1">
+              <strong>Education </strong>
+              <span style="padding-left: 2rem">Bachelor’s</span>
+            </div>
+            <div class="w-100">
+              <strong>Inter. Date </strong>
+              <span style="padding-left: 2rem">28-10-2024</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Buttons Row -->
+      <div class="d-flex justify-content-start mt-3 m-0" style="gap: 10px">
+        <button
+          class="btn text-white"
+          style="background-color: var(--primary-color)"
+        >
+          <i class="fas fa-envelope text-white"></i> Message
+        </button>
+        <button
+          class="btn text-white"
+          style="background-color: var(--primary-color)"
+        >
+          <i class="fas fa-video text-white"></i> Video Call
+        </button>
+      </div>
+
+      <!-- Toggle Button -->
+      <div class="mt-3 m-0">
+        <button
+          class="btn text-white w-100"
+          (click)="toggleInfo()"
+          style="background-color: var(--primary-color)"
+        >
+          {{ showFullInfo ? "Less Info" : "More Info" }}
+        </button>
+      </div>
+
+      <!-- Conditionally Display Fields -->
+      <div *ngIf="!showFullInfo" class="mt-3">
+        <hr />
+        <p class="mb-0">Limited Information Shown.</p>
+      </div>
+    </div>
+  </div>
+</section>

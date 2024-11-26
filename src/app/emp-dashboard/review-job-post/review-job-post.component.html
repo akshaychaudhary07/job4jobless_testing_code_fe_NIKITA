@@ -1,0 +1,240 @@
+<section class="review-job-post">
+  <div class="container p-0">
+    <!-- Box for the editable fields -->
+    <div
+      class="card p-4"
+      [ngStyle]="{ width: isEditable ? '100%' : '200%' }"
+      style="border-radius: 14px"
+    >
+      <!-- Edit Button aligned to the top right -->
+      <div class="d-flex justify-content-end m-0">
+        <button
+          class="btn border-0 mb-3 fs-5"
+          style="color: var(--primary-color);"
+          (click)="toggleEdit()"
+        >
+          Edit
+        </button>
+      </div>
+
+      <form #jobForm="ngForm" *ngIf="isEditable" >
+        <div class="row m-0 p-0">
+          <div class="col-12 col-md-6 mb-3 d-flex align-items-center m-0 p-0">
+            <label
+              for="jobTitle"
+              class="form-label me-3 flex-shrink-0"
+              style="color: var(--primary-color);"
+            >
+              Job Title:
+            </label>
+            <input
+              type="text"
+              class="form-control flex-grow-1"
+              id="jobTitle"
+              [(ngModel)]="jobPost.jobTitle"
+              name="jobTitle"
+            />
+          </div>
+          <div class="col-12 col-md-6 mb-3 d-flex align-items-center">
+            <label
+              for="companyName"
+              class="form-label me-3 flex-shrink-0"
+              style="color: var(--primary-color);"
+            >
+              Company Name:
+            </label>
+            <input
+              type="text"
+              class="form-control flex-grow-1"
+              id="companyName"
+              [(ngModel)]="jobPost.companyName"
+              name="companyName"
+            />
+          </div>
+          <div class="col-12 col-md-6 mb-3 d-flex align-items-center">
+            <label
+              for="numOfOpenings"
+              class="form-label me-3 flex-shrink-0"
+              style="color: var(--primary-color);"
+            >
+              Number Of Openings:
+            </label>
+            <input
+              type="number"
+              class="form-control flex-grow-1"
+              id="numOfOpenings"
+              [(ngModel)]="jobPost.numOfOpenings"
+              name="numOfOpenings"
+            />
+          </div>
+          <div class="col-12 col-md-6 mb-3 d-flex align-items-center">
+            <label
+              for="location"
+              class="form-label me-3 flex-shrink-0"
+              style="color: var(--primary-color);"
+            >
+              Location:
+            </label>
+            <input
+              type="text"
+              class="form-control flex-grow-1"
+              id="location"
+              [(ngModel)]="jobPost.location"
+              name="location"
+            />
+          </div>
+          <div class="col-12 col-md-6 mb-3 d-flex align-items-center">
+            <label
+              for="jobType"
+              class="form-label me-3 flex-shrink-0"
+              style="color: var(--primary-color);"
+            >
+              Job Type:
+            </label>
+            <input
+              type="text"
+              class="form-control flex-grow-1"
+              id="jobType"
+              [(ngModel)]="jobPost.jobType"
+              name="jobType"
+            />
+          </div>
+          <div class="col-12 col-md-6 mb-3 d-flex align-items-center">
+            <label
+              for="experienceRequired"
+              class="form-label me-3 flex-shrink-0"
+              style="color: var(--primary-color);"
+            >
+              Experience Required:
+            </label>
+            <input
+              type="number"
+              class="form-control flex-grow-1"
+              id="experienceRequired"
+              [(ngModel)]="jobPost.experienceRequired"
+              name="experienceRequired"
+            />
+          </div>
+          <div class="col-12 col-md-6 mb-3 d-flex align-items-center">
+            <label
+              for="schedule"
+              class="form-label me-3 flex-shrink-0"
+              style="color: var(--primary-color);"
+            >
+              Schedule:
+            </label>
+            <input
+              type="text"
+              class="form-control flex-grow-1"
+              id="schedule"
+              [(ngModel)]="jobPost.schedule"
+              name="schedule"
+            />
+          </div>
+          <div class="col-12 col-md-6 mb-3 d-flex align-items-center">
+            <label
+              for="pay"
+              class="form-label me-3 flex-shrink-0"
+              style="color: var(--primary-color);"
+            >
+              Pay:
+            </label>
+            <input
+              type="text"
+              class="form-control flex-grow-1"
+              id="pay"
+              [(ngModel)]="jobPost.pay"
+              name="pay"
+            />
+          </div>
+          <div class="col-12 mb-3 d-flex">
+            <label
+              for="description"
+              class="form-label me-3 flex-shrink-0"
+              style="color: var(--primary-color);"
+            >
+              Description:
+            </label>
+            <textarea
+              class="form-control flex-grow-1"
+              id="description"
+              [(ngModel)]="jobPost.description"
+              name="description"></textarea>
+          </div>
+      
+        </div>
+      </form>
+      
+
+      <!-- View Mode - Display Text (if not in Edit Mode) -->
+      <div *ngIf="!isEditable" class="m-0 p-0">
+        <p style="color: var(--text-color);" class="fs-5">
+          <strong style="color: var(--primary-color);">Job Title:</strong>
+          {{ jobPost.jobTitle }}
+        </p>
+        <p style="color: var(--text-color);"class="fs-5">
+          <strong style="color: var(--primary-color);">Company Name:</strong>
+          {{ jobPost.companyName }}
+        </p>
+        <p style="color: var(--text-color);"class="fs-5">
+          <strong style="color: var(--primary-color);">Number Of Openings:</strong>
+          {{ jobPost.numOfOpenings }}
+        </p>
+        <p style="color: var(--text-color);"class="fs-5">
+          <strong style="color: var(--primary-color);">Location:</strong>
+          {{ jobPost.location }}
+        </p>
+        <p style="color: var(--text-color);"class="fs-5">
+          <strong style="color: var(--primary-color);">Job Type:</strong>
+          {{ jobPost.jobType }}
+        </p>
+        <p style="color: var(--text-color);"class="fs-5">
+          <strong style="color: var(--primary-color);">Experience Required:</strong>
+          {{ jobPost.experienceRequired }}
+        </p>
+        <p style="color: var(--text-color);"class="fs-5">
+          <strong style="color: var(--primary-color);">Schedule:</strong>
+          {{ jobPost.schedule }}
+        </p>
+        <p style="color: var(--text-color);"class="fs-5">
+          <strong style="color: var(--primary-color);">Pay:</strong> {{ jobPost.pay }}
+        </p>
+        <p style="color: var(--text-color);"class="fs-5">
+          <strong style="color: var(--primary-color);">Description:</strong>
+          {{ jobPost.description }}
+        </p>
+      </div>
+
+      <!-- Buttons -->
+      <div class="d-flex flex-wrap gap-2 justify-content-between m-0 mt-3">
+        <button
+          type="button"
+          (click)="goToPrevPage()"
+          class="btn fw-bold fs-5 col-12 col-md-auto text-white"
+          style="
+            border-radius: 12px;
+            padding-left: 3rem;
+            padding-right: 3rem;
+            background-color: var(--primary-color);
+          ">
+          PREV
+        </button>
+        
+        <button
+          type="submit"
+          class="btn fw-bold fs-5 col-12 col-md-auto text-white"
+          style="
+            border-radius: 12px;
+            padding-left: 3rem;
+            padding-right: 3rem;
+            background-color: var(--primary-color);
+          ">
+          SUBMIT
+        </button>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- in my case submit case is display outside the form then how i can get the data in console      --- -->

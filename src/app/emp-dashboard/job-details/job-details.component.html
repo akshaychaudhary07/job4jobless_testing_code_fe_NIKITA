@@ -1,0 +1,265 @@
+<section class="job-details">
+  <!-- style="background: #ebf3fe; height: 100vh" -->
+
+  <div class="content-container">
+    <form
+      #jobPostForm="ngForm"
+      (ngSubmit)="onSubmit(jobPostForm)"
+      class="p-4 border shadow-sm bg-white pt-5 pb-5"
+      style="border-radius: 14px"
+    >
+      <div class="mb-3">
+        <input
+          type="number"
+          id="number"
+          placeholder="Enter The Number Of vacancies*"
+          [(ngModel)]="jobPost.number"
+          name="number"
+          required
+          #email="ngModel"
+          class="form-control bg-white custom-input"
+          style="padding: 1.3rem; border-radius: 12px"
+        />
+      </div>
+
+      <!-- Dropdown Menus Styled as Input Fields -->
+      <div class="container m-0 p-0">
+        <div class="row justify-content-center">
+          <!-- First Dropdown -->
+          <div class="col-12 col-md-4 mb-2 mb-md-0 mb-3">
+            <select
+              class="form-select"
+              style="padding: 1rem; border-radius: 12px"
+              aria-label="Dropdown 1"
+              required
+            >
+              <option selected>Select Your Country*</option>
+              <option value="1">India</option>
+              <option value="2">Indonesia</option>
+              <option value="3">Pakistan</option>
+            </select>
+          </div>
+
+          <!-- Second Dropdown -->
+          <div class="col-12 col-md-4 mb-2 mb-md-0 mb-3">
+            <select
+              class="form-select"
+              style="padding: 1rem; border-radius: 12px"
+              aria-label="Dropdown 2"
+              required
+            >
+              <option selected>Select Your State*</option>
+              <option value="1">Uttar Pradesh</option>
+              <option value="2">Haryana</option>
+              <option value="3">Gujrat</option>
+            </select>
+          </div>
+
+          <!-- Third Dropdown -->
+          <div class="col-12 col-md-4 mb-3">
+            <select
+              class="form-select"
+              style="padding: 1rem; border-radius: 12px"
+              aria-label="Dropdown 3"
+              required
+            >
+              <option selected>Select Your City*</option>
+              <option value="1">Lucknow</option>
+              <option value="2">Gurugram</option>
+              <option value="3">Delhi</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <input
+          type="text"
+          id="location"
+          placeholder="Location*"
+          [(ngModel)]="jobPost.location"
+          name="location"
+          required
+          #location="ngModel"
+          class="form-control bg-white custom-input"
+          style="padding: 1.3rem; border-radius: 12px"
+        />
+      </div>
+
+      <div class="mb-3">
+        <input
+          type="text"
+          id="experience"
+          placeholder="Experience* "
+          [(ngModel)]="jobPost.experience"
+          name="experience"
+          required
+          #experience="ngModel"
+          class="form-control bg-white custom-input"
+          style="padding: 1.3rem; border-radius: 12px"
+        />
+      </div>
+
+      <!-- --drop-- -->
+      <div class="container m-0 p-0">
+        <div class="row justify-content-center d-flex flex-wrap">
+          <!-- First Dropdown -->
+          <div class="col-12 col-md-3 mb-2">
+            <select
+              class="form-select"
+              style="
+                padding: 1rem;
+                border-radius: 12px;
+                color: var(--background-color);
+              "
+              aria-label="Dropdown 1"
+              required
+            >
+              <option selected>Job type*</option>
+              <option value="1">Font-end Developer</option>
+              <option value="2">Database Engineer</option>
+              <option value="3">Testing</option>
+            </select>
+          </div>
+
+          <!-- Second Dropdown -->
+          <div class="col-12 col-md-3 mb-2">
+            <select
+              class="form-select"
+              style="
+                padding: 1rem;
+                border-radius: 12px;
+                color: var(--background-color);
+              "
+              aria-label="Dropdown 2"
+              required
+            >
+              <option selected>Schedule*</option>
+              <option value="1">Regular</option>
+              <option value="2">Hybrid</option>
+              <option value="3">Work Form Home</option>
+            </select>
+          </div>
+
+          <!-- Third Input Field with Min Pay Placeholder -->
+          <div class="col-12 col-md-3 mb-2">
+            <div
+              class="input-group"
+              style="
+                border-radius: 12px;
+                border: 1px solid var(--background-color);
+              "
+            >
+              <!-- Min Pay Input with white background covering half the space -->
+              <input
+                type="text"
+                class="form-control text-start border-0 bg-white custom-input"
+                placeholder="Min Pay*"
+                aria-label="Min Pay"
+                style="
+                  padding: 1.7rem;
+                  color: var(--background-color) !important;
+                "
+              />
+
+              <!-- Select with background color covering the other half -->
+              <select
+                class="form-select border-0 text-white"
+                aria-label="Payment Interval"
+                style="
+                  background-color: var(--primary-color);
+                  color: var(--background-color);
+                "
+              >
+                <option selected>/Month</option>
+                <option value="weekly">Per Week</option>
+                <option value="yearly">Per Year</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Fourth Input Field with Min Pay Placeholder -->
+          <div class="col-12 col-md-3 mb-2">
+            <div
+              class="input-group"
+              style="
+                border-radius: 12px;
+                border: 1px solid var(--background-color);
+              "
+            >
+              <input
+                type="text"
+                class="form-control text-start border-0 custom-input"
+                placeholder="Max Pay*"
+                aria-label="Max Pay"
+                style="
+                  padding: 1.7rem;
+                  color: var(--background-color) !important;
+                "
+              />
+              <select
+                class="form-select border-0 text-white"
+                aria-label="Payment Interval"
+                style="background-color: var(--primary-color)"
+              >
+                <option selected>/Month</option>
+                <option value="weekly">Per Week</option>
+                <option value="yearly">Per Year</option>
+              </select>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="mb-3">
+        <textarea
+          class="form-control custom-input"
+          id="description"
+          placeholder="Description*"
+          rows="4"
+          [(ngModel)]="jobPost.description"
+          name="description"
+          required
+          #description="ngModel"
+          style="border-radius: 12px"
+        ></textarea>
+        <div
+          *ngIf="description.invalid && description.touched"
+          class="text-danger"
+        >
+          Description is required.
+        </div>
+      </div>
+
+      <!-- --drop-- -->
+
+      <div class="d-flex flex-wrap gap-2 justify-content-between mt-3">
+        <button
+          type="button"
+          (click)="goToPrevPage()"
+          class="btn btn-secondary fw-bold fs-5 col-12 col-md-auto text-white"
+          style="
+            border-radius: 12px;
+            padding-left: 3rem;
+            padding-right: 3rem;
+            background-color: var(--primary-color);
+          "
+        >
+          PREV
+        </button>
+        <button
+          type="submit"
+          [disabled]="jobPostForm.invalid"
+          class="btn btn-primary fw-bold fs-5 col-12 col-md-auto text-white"
+          style="
+            border-radius: 12px;
+            padding-left: 3rem;
+            padding-right: 3rem;
+            background-color: var(--primary-color);
+          "
+        >
+          NEXT
+        </button>
+      </div>
+    </form>
+  </div>
+</section>
