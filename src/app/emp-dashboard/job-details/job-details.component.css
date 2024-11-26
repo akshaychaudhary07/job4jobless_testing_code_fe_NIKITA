@@ -1,0 +1,6 @@
+*{
+    color: #C5C8D4;
+}
+.custom-input::placeholder {
+    color: #C5C8D4; /* Placeholder color */
+  }

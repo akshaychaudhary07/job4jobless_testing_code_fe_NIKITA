@@ -1,0 +1,141 @@
+<section class="blog-slider mt-5 ">
+  <div class="container">
+    <!-- Dynamic Heading and View All -->
+    <div class="d-flex justify-content-between align-items-center mb-4">
+      <h5 class="m-0 fw-bolder" style="color: var(--primary-color)">
+        {{ heading }}
+      </h5>
+
+      <!-- Search bar aligned to the right corner -->
+      <div
+        class="input-group w-25 w-md-25 m-0"
+        style="border: 2px solid var(--text-color)"
+      >
+        <input
+          type="text"
+          class="form-control pr-5 border-0"
+          placeholder="Search for articles here..."
+          aria-label="Search"
+        />
+        <span
+          class="input-group-text fw-bolder bg-white border-0 position-absolute end-0"
+          style="color: var(--primary-color)"
+        >
+          <i class="bi bi-search"></i>
+          <!-- Bootstrap search icon -->
+        </span>
+      </div>
+    </div>
+  </div>
+  <!-- Bootstrap Carousel -->
+  <div class="container mt-4 mb-5">
+    <div id="contentCarousel" class="carousel slide" data-bs-ride="carousel">
+      <!-- Carousel Items -->
+      <div class="carousel-inner">
+        <!-- Slide 1 -->
+        <div class="carousel-item active">
+          <div class="d-flex flex-column flex-md-row align-items-center">
+            <!-- Dynamic Image -->
+            <img
+              [src]="imageSrc1"
+              [alt]="imageAlt1"
+              class="img-fluid mb-3 mb-md-0 cus-style"
+              style="
+                border-radius: 15px;
+                width: 40%;
+                margin-left: 0rem;
+                margin-right: 4rem;
+              "
+            />
+            <!-- Dynamic Content -->
+            <div
+              class="ms-md-4 cus-style"
+              style="width: 40%; margin-left: 0rem !important "
+            >
+              <h3 class="fs-1 mb-2">{{ title1 }}</h3>
+              <p class="mt-3">{{ paragraph1 }}</p>
+            </div>
+          </div>
+        </div>
+        <!-- Slide 2 -->
+        <div class="carousel-item">
+          <div class="d-flex flex-column flex-md-row align-items-center">
+            <!-- Dynamic Image -->
+            <img
+              [src]="imageSrc2"
+              [alt]="imageAlt2"
+              class="img-fluid mb-3 mb-md-0 cus-style"
+              style="
+                border-radius: 15px;
+                width: 40%;
+                margin-left: 0rem;
+                margin-right: 4rem;
+              "
+            />
+            <!-- Dynamic Content -->
+            <div
+              class="ms-md-4 cus-style"
+              style="width: 40%; margin-left: 0rem !important"
+            >
+              <h3 class="fs-1 mb-2">{{ title2 }}</h3>
+              <p class="mt-3">{{ paragraph2 }}</p>
+            </div>
+          </div>
+        </div>
+        <!-- Slide 3 -->
+        <div class="carousel-item">
+          <div class="d-flex flex-column flex-md-row align-items-center">
+            <!-- Dynamic Image -->
+            <img
+              [src]="imageSrc3"
+              [alt]="imageAlt3"
+              class="img-fluid mb-3 mb-md-0 cus-style"
+              style="
+                border-radius: 15px;
+                width: 40%;
+                margin-left: 0rem;
+                margin-right: 4rem;
+              "
+            />
+            <!-- Dynamic Content -->
+            <div
+              class="ms-md-4 cus-style"
+              style="width: 40%; margin-left: 0rem !important"
+            >
+              <h3 class="fs-1 mb-2">{{ title3 }}</h3>
+              <p class="mt-3">{{ paragraph3 }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Indicators -->
+      <div class="carousel-indicators" style="bottom: -65px; gap: 9px">
+        <button
+          type="button"
+          data-bs-target="#contentCarousel"
+          data-bs-slide-to="0"
+          class="active"
+          aria-current="true"
+          aria-label="Slide 1"
+        ></button>
+        <button
+          type="button"
+          data-bs-target="#contentCarousel"
+          data-bs-slide-to="1"
+          aria-label="Slide 2"
+        ></button>
+        <button
+          type="button"
+          data-bs-target="#contentCarousel"
+          data-bs-slide-to="2"
+          aria-label="Slide 3"
+        ></button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Career Advice Component -->
+
+<app-career-advice></app-career-advice>
