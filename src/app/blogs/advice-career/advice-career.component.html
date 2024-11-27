@@ -1,0 +1,84 @@
+<section class="advice-career" style="background-color: var(--background-color); padding: 3rem; padding-left: 10rem;">
+    <div class="container bg-white" style="padding: 1.5rem;">
+      <!-- Heading and Search Bar -->
+      <div class="d-flex justify-content-between align-items-center mb-4">
+        <h4 class="m-0 fw-bolder" style="color: var(--primary-color)">{{ heading }}</h4>
+        <div class="input-group w-25 w-md-25 m-0" style="border: 2px solid var(--text-color)">
+          <input
+            type="text"
+            class="form-control pr-5 border-0"
+            placeholder="Search for articles here..."
+            aria-label="Search"
+          />
+          <span
+            class="input-group-text fw-bolder bg-white border-0 position-absolute end-0"
+            style="color: var(--primary-color)"
+          >
+            <i class="bi bi-search"></i>
+          </span>
+        </div>
+      </div>
+  
+      <!-- Cards Section -->
+      <div class="row mt-5">
+        <div class="col-lg-4 col-md-6 mb-4" *ngFor="let card of visibleCards">
+          <div class="card border-0 bg-white">
+            <img 
+              [src]="card.image"
+              [alt]="card.title"
+              class="card-img-top"
+              style="border-radius: 15px;"
+            />
+            <div class="card-body border-0 mt-2" style="padding-left: 0rem;">
+              <h3 class="card-title">{{ card.title }}</h3>
+              <p class="card-text mt-3">
+                {{ card.isExpanded ? card.fullDescription : card.description }}
+                <a
+                  href="javascript:void(0)"
+                  (click)="toggleDescription(card)"
+                  class="fw-bolder"
+                  style="cursor: pointer; text-decoration: none; color: var(--primary-color);"
+                >
+                  {{ card.isExpanded ? 'Read Less' : 'Read More' }}
+                </a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+  
+      <!-- Pagination Section -->
+      <div class="d-flex justify-content-center mt-4 flex-wrap cus-gap" style="gap: 35px;">
+        <!-- First Button -->
+        <button
+          class="btn border-0 me-2"
+          (click)="goToFirstPage()"
+          [disabled]="currentPage === 1"
+        >
+          First
+        </button>
+  
+        <!-- Page Buttons -->
+        <ng-container *ngFor="let page of [].constructor(totalPages); let i = index">
+          <button
+            class="btn btn-outline-primary mx-1 border-0"
+            style="color: var(--primary-color);"
+            [class.active]="currentPage === i + 1"
+            (click)="changePage(i + 1)">
+            {{ i + 1 }}
+          </button>
+        </ng-container>
+  
+        <!-- Last Button -->
+        <button
+          class="btn border-0 ms-2"
+          style="color: var(--primary-color);"
+          (click)="goToLastPage()"
+          [disabled]="currentPage === totalPages"
+        >
+          Last
+        </button>
+      </div>
+    </div>
+  </section>
+  
