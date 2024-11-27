@@ -4,11 +4,12 @@ import { TopBannerComponent } from './top-banner/top-banner.component';
 import { HeaderComponent } from '../header/header.component';
 import { EmpDashboardComponent } from '../emp-dashboard/emp-dashboard.component';
 import { RouterModule } from '@angular/router';
+import { SignupEmployerComponent } from '../signup-employer/signup-employer.component';
 
 @Component({
   selector: 'app-hiring-solution',
   standalone: true,
-  imports: [CommonModule, TopBannerComponent,EmpDashboardComponent,RouterModule],  // Removed HeaderComponent from here
+  imports: [CommonModule, TopBannerComponent,EmpDashboardComponent,RouterModule,SignupEmployerComponent],  // Removed HeaderComponent from here
   templateUrl: './hiring-solution.component.html',
   styleUrls: ['./hiring-solution.component.css']
 })

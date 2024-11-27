@@ -1,0 +1,152 @@
+<section class="related-blogs bg-white pt-4 ">
+  <div class="container">
+    <!-- Dynamic Heading -->
+    <div class="">
+      <h4 class="m-0 fw-bolder" style="color: var(--primary-color)">
+        {{ heading }}
+      </h4>
+    </div>
+
+    <!-- Dynamic Cards Section -->
+    <div class="row mt-4">
+      <div class="col-lg-4 col-md-6 mb-4" *ngFor="let card of cards">
+        <div class="card border-0">
+          <img
+            [src]="card.image"
+            [alt]="card.title"
+            class="card-img-top"
+            style="border-radius: 15px"
+          />
+          <div class="card-body border-0 mt-2" style="padding-left: 0rem">
+            <h3 class="card-title">{{ card.title }}</h3>
+            <p class="card-text mt-3">{{ card.description }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div
+    class="bottom-border m-0 p-0 mobile-view"
+    style="background-color: var(--background-color); height: 4rem"
+  ></div>
+</section>
+
+<!-- -------------hidden in all views only shows in phone views--------------- -->
+<!-- Bootstrap Carousel -->
+<section class="main m-0 p-0" style="background-color: var(--background-color)">
+  <div class="container p-0 m-0 hidden">
+    <!-- Dynamic Heading and View All -->
+    <div class="mb-4">
+      <h5 class="m-0 pt-4 text-center fw-bolder" style="color: var(--primary-color)">
+        {{ heading1 }}
+      </h5>
+    </div>
+  </div>
+  <div class="container  hidden" style="background-color: var(--background-color);">
+    <div id="contentCarousel" class="carousel slide" data-bs-ride="carousel">
+      <!-- Carousel Items -->
+      <div class="carousel-inner">
+        <!-- Slide 1 -->
+        <div class="carousel-item active">
+          <div class="d-flex flex-column flex-md-row align-items-center">
+            <!-- Dynamic Image -->
+            <img
+              [src]="imageSrc1"
+              [alt]="imageAlt1"
+              class="img-fluid mb-3 mb-md-0 cus-style"
+              style="
+                border-radius: 15px;
+                width: 40%;
+                margin-left: 0rem;
+                margin-right: 4rem;
+              "
+            />
+            <!-- Dynamic Content -->
+            <div
+              class="ms-md-4 cus-style"
+              style="width: 40%; margin-left: 0rem !important"
+            >
+              <h3 class="fs-1 mb-2">{{ title1 }}</h3>
+              <p class="mt-3">{{ paragraph1 }}</p>
+            </div>
+          </div>
+        </div>
+        <!-- Slide 2 -->
+        <div class="carousel-item">
+          <div class="d-flex flex-column flex-md-row align-items-center">
+            <!-- Dynamic Image -->
+            <img
+              [src]="imageSrc2"
+              [alt]="imageAlt2"
+              class="img-fluid mb-3 mb-md-0 cus-style"
+              style="
+                border-radius: 15px;
+                width: 40%;
+                margin-left: 0rem;
+                margin-right: 4rem;
+              "
+            />
+            <!-- Dynamic Content -->
+            <div
+              class="ms-md-4 cus-style"
+              style="width: 40%; margin-left: 0rem !important"
+            >
+              <h3 class="fs-1 mb-2">{{ title2 }}</h3>
+              <p class="mt-3">{{ paragraph2 }}</p>
+            </div>
+          </div>
+        </div>
+        <!-- Slide 3 -->
+        <div class="carousel-item">
+          <div class="d-flex flex-column flex-md-row align-items-center">
+            <!-- Dynamic Image -->
+            <img
+              [src]="imageSrc3"
+              [alt]="imageAlt3"
+              class="img-fluid mb-3 mb-md-0 cus-style"
+              style="
+                border-radius: 15px;
+                width: 40%;
+                margin-left: 0rem;
+                margin-right: 4rem;
+              "
+            />
+            <!-- Dynamic Content -->
+            <div
+              class="ms-md-4 cus-style"
+              style="width: 40%; margin-left: 0rem !important"
+            >
+              <h3 class="fs-1 mb-2">{{ title3 }}</h3>
+              <p class="mt-3">{{ paragraph3 }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Indicators -->
+      <div class="carousel-indicators" style="bottom: -65px; gap: 9px">
+        <button
+          type="button"
+          data-bs-target="#contentCarousel"
+          data-bs-slide-to="0"
+          class="active"
+          aria-current="true"
+          aria-label="Slide 1"
+        ></button>
+        <button
+          type="button"
+          data-bs-target="#contentCarousel"
+          data-bs-slide-to="1"
+          aria-label="Slide 2"
+        ></button>
+        <button
+          type="button"
+          data-bs-target="#contentCarousel"
+          data-bs-slide-to="2"
+          aria-label="Slide 3"
+        ></button>
+      </div>
+    </div>
+  </div>
+</section>

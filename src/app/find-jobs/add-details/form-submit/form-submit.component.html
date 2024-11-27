@@ -1,0 +1,46 @@
+<section
+  class="form-submit"
+  style="background-color: var(--background-color); padding: 1rem"
+>
+  <div
+    class="container bg-white text-center my-5"
+    style="width: fit-content; padding: 1.5rem; border-radius: 14px"
+  >
+    <!-- Big Blue Icon -->
+    <div>
+      <i class="bi bi-check-circle-fill text-primary display-1"></i>
+    </div>
+
+    <!-- Heading -->
+    <h2 class="mt-4" style="color: var(--primary-color)">
+      Application Submitted
+    </h2>
+
+    <!-- First Tick Icon and Text -->
+    <div class="d-flex align-items-center justify-content-center mt-3">
+      <i class="bi bi-check-circle-fill text-success me-2"></i>
+      <span
+        >You will get an email confirmation at
+        <strong>xyx.xyx09&#64;gmail.com</strong></span
+      >
+    </div>
+
+    <!-- Second Tick Icon and Text -->
+    <div class="d-flex align-items-center justify-content-center mt-3">
+      <i class="bi bi-check-circle-fill text-success me-2"></i>
+      <span>This employer usually responds to applications within 1 day.</span>
+    </div>
+
+    <!-- Back to Job Search Button -->
+    <div class="mt-5">
+      <button
+        class="btn text-white px-4 py-2"
+        (click)="backToJobSearch()"
+        style="background-color: var(--primary-color)"
+      >
+        Back to Job Search
+      </button>
+    </div>
+  </div>
+</section>
+<app-find-card></app-find-card>

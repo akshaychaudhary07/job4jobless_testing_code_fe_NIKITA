@@ -1,6 +1,25 @@
+  /* Hover and Focus State */
+  .icon-outline:hover,
+  .icon-outline:focus {
+    color: #007bff; 
+    cursor: pointer;
+    border: none;
+  }
 @media (max-width:800px){
     section.advice-career {
         padding-left: 1rem!important;
         padding-right: 1rem!important;
     }
+    .cus-margin{
+      margin-left: 0rem!important;
+  }
 }
+@media (max-width:650px){
+  .mobile-view{
+    display: none;
+  }
+}
+
+
+
+

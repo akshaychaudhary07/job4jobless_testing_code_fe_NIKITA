@@ -1,0 +1,202 @@
+<p>login-jobs works!</p>
+<section
+  class="apply-jobs"
+  style="background-color: var(--background-color); padding: 1rem"
+>
+  <!-- Cards Section -->
+
+  <div class="container p-0 pt-5">
+    <div class="row">
+      <!-- Iterate over visibleCards -->
+      <div
+        class="col-lg-8 col-md-6 col-sm-12 mb-4"
+        *ngFor="let card of visibleCards"
+      >
+        <!-- First Card -->
+        <div class="card p-0" style="border-radius: 15px; border: none">
+          <div class="card-body m-0" style="padding: 1.5rem">
+            <h4
+              class="card-title m-0 mb-3 fw-bolder"
+              style="color: var(--primary-color)"
+            >
+              {{ card.heading }}
+            </h4>
+            <div
+              class="d-flex justify-content-between flex-wrap"
+              style="gap: 10px"
+            >
+              <span class="text-secondary m-0">
+                <i class="fas fa-building"></i> {{ card.company }}
+              </span>
+              <span class="text-secondary m-0">
+                <i class="fas fa-briefcase"></i> {{ card.experience }}
+              </span>
+            </div>
+            <div
+              class="d-flex justify-content-between mt-2 flex-wrap"
+              style="gap: 10px"
+            >
+              <span class="text-secondary m-0">
+                <i class="fas fa-map-marker-alt"></i> {{ card.location }}
+              </span>
+              <span class="text-secondary m-0">
+                <i class="fas fa-dollar-sign"></i> {{ card.salary }}
+              </span>
+            </div>
+            <div class="d-flex justify-content-center mt-3">
+              <button
+                class="btn btn-sm text-white"
+                style="
+                  background-color: var(--primary-color);
+                  padding: 0.5rem 2rem;
+                "
+                (click)="navigateToAddDetails()"
+                [routerLink]="'/add-details'"
+              >
+                {{ card.buttonText }}
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Second Card -->
+      <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
+        <div class="card h-100" style="border-radius: 15px; border: none">
+          <div class="card-body">
+            <h5 class="card-title mb-3 fw-bolder">About Company</h5>
+            <p>
+              Xyz Company offers authoritative and customized suggestions to
+              resolve various accounting challenges by combining accounting,
+              valuation, integration, and technology skills.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- -------Next Card-------- -->
+  <div class="container p-0">
+    <div class="card" style="border-radius: 15px; border: none; padding: 2rem">
+      <div class="card-body">
+        <div class="content mb-5">
+          <h5 class="card-title m-0 mb-3 fw-bolder">Location</h5>
+          <p class="">
+            258, Bagh Deewar, Kucha Ghasiram, Chandni Chowk, New Delhi, Delhi,
+            110056
+          </p>
+        </div>
+        <hr />
+        <!-- ------------ -->
+        <div class="content mt-3 mb-5">
+          <h5 class="card-title m-0 fw-bolder mb-3">Job Description</h5>
+          <p class="">
+            To handle cash. Dealing with the bankers. Generation of MIS Reports.
+            Entering all sales related data. Maintaining invoices & bills. Good
+            working knowledge on MS-Office / Tally. Good knowledge in Accounts.
+            Good Communication. Create detailed business plans designed to
+            attain predetermined goals and quotas. Manage the entire sales cycle
+            from finding a client to securing a deal. Unearth new sales
+            opportunities through networking and turn them into long-term
+            partnerships. Present products to prospective clients. Provide
+            professional after-sales support to maximize customer loyalty.
+            Remain in regular contact with your clients to understand and meet
+            their needs. Respond to complaints and resolve issues to the
+            customers satisfaction and to maintain the companys reputation.
+            Negotiate agreements and keep records of sales and data.
+          </p>
+        </div>
+        <hr />
+        <!-- ------------ -->
+        <div class="content mt-3 mb-5">
+          <h5 class="card-title m-0 mb-3 fw-bolder">Benefits</h5>
+          <p class="">
+            Visa sponsorship and yearly air ticket allowance. Comprehensive
+            medical insurance. A supportive work environment with opportunities
+            for professional growth.
+          </p>
+        </div>
+        <hr />
+
+        <!-- ------------ -->
+        <div class="content mt-4 mb-4">
+          <h5 class="card-title m-0 fw-bolder">Job Role & Requirements</h5>
+          <div class="container my-4">
+            <div class="row">
+              <!-- Education -->
+              <div class="col-md-4 col-sm-6 mb-4 p-0">
+                <div class="d-flex m-0">
+                  <i class="bi bi-mortarboard fs-4 me-3 m-0 fw-bolder"></i>
+                  <!-- Icon -->
+                  <div class="m-0">
+                    <h6 class="mb-1 fw-bolder">Education</h6>
+                    <p class="mb-0">Bachelor's (Preferred)</p>
+                  </div>
+                </div>
+              </div>
+              <!-- Schedule -->
+              <div class="col-md-4 col-sm-6 mb-4 p-0">
+                <div class="d-flex m-0">
+                  <i class="bi bi-clock fs-4 me-3 m-0 fw-bolder"></i>
+                  <!-- Icon -->
+                  <div class="m-0">
+                    <h6 class="mb-1 fw-bolder">Schedule</h6>
+                    <p class="mb-0">Day Shift (Fixed)</p>
+                  </div>
+                </div>
+              </div>
+              <!-- Job Type -->
+              <div class="col-md-4 col-sm-6 mb-4 p-0">
+                <div class="d-flex m-0">
+                  <i class="bi bi-briefcase fs-4 me-3 m-0 fw-bolder"></i>
+                  <!-- Icon -->
+                  <div class="m-0">
+                    <h6 class="mb-1 fw-bolder">Job Type</h6>
+                    <p class="mb-0">Full Time</p>
+                  </div>
+                </div>
+              </div>
+              <!-- Gender -->
+              <div class="col-md-4 col-sm-6 mb-4 p-0">
+                <div class="d-flex m-0">
+                  <i class="bi bi-gender-ambiguous fs-4 me-3 m-0 fw-bolder"></i>
+                  <!-- Icon -->
+                  <div class="m-0">
+                    <h6 class="mb-1 fw-bolder">Gender</h6>
+                    <p class="mb-0">Any</p>
+                  </div>
+                </div>
+              </div>
+              <!-- Department -->
+              <div class="col-md-4 col-sm-6 mb-4 p-0">
+                <div class="d-flex m-0">
+                  <i class="bi bi-building fs-4 me-3 m-0 fw-bolder"></i>
+                  <!-- Icon -->
+                  <div class="m-0">
+                    <h6 class="mb-1 fw-bolder">Department</h6>
+                    <p class="mb-0">Accounts</p>
+                  </div>
+                </div>
+              </div>
+              <!-- Location -->
+              <div class="col-md-4 col-sm-6 mb-4 p-0">
+                <div class="d-flex m-0">
+                  <!-- Icons: House and Lock -->
+
+                  <i class="fas fa-map-marker-alt fs-4 me-1 m-0 fw-bolder"></i>
+                  <div class="m-0">
+                    <h6 class="mb-1 fw-bolder">Location</h6>
+                    <p class="mb-0">Work From Home</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- ------------ -->
+<app-find-card></app-find-card>

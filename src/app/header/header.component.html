@@ -1,7 +1,7 @@
 <div class="center-container">
   <div class="container-fluid px-0">
     <nav
-      class="navbar navbar-expand-lg navbar-light d-flex justify-content-between align-items-center"
+      class="navbar navbar-expand-lg navbar-light bg-white d-flex justify-content-between align-items-center"
     >
       <a routerlink="/" class="navbar-brand" href="/">
         <img
@@ -12,74 +12,77 @@
       </a>
 
       <button
-      type="button"
-      class="navbar-toggler"
-      (click)="toggleNavbar()"
-      aria-controls="navbarSupportedContent"
-      [attr.aria-expanded]="!isCollapsed"
-      aria-label="Toggle navigation"
-    >
-      <i class="fa-solid fa-bars-staggered"></i>
-    </button>
+        type="button"
+        class="navbar-toggler"
+        (click)="toggleNavbar()"
+        aria-controls="navbarSupportedContent"
+        [attr.aria-expanded]="!isCollapsed"
+        aria-label="Toggle navigation"
+      >
+        <i class="fa-solid fa-bars-staggered"></i>
+      </button>
 
       <div
         id="navbarSupportedContent"
-        class="collapse navbar-collapse justify-content-end gap-3 "[ngClass]="{'show': !isCollapsed}"
+        class="collapse navbar-collapse justify-content-end gap-3"
+        style="transition: max-height 0.35s ease"
+        [ngClass]="{ show: !isCollapsed }"
       >
-        <ul class="navbar-nav mb-2 mb-lg-0">
-          <li class="nav-item">
+        <!-- navItems -->
+        <ul class="nav">
+          <li
+            *ngFor="let item of navItems"
+            class="nav-item"
+            [ngClass]="{ dropdown: item.isDropdown }"
+          >
+            <!-- Regular link items -->
             <a
-              routerlinkactive="active"
-              aria-current="page"
-              routerlink="/findjobs"
+              *ngIf="!item.isDropdown"
               class="nav-link"
-              href="/findjobs"
-              >Find Jobs</a
+              [routerLink]="item.link"
+              >{{ item.label }}</a
             >
-          </li>
-          <li class="nav-item">
-            <a
-              routerlinkactive="active"
-              aria-current="page"
-              routerlink="/findjobs"
-              class="nav-link"
-              href="/findjobs"
-              >Services</a
-            >
-          </li>
-          <li class="nav-item">
-            <a
-              routerlinkactive="active"
-              aria-current="page"
-              routerlink="/blogs"
-              class="nav-link"
-              href="/blogs"
-              >Blogs</a
-            >
-          </li>
-          <li class="nav-item">
-            <a
-              routerlinkactive="active"
-              aria-current="page"
-              routerlink="/employer"
-              target="_blank"
-              class="nav-link"
-              href="/employer"
-              >Employer</a
-            >
+
+            <!-- Dropdown for 'Job Posted' -->
+            <div *ngIf="item.isDropdown" class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                id="navbarDropdown"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                {{ item.label }}
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <li *ngFor="let dropdownItem of item.dropdownItems">
+                  <a class="dropdown-item" [routerLink]="dropdownItem.link">{{
+                    dropdownItem.label
+                  }}</a>
+                </li>
+              </ul>
+            </div>
           </li>
         </ul>
-
+        <!-- routerLink="/login-page" -->
         <button
           type="button"
-          routerLink="/login-page"
-          class="btn btn-custom rounded-pill btn head-btn"
+         
+          [routerLink]="buttonLink"
+          class="btn btn-custom rounded-pill btn head-btn text-white"
           tabindex="0"
+          style="
+            background: var(--primary-color);
+            border-radius: 5px !important;
+            padding: 12px;
+          "
         >
-          Start Job Hunting
+          {{ buttonText }}
           <span class="mx-2"><i class="fa-solid fa-chevron-right"></i></span>
         </button>
       </div>
     </nav>
   </div>
 </div>
+
+<!-- /* box-shadow: 0 3px 10px rgb(0 0 0 / 0.2); */ -->

@@ -1,0 +1,317 @@
+<section class="blog-banner">
+  <div class="banner-img position-relative text-white">
+    <img
+      src="https://github.com/job4jobless/Images/blob/main/Banners/Employer-bottom-banner52.jpg?raw=true"
+      alt="Banner Image"
+      class="img-fluid w-100"
+      style="height: auto"
+    />
+    <!-- Centered text overlay -->
+    <div
+      class="elements position-absolute top-50 translate-middle w-100 px-3"
+      style="color: var(--secondary-color); left: 75%"
+    >
+      <h1
+        class="fs-1 fw-bolder d-none d-md-block m-0"
+        style="line-height: 1; font-size: 3rem !important"
+      >
+        CREATE & SHARE
+      </h1>
+      <h1
+        class="d-none fw-bolder d-md-block text-white m-0"
+        style="line-height: 1.5"
+      >
+        YOUR BLOG
+      </h1>
+      <!-- Smaller text for mobile -->
+      <h1
+        class="fs-3 fw-bolder d-md-none m-0"
+        style="line-height: 1.2; color: var(--secondary-color) !important"
+      >
+        CREATE & SHARE
+      </h1>
+      <h1 class="fw-normal d-md-none text-white m-0" style="line-height: 1.2">
+        YOUR BLOG
+      </h1>
+    </div>
+  </div>
+  <!-- ------mid-content------- -->
+  <div class="mid-content" style="background-color: var(--background-color)">
+    <h1
+      class="fw-bolder pt-5 fs-1 text-center"
+      style="color: var(--primary-color)"
+    >
+      Write Your Blog Here
+    </h1>
+    <!-- ---------form------------ -->
+    <div class="container mt-5">
+      <form #form="ngForm" (ngSubmit)="onSubmit()" novalidate>
+        <div class="data bg-white" style="padding: 4rem; border-radius: 9px;">
+          <!-- Title Field -->
+          <div class="mb-3 pb-3">
+            <input
+              type="text"
+              id="title"
+              name="title"
+              placeholder="Title*"
+              class="form-control"
+              style="padding-top: 2rem; padding-bottom: 2rem"
+              [(ngModel)]="formData.title"
+              required
+            />
+            <div
+              *ngIf="form.submitted && !form.controls.title?.valid"
+              class="text-danger"
+            >
+              Title is required.
+            </div>
+          </div>
+
+          <!-- Description Field -->
+          <div class="mb-3 pb-3">
+            <input
+              type="text"
+              id="description"
+              name="description"
+              class="form-control"
+              style="padding-top: 2rem; padding-bottom: 2rem"
+              placeholder="Description*"
+              [(ngModel)]="formData.description"
+              required
+            />
+            <div
+              *ngIf="form.submitted && !form.controls.description?.valid"
+              class="text-danger"
+            >
+              Description is required.
+            </div>
+          </div>
+
+          <!-- Content Field -->
+          <div class="mb-3 pb-3">
+            <textarea
+              id="content"
+              name="content"
+              placeholder="Content*"
+              rows="10"
+              class="form-control"
+              [(ngModel)]="formData.content"
+              required
+            ></textarea>
+            <div
+              *ngIf="form.submitted && !form.controls.content?.valid"
+              class="text-danger"
+            >
+              Content is required.
+            </div>
+          </div>
+
+          <!-- Tags Field -->
+          <div
+            class="mb-3 bg-white px-3 py-3"
+            style="border: 2px solid #dee2e6; border-radius: 7px"
+          >
+            <label for="tags" class="form-label fw-bolder">Tags</label>
+            <p class="text-muted">
+              Press Enter or click 'Add Tag' to add tags.
+            </p>
+
+            <div class="d-flex">
+              <input
+                type="text"
+                id="tags"
+                class="form-control"
+                style="
+                  border-right: none;
+                  border-top-right-radius: 0;
+                  border-bottom-right-radius: 0;
+                  padding-right: 0rem;
+                "
+                [(ngModel)]="newTag"
+                [ngModelOptions]="{ standalone: true }"
+                placeholder="Enter a tag"
+              />
+              <button
+                type="button"
+                class="btn text-white ms-2"
+                (click)="addTag()"
+                style="
+                  background-color: var(--primary-color);
+                  margin-left: 0rem !important;
+                  padding-left: -1rem;
+                  white-space: nowrap;
+                "
+              >
+                Add Tag
+              </button>
+            </div>
+
+            <div class="mt-2">
+              <span
+                *ngFor="let tag of tags; let i = index"
+                class="badge me-2"
+                style="
+                  background-color: var(--background-color);
+                  color: var(--text-color);
+                "
+              >
+                {{ tag }}
+                <button
+                  type="button"
+                  class="btn-close text-white ms-2"
+                  aria-label="Remove"
+                  (click)="removeTag(i)"
+                ></button>
+              </span>
+            </div>
+          </div>
+
+          <!-- Upload Banner Image -->
+          <div class="container py-4">
+            <div
+              class="row border d-flex flex-wrap bg-white p-4"
+              style="border-radius: 7px; justify-content: space-between; gap: 20px;"
+            >
+              <!-- Left Section (Heading and Buttons) -->
+              <div
+                class="col-md-4 d-flex flex-column align-items-start m-0 p-0"
+                style="gap: 12px"
+              >
+                <h5 class="fw-bold m-0 mb-4">Upload Banner Image</h5>
+                <label
+                  class="btn mb-2 m-0"
+                  for="file-upload"
+                  style="background-color: var(--background-color)"
+                >
+                  Choose from Library
+                </label>
+                <input
+                  type="file"
+                  id="file-upload"
+                  class="d-none"
+                  (change)="onFileSelected($event)"
+                  multiple
+                />
+
+                <div
+                  class="upload d-flex align-items-baseline m-0"
+                  style="gap: 15px"
+                >
+                  <button
+                    class="btn text-white m-0"
+                    (click)="uploadFiles()"
+                    style="background-color: var(--primary-color)"
+                  >
+                    Upload
+                  </button>
+                  <p class="text-muted m-0">{{ selectedFilesNames }}</p>
+                </div>
+              </div>
+
+              <!-- Right Section (Drag Area) -->
+              <div
+                class="col-md-4 text-center m-0"
+                (dragover)="onDragOver($event)"
+                (drop)="onDrop($event)"
+                style="
+                  padding: 20px;
+                  border-radius: 5px;
+                  background-color: var(--background-color);
+                "
+              >
+                <label
+                  for="file-upload"
+                  class="btn d-flex flex-column align-items-center w-100 py-4"
+                  style="gap: 20px; cursor: pointer"
+                >
+                  <i class="bi bi-upload fs-1"></i> Drag files to upload or
+                  click to select
+                </label>
+                <input
+                  type="file"
+                  id="file-upload"
+                  class="d-none"
+                  (change)="onFileSelected($event)"
+                  multiple
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Submit and Cancel Buttons -->
+        <div class="mt-5 pb-5 d-flex" style="justify-content: space-between">
+          <button
+            type="submit"
+            class="btn text-white m-0 me-3 px-3 fw-bolder"
+            style="background-color: var(--primary-color)"
+          >
+            SUBMIT
+          </button>
+          <button
+            type="button"
+            class="btn text-white m-0 px-3 fw-bolder"
+            style="background-color: var(--primary-color)"
+            (click)="onCancel()"
+          >
+            Cancel
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- -------last------- -->
+<!-- This is the code for text editor (text-formatting) 
+<div class="toolbar">
+  <button (click)="execCommand('bold')" title="Bold"><b>B</b></button>
+  <button (click)="execCommand('italic')" title="Italic"><i>I</i></button>
+  <button (click)="execCommand('underline')" title="Underline"><u>U</u></button>
+  <button (click)="execCommand('justifyLeft')" title="Align Left">Left</button>
+  <button (click)="execCommand('justifyCenter')" title="Align Center">Center</button>
+  <button (click)="execCommand('justifyRight')" title="Align Right">Right</button>
+  <button (click)="execCommand('undo')" title="Undo">Undo</button>
+  <button (click)="execCommand('redo')" title="Redo">Redo</button>
+  <input
+    type="color"
+    (input)="changeTextColor($event)"
+    title="Text Color"
+  />
+  <input
+    type="color"
+    (input)="changeHighlightColor($event)"
+    title="Highlight Color"
+  />
+</div>
+<div
+  class="editor"
+  contenteditable="true"
+  (mouseup)="updateSelection()"
+  (keyup)="updateSelection()"
+  (input)="onContentChange($event)"
+>
+  Start editing here...
+</div> -->
+
+<!-- --------here are css code for toolbar----------- -->
+<!-- .toolbar {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ddd;
+  padding: 5px;
+  background: #f9f9f9;
+}
+.toolbar button,
+.toolbar input {
+  padding: 5px 10px;
+  cursor: pointer;
+}
+.editor {
+  border: 1px solid #ccc;
+  padding: 10px;
+  min-height: 200px;
+  outline: none;
+  font-family: Arial, sans-serif;
+} -->

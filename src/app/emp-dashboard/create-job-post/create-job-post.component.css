@@ -1,10 +1,5 @@
-.app-create-job-post {
-    position: absolute;
-    top: 50px;  /* Adjust as needed to align with the first circle */
-    left: 200px;  /* Adjust the left position based on where you want the job post */
-  }
-@media (max-width:600px){
+@media (max-width:1200px){
     .content-container {
-        width: 80%!important;
+        width: fit-content!important;
     }
 }

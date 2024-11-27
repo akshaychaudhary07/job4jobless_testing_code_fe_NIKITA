@@ -1,0 +1,15 @@
+.border {
+    border: var(--bs-border-width) var(--bs-border-style) #b6b9bd !important;
+}
+.form-check-input:checked {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+@media (max-width:550px){
+    .review {
+        margin-left: -6rem;
+        margin-right: 2rem;
+        margin-top: 5rem !important;
+        width: auto;
+    }
+}

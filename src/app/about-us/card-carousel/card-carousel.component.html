@@ -1,36 +1,317 @@
-<div class="carousel">
-  <div
-    class="carousel-inner"
-    [style.width]="100 * (minPerSlide + 1) + '%'">
-    <div class="carousel-item" *ngFor="let card of getVisibleCards(currentIndex)">
-      <div class="card">
-        <img [src]="card.image" class="card-img-top" alt="{{ card.title }}">
-        <div class="card-body">
-          <h5 class="card-title">{{ card.title }}</h5>
-          <p class="card-text">{{ card.description }}</p>
+<!-- --new-- -->
+<!-- <div
+  id="carouselExample"
+  class="carousel slide w-50 mt-5 mb-5"
+  data-bs-ride="carousel"
+  data-bs-interval="3000"
+  data-bs-wrap="true"
+  data-bs-pause="false"
+>
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <div class="row text-center">
+        <div class="col-12 col-sm-6 col-md-4">
+          <div class="card bg-white border-0" style="border-radius: 15px">
+            <img
+              src="https://media.istockphoto.com/id/941329264/photo/termination-of-employment-on-an-office-desk.jpg?s=2048x2048&w=is&k=20&c=6GZNlJVj5rk4TMuEj6hTVhx97RJ4gqAggl0MnrYjj54="
+              class="card-img-top"
+              style="
+                border-radius: 15px;
+                border-bottom-left-radius: 0;
+                border-bottom-right-radius: 0;
+              "
+              alt="Card Image"
+            />
+            <div class="card-body" style="background-color: aliceblue">
+              <h5 class="card-title fw-bold mt-4 mb-4" style="color: #1e2d5b">
+                Embracing Innovation
+              </h5>
+              <p class="card-text">
+                We continuously seek new ways to enhance our services and
+                leverage new technologies.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-sm-6 col-md-4">
+          <div
+            class="card bg-white border-0"
+            style="
+              border-radius: 15px;
+              box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+            "
+          >
+            <img
+              src="https://media.istockphoto.com/id/941329264/photo/termination-of-employment-on-an-office-desk.jpg?s=2048x2048&w=is&k=20&c=6GZNlJVj5rk4TMuEj6hTVhx97RJ4gqAggl0MnrYjj54="
+              class="card-img-top"
+              style="
+                border-radius: 15px;
+                border-bottom-left-radius: 0;
+                border-bottom-right-radius: 0;
+              "
+              alt="Card Image"
+            />
+            <div class="card-body" style="background-color: aliceblue">
+              <h5 class="card-title fw-bold mt-4 mb-4" style="color: #1e2d5b">
+                Integrity
+              </h5>
+              <p class="card-text">
+                We continuously seek new ways to enhance our services and
+                leverage new technologies.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-sm-6 col-md-4">
+          <div
+            class="card bg-white border-0"
+            style="
+              border-radius: 15px;
+
+              box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+            "
+          >
+            <img
+              src="https://media.istockphoto.com/id/941329264/photo/termination-of-employment-on-an-office-desk.jpg?s=2048x2048&w=is&k=20&c=6GZNlJVj5rk4TMuEj6hTVhx97RJ4gqAggl0MnrYjj54="
+              class="card-img-top"
+              style="
+                border-radius: 15px;
+                border-bottom-left-radius: 0;
+                border-bottom-right-radius: 0;
+              "
+              alt="Card Image"
+            />
+            <div class="card-body" style="background-color: aliceblue">
+              <h5 class="card-title fw-bold mt-4 mb-4" style="color: #1e2d5b">
+                Prioritizing Customer Success
+              </h5>
+              <p class="card-text">
+                We continuously seek new ways to enhance our services and
+                leverage new technologies.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="carousel-item">
+      <div class="row text-center">
+        <div class="col-12 col-sm-6 col-md-4">
+          <div
+            class="card bg-white border-0"
+            style="
+              border-radius: 15px;
+
+              box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+            "
+          >
+            <img
+              src="https://media.istockphoto.com/id/941329264/photo/termination-of-employment-on-an-office-desk.jpg?s=2048x2048&w=is&k=20&c=6GZNlJVj5rk4TMuEj6hTVhx97RJ4gqAggl0MnrYjj54="
+              class="card-img-top"
+              style="
+                border-radius: 15px;
+                border-bottom-left-radius: 0;
+                border-bottom-right-radius: 0;
+              "
+              alt="Card Image"
+            />
+            <div class="card-body" style="background-color: aliceblue">
+              <h5 class="card-title fw-bold mt-4 mb-4" style="color: #1e2d5b">
+                Integrity
+              </h5>
+              <p class="card-text">
+                We continuously seek new ways to enhance our services and
+                leverage new technologies.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-sm-6 col-md-4">
+          <div
+            class="card bg-white border-0"
+            style="
+              border-radius: 15px;
+
+              box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+            "
+          >
+            <img
+              src="https://media.istockphoto.com/id/941329264/photo/termination-of-employment-on-an-office-desk.jpg?s=2048x2048&w=is&k=20&c=6GZNlJVj5rk4TMuEj6hTVhx97RJ4gqAggl0MnrYjj54="
+              class="card-img-top"
+              style="
+                border-radius: 15px;
+                border-bottom-left-radius: 0;
+                border-bottom-right-radius: 0;
+              "
+              alt="Card Image"
+            />
+            <div class="card-body" style="background-color: aliceblue">
+              <h5 class="card-title fw-bold mt-4 mb-4" style="color: #1e2d5b">
+                Embracing Innovation
+              </h5>
+              <p class="card-text">
+                We continuously seek new ways to enhance our services and
+                leverage new technologies.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-sm-6 col-md-4">
+          <div
+            class="card bg-white border-0"
+            style="
+              border-radius: 15px;
+
+              box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+            "
+          >
+            <img
+              src="https://media.istockphoto.com/id/941329264/photo/termination-of-employment-on-an-office-desk.jpg?s=2048x2048&w=is&k=20&c=6GZNlJVj5rk4TMuEj6hTVhx97RJ4gqAggl0MnrYjj54="
+              class="card-img-top"
+              style="
+                border-radius: 15px;
+                border-bottom-left-radius: 0;
+                border-bottom-right-radius: 0;
+              "
+              alt="Card Image"
+            />
+            <div class="card-body" style="background-color: aliceblue">
+              <h5 class="card-title fw-bold mt-4 mb-4" style="color: #1e2d5b">
+                Prioritizing Customer Success
+              </h5>
+              <p class="card-text">
+                We continuously seek new ways to enhance our services and
+                leverage new technologies.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="carousel-item">
+      <div class="row text-center">
+        <div class="col-12 col-sm-6 col-md-4">
+          <div
+            class="card bg-white border-0"
+            style="
+              border-radius: 15px;
+
+              box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+            "
+          >
+            <img
+              src="https://media.istockphoto.com/id/941329264/photo/termination-of-employment-on-an-office-desk.jpg?s=2048x2048&w=is&k=20&c=6GZNlJVj5rk4TMuEj6hTVhx97RJ4gqAggl0MnrYjj54="
+              class="card-img-top"
+              style="
+                border-radius: 15px;
+                border-bottom-left-radius: 0;
+                border-bottom-right-radius: 0;
+              "
+              alt="Card Image"
+            />
+            <div class="card-body" style="background-color: aliceblue">
+              <h5 class="card-title fw-bold mt-4 mb-4" style="color: #1e2d5b">
+                Embracing Innovation
+              </h5>
+              <p class="card-text">
+                We continuously seek new ways to enhance our services and
+                leverage new technologies.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-sm-6 col-md-4">
+          <div
+            class="card bg-white border-0"
+            style="
+              border-radius: 15px;
+
+              box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+            "
+          >
+            <img
+              src="https://media.istockphoto.com/id/941329264/photo/termination-of-employment-on-an-office-desk.jpg?s=2048x2048&w=is&k=20&c=6GZNlJVj5rk4TMuEj6hTVhx97RJ4gqAggl0MnrYjj54="
+              class="card-img-top"
+              style="
+                border-radius: 15px;
+                border-bottom-left-radius: 0;
+                border-bottom-right-radius: 0;
+              "
+              alt="Card Image"
+            />
+            <div class="card-body" style="background-color: aliceblue">
+              <h5 class="card-title fw-bold mt-4 mb-4" style="color: #1e2d5b">
+                Integrity
+              </h5>
+              <p class="card-text">
+                We continuously seek new ways to enhance our services and
+                leverage new technologies.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-sm-6 col-md-4">
+          <div
+            class="card bg-white border-0"
+            style="
+              border-radius: 15px;
+              box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+            "
+          >
+            <img
+              src="https://media.istockphoto.com/id/941329264/photo/termination-of-employment-on-an-office-desk.jpg?s=2048x2048&w=is&k=20&c=6GZNlJVj5rk4TMuEj6hTVhx97RJ4gqAggl0MnrYjj54="
+              class="card-img-top"
+              style="
+                border-radius: 15px;
+                border-bottom-left-radius: 0;
+                border-bottom-right-radius: 0;
+              "
+              alt="Card Image"
+            />
+            <div class="card-body" style="background-color: aliceblue">
+              <h5 class="card-title fw-bold mt-4 mb-4" style="color: #1e2d5b">
+                Prioritizing Customer Success
+              </h5>
+              <p class="card-text">
+                We continuously seek new ways to enhance our services and
+                leverage new technologies.
+              </p>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- Carousel controls -->
-  <button class="carousel-control-prev" (click)="currentIndex = (currentIndex - 1 + allCards.length) % allCards.length">
+
+  <button
+    class="carousel-control-prev"
+    type="button"
+    data-bs-target="#carouselExample"
+    data-bs-slide="prev"
+  >
     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Previous</span>
+    <span
+      class="visually-hidden fw-bolder position-relative"
+      style="left: 10px; right: 10px"
+      >Previous</span
+    >
   </button>
-  <button class="carousel-control-next" (click)="nextSlide()">
+  <button
+    class="carousel-control-next"
+    type="button"
+    data-bs-target="#carouselExample"
+    data-bs-slide="next"
+  >
     <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Next</span>
+    <span
+      class="visually-hidden fw-bolder position-relative"
+      style="left: 10px; right: 10px"
+      >Next</span
+    >
   </button>
-</div>
+</div> -->
 
-
-
-
-
-
-
-
-
-
-<div class="border00"></div>
+<div class="border00" style="border-top: 1px solid #e2dada"></div>

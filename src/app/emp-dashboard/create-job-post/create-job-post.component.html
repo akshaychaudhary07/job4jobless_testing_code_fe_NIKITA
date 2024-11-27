@@ -1,83 +1,98 @@
-<section class="create a job post" >  
+<section class="create a job post">
   <!-- style="background: #ebf3fe; height: 100vh" -->
-  <div
-    class="d-flex flex-column align-items-start justify-content-start pt-5"
-    style="width: 100%; padding-left: 20px"
-  >
-    <div class="content-container" style="width: 100%;">
 
-      <!-- <h2 class="fw-bolder pb-3" style="color: #1e2d5b; margin-bottom: 20px">
-        Create a Job Post
-      </h2> -->
+  <div class="content-container" style="width: 280%">
+    <form
+      #jobPostForm="ngForm"
+      (ngSubmit)="onSubmit()"
+      class="p-4 border shadow-sm bg-white pt-5 pb-5"
+      style="border-radius: 14px"
+    >
+      <!-- Email Field -->
+      <div class="mb-3">
+        <input
+          type="email"
+          id="email"
+          placeholder="Enter Your Email*"
+          [(ngModel)]="jobPost.email"
+          name="email"
+          required
+          #email="ngModel"
+          pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+          class="form-control bg-white"
+          style="padding: 1.3rem; border-radius: 12px"
+        />
+        <!-- Error Message -->
+        <div *ngIf="email.invalid && email.touched" class="text-danger">
+          Email is required and must be valid.
+        </div>
+      </div>
 
-      <form
-        #jobPostForm="ngForm"
-        (ngSubmit)="onSubmit()"
-        class="p-4 border shadow-sm bg-white pt-5 pb-5"
-        style="border-radius: 14px; width: 100%;" 
-        (click)="enableFields()"
-      >
-        <div class="mb-3">
-          <input
-            type="email"
-            id="email"
-            placeholder="Enter Your Email*"
-            [(ngModel)]="jobPost.email"
-            name="email"
-            required
-            #email="ngModel"
-            class="form-control bg-white"
-            style="padding: 1.3rem; border-radius: 12px"
-            [disabled]="isDisabled"
-          />
+      <!-- Job Title Field -->
+      <div class="mb-3">
+        <input
+          type="text"
+          id="jobTitle"
+          placeholder="Enter Job Title*"
+          [(ngModel)]="jobPost.jobTitle"
+          name="jobTitle"
+          required
+          #jobTitle="ngModel"
+          class="form-control bg-white"
+          style="padding: 1.3rem; border-radius: 12px"
+        />
+        <!-- Error Message -->
+        <div *ngIf="jobTitle.invalid && jobTitle.touched" class="text-danger">
+          Job title is required.
         </div>
-      
-        <div class="mb-3">
-          <input
-            type="text"
-            id="jobTitle"
-            placeholder="Enter Job Title*"
-            [(ngModel)]="jobPost.jobTitle"
-            name="jobTitle"
-            required
-            #jobTitle="ngModel"
-            class="form-control bg-white"
-            style="padding: 1.3rem; border-radius: 12px"
-            [disabled]="isDisabled"
-          />
+      </div>
+
+      <!-- Company Name Field -->
+      <div class="mb-3">
+        <input
+          type="text"
+          id="companyName"
+          placeholder="Company Name*"
+          [(ngModel)]="jobPost.companyName"
+          name="companyName"
+          required
+          #companyName="ngModel"
+          class="form-control bg-white"
+          style="padding: 1.3rem; border-radius: 12px"
+        />
+        <!-- Error Message -->
+        <div
+          *ngIf="companyName.invalid && companyName.touched"
+          class="text-danger"
+        >
+          Company name is required.
         </div>
-      
-        <div class="mb-3">
-          <input
-            type="text"
-            id="companyName"
-            placeholder="Company Name*"
-            [(ngModel)]="jobPost.companyName"
-            name="companyName"
-            required
-            #companyName="ngModel"
-            class="form-control bg-white"
-            style="padding: 1.3rem; border-radius: 12px"
-            [disabled]="isDisabled"
-          />
-        </div>
-      
-        <div class="d-flex flex-wrap gap-2 justify-content-between mt-3">
-          <button type="button" (click)="goToPrevPage()" class="btn btn-secondary fw-bold fs-5 col-12 col-md-auto"
-            style="border-radius: 12px; padding-left: 3rem; padding-right: 3rem" [disabled]="isDisabled">
-            PREV
-          </button>
-          <button type="submit" class="btn btn-primary fw-bold fs-5 col-12 col-md-auto"
-            style="border-radius: 12px; padding-left: 3rem; padding-right: 3rem; background-color: #1e2d5b" [disabled]="isDisabled">
-            NEXT
-          </button>
-        </div>
-      </form>
-    </div>
+      </div>
+
+      <!-- Buttons -->
+      <div class="d-flex flex-wrap gap-2 justify-content-between mt-3">
+        <button
+          type="button"
+          (click)="goToPrevPage()"
+          class="btn btn-secondary fw-bold fs-5 col-12 col-md-auto"
+          style="border-radius: 12px; padding-left: 3rem; padding-right: 3rem"
+        >
+          PREV
+        </button>
+        <button
+          type="submit"
+          [disabled]="jobPostForm.invalid"
+          class="btn fw-bold fs-5 col-12 col-md-auto text-white"
+          style="
+            border-radius: 12px;
+            padding-left: 3rem;
+            padding-right: 3rem;
+            background-color: var(--primary-color);
+          "
+        >
+          NEXT
+        </button>
+      </div>
+    </form>
   </div>
 </section>
-
-
-
-
-

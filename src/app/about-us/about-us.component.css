@@ -1,30 +1,6 @@
-/* General Styles */
-.custom-start-28 {
-  left: 28% !important;
-}
-.custom-top-6 {
-  top: 6% !important;
-}
-h1, h3 {
-  line-height: 1.5;
-  margin: 0;
-}
-@media (max-width: 768px) {
-  .banner-img h1 {
-    font-size: 1rem;
-  }
-  .custom-start-28 {
-    left: 3% !important;
-}
-  .banner-img h3 {
-    font-size: 1.2rem;
-  }
-}
 @media (max-width: 576px) {
-  .banner-img h1 {
-    font-size: 18px!important;
+  img.img-fluid.w-100 {
+      min-height: 15vh;
+      object-fit: cover;
   }
-  .banner-img h3 {
-    font-size: 12px!important;
   }
-}

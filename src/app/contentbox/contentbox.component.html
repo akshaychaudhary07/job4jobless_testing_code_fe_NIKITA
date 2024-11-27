@@ -1,19 +1,25 @@
-<main>
-  <div class="banner-text mw-100 h-auto">
+ <main>
+  <div
+    class="banner-text mw-100 h-auto"
+    style="padding: 1.5rem 0; background-color: var(--primary-color);"
+  >
     <div class="container">
       <div class="row g-3 align-items-center flex-wrap-reverse">
         <!-- First Column for Inputs and Button -->
-        <div class="col-12 col-md-8 bg-white flex-box">
+        <div
+          class="col-12 col-md-8 bg-white flex-box overflow-hidden"
+          style="border: 1px solid; border-radius: 12px; padding: 1.2rem"
+        >
           <div
             class="d-flex flex-wrap flex-column flex-md-row justify-content-between justify-content-md-start"
           >
             <input
               type="search"
-              class="no-border-input flex-fill me-2 mb-2"
+              class="no-border-input flex-fill me-2 mb-2 border-0"
+              style="transition: border 0.3s"
               placeholder="Job Title, Skills, Company, Designation etc"
             />
 
-    
             <!-- <div
               class="d-none d-md-block mx-md-2"
               style="width: 1px; height: 40px; background-color: black"
@@ -24,18 +30,29 @@
               placeholder="Location"
               class="no-border-input flex-fill me-2 mb-2 border-left"
             />
-            <button class="btn head-btn flex-shrink-0 mx-auto" type="submit">
+            <button
+              class="btn head-btn flex-shrink-0 mx-auto text-white"
+              type="submit"
+              style="
+                background: var(--primary-color);
+                border-radius: 10px;
+                padding: 12px !important;
+              "
+            >
               Find Jobs
             </button>
           </div>
         </div>
 
         <!-- Second Column for Text Content -->
-        <div class="col-12 col-md-4 text-center text-md-start custom-width">
+        <div
+          class="col-12 col-md-4 text-center text-md-start custom-width"
+          style="width: 15%"
+        >
           <div class="text">
             <p class="txt-para text-white fs-3">
               <span class="text-white">Get Your </span><br />
-              <span style="color: aquamarine">Dream Job</span><br />
+              <span style="color: var(--secondary-color);">Dream Job</span><br />
               <span class="text-white">With Us.</span>
             </p>
           </div>

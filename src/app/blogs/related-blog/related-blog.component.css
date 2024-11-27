@@ -1,0 +1,30 @@
+.carousel-indicators [data-bs-target]{
+    border-radius: 50% !important;
+    width: 13px;
+    height: 12px;
+    background-color: var(--primary-color);
+  }
+    .hidden{
+      display: none;
+    }
+    .carousel-indicators {
+      position: static;
+  }
+@media (max-width:650px){
+  .cus-style{
+    margin-right: 0rem!important;
+    width: 100%!important;
+  }
+  .hidden{
+    display: block;
+  }
+  section.related-blogs.bg-white.pt-4 {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+}
+.mobile-view{
+  display: none;
+}h4{
+  text-align: center;
+}
+}

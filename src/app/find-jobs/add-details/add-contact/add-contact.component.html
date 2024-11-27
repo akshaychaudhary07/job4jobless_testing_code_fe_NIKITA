@@ -1,0 +1,123 @@
+<section class="add-info">
+  <div class="container mt-2">
+    <!-- <form [formGroup]="form" (ngSubmit)="onSubmit()" novalidate> -->
+      <form [formGroup]="form" (ngSubmit)="onContinue()" novalidate>
+      <!-- First Name -->
+      <div class="mb-3">
+        <input
+          type="text"
+          id="firstName"
+          class="form-control"
+          style="border: 2px solid var(--primary-color)"
+          placeholder="First Name"
+          formControlName="firstName"
+          [ngClass]="{
+            'is-invalid':
+              form.controls['firstName'].invalid &&
+              form.controls['firstName'].touched
+          }"
+        />
+        <div class="invalid-feedback">
+          First Name is required and must be at least 2 characters long.
+        </div>
+      </div>
+
+      <!-- Last Name -->
+      <div class="mb-3">
+        <input
+          type="text"
+          id="lastName"
+          class="form-control"
+          style="border: 2px solid var(--primary-color)"
+          formControlName="lastName"
+          placeholder="Last Name"
+          [ngClass]="{
+            'is-invalid':
+              form.controls['lastName'].invalid &&
+              form.controls['lastName'].touched
+          }"
+        />
+        <div class="invalid-feedback">
+          Last Name is required and must be at least 2 characters long.
+        </div>
+      </div>
+
+      <!-- Email -->
+      <div class="mb-3">
+        <input
+          type="email"
+          id="email"
+          class="form-control"
+          style="border: 2px solid var(--primary-color)"
+          formControlName="email"
+          placeholder="Email"
+          [ngClass]="{
+            'is-invalid':
+              form.controls['email'].invalid && form.controls['email'].touched
+          }"
+        />
+        <div class="invalid-feedback">Please enter a valid email address.</div>
+      </div>
+
+      <!-- City -->
+      <div class="mb-3">
+        <input
+          type="text"
+          id="city"
+          class="form-control"
+          style="border: 2px solid var(--primary-color)"
+          formControlName="city"
+          placeholder="City,State"
+          [ngClass]="{
+            'is-invalid':
+              form.controls['city'].invalid && form.controls['city'].touched
+          }"
+        />
+        <div class="invalid-feedback">City is required.</div>
+      </div>
+
+      <!-- Phone Number -->
+      <div class="mb-3">
+        <div
+          class="input-group bg-white"
+          style="border: 2px solid var(--primary-color); border-radius: 7px"
+        >
+          <span class="input-group-text bg-white">+91</span>
+          <input
+            type="number"
+            id="phone"
+            class="form-control border-0"
+            style="border-left: 2px solid var(--primary-color) !important"
+            formControlName="phone"
+            placeholder="Phone Number"
+            [ngClass]="{
+              'is-invalid':
+                form.controls['phone'].invalid && form.controls['phone'].touched
+            }"
+          />
+        </div>
+        <div class="invalid-feedback">
+          Phone number is required and must be 10 digits.
+        </div>
+      </div>
+
+      <!-- Continue Button -->
+      <!-- [disabled]="form.invalid" -->
+      <div class="btn d-flex justify-content-center">
+        <button
+          type="submit"
+          class="btn text-white"
+          style="
+            background-color: var(--primary-color);
+            padding-left: 2rem;
+            padding-right: 2rem;
+          "
+          (click)="onContinue()"
+    
+        >
+          Continue
+        </button>
+      </div>
+    </form>
+  </div>
+</section>

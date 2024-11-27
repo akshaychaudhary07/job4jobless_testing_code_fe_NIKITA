@@ -13,6 +13,7 @@ import { BlogSliderComponent } from '../blog-slider/blog-slider.component';
 })
 export class BlogsHeaderComponent {
   @Input() buttonText: string = 'Post Blog'; // default text
+   routerLink="'/post-blog'"
     @Input() buttonLink: string = ''
     @ViewChild('navbarToggler') navbarToggler!: ElementRef;
     renderer: any;

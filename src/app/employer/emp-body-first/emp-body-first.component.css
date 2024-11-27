@@ -1,21 +1,10 @@
-h1,h4 {
-    color: #1E2D5B;
-}
-img.card-img-top.w-100 {
-    border-radius: 15px;
-    border-bottom-left-radius: 0;
-}
-.card {
-    border-radius: 15px;
-    aspect-ratio: 2/ 2.1;   
-}
 @media (max-width: 768px) {
     .row-w{
         width: 
         100%!important;
     }
     .card {
-        aspect-ratio: 2/ 2.5;
+        aspect-ratio: 2/ 2.5!important;
     }
 }
 @media (max-width: 567px) {
@@ -24,7 +13,6 @@ img.card-img-top.w-100 {
         100%!important;
     }
     .card {
-        aspect-ratio: auto;
+        aspect-ratio: auto!important;
     }
 }
-

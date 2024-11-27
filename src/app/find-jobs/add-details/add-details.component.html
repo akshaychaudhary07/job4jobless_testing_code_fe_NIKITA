@@ -1,0 +1,198 @@
+<section
+  class="vertical-slider d-flex"
+  style="background: var(--background-color)"
+>
+  <div
+    class="container"
+    style="
+      margin-top: 4rem;
+      margin-bottom: 4rem;
+      margin-left: auto;
+      margin-right: auto;
+    "
+  >
+    <div class="row cus-row">
+      <div class="col-lg-6 col-md-6">
+        <!-- Progress Bar and Dots -->
+        <div class="progress-container">
+          <!-- Step 1 -->
+          <div class="step-container">
+            <div
+              class="step-dot"
+              [ngClass]="{ active: activeStep === 1 }"
+              (click)="activateStep(1)"
+            ></div>
+            <h2
+              [ngClass]="{
+                'active-heading': activeStep === 1,
+                'disabled-heading': activeStep !== 1
+              }"
+            >
+              Add Your Contact Information
+            </h2>
+            <div *ngIf="activeStep === 1" class="step-item">
+             <app-add-contact (continueClicked)="nextPage()"></app-add-contact>
+            </div>
+          </div>
+
+          <!-- Step 2 -->
+          <div class="step-container">
+            <div
+              class="step-dot"
+              [ngClass]="{ active: activeStep === 2 }"
+              (click)="activateStep(2)"
+            ></div>
+            <h2
+              [ngClass]="{
+                'active-heading': activeStep === 2,
+                'disabled-heading': activeStep !== 2
+              }"
+            >
+              Add Your Resume
+            </h2>
+            <div *ngIf="activeStep === 2" class="step-item">
+             <app-add-resume (continueClicked)="nextPage()"></app-add-resume>
+            </div>
+          </div>
+
+          <!-- Step 3 -->
+          <div class="step-container">
+            <div
+              class="step-dot"
+              [ngClass]="{ active: activeStep === 3 }"
+              (click)="activateStep(3)"
+            ></div>
+            <h2
+              [ngClass]="{
+                'active-heading': activeStep === 3,
+                'disabled-heading': activeStep !== 3
+              }"
+            >
+              Review Your Application
+            </h2>
+            <div *ngIf="activeStep === 3" class="step-item">
+              <app-review-application (continueClicked)="nextPage()"></app-review-application>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-6 col-md-6 cus-w">
+        <!-- --------cards-section------ -->
+        <!-- -------Next Card-------- -->
+        <div class="container p-0">
+          <div
+            class="card"
+            style="border-radius: 15px; border: none; padding: 2rem"
+          >
+            <div class="card-body">
+              <div class="content mb-5">
+                <h5 class="card-title m-0 mb-3 fw-bolder">Location</h5>
+                <p class="">Delhi, India</p>
+              </div>
+              <hr />
+              <!-- ------------ -->
+              <div class="content mt-3 mb-5">
+                <h5 class="card-title m-0 fw-bolder mb-3">Job Role</h5>
+                <p class="">
+                  Candidate is tasked with completing and enriching datasets by
+                  extracting information from both provided data sets and
+                  relevant sources on the internet. The candidate ensures that
+                  the extracted data is accurately filled into Excel sheets in a
+                  structured and organized manner. This role requires attention
+                  to detail, internet research skills, and proficiency in
+                  working with Excel and other data processing tools.
+                </p>
+              </div>
+              <hr />
+
+              <!-- ------------ -->
+              <div class="content mt-4 mb-4">
+                <h5 class="card-title m-0 fw-bolder">Requirements</h5>
+                <div class="container my-4">
+                  <div class="row">
+                    <!-- Education -->
+                    <div class="col-md-4 col-sm-6 mb-4 p-0  cus-m">
+                      <div class="d-flex m-0">
+                        <i
+                          class="bi bi-mortarboard fs-4 me-3 m-0 fw-bolder"
+                        ></i>
+                        <!-- Icon -->
+                        <div class="m-0">
+                          <h6 class="mb-1 fw-bolder">Education</h6>
+                          <p class="mb-0">Bachelor's (Preferred)</p>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- Location -->
+                    <div class="col-md-4 col-sm-6 mb-4 p-0  cus-m">
+                      <div class="d-flex m-0">
+                        <!-- Icons: House and Lock -->
+
+                        <i
+                          class="fas fa-map-marker-alt fs-4 me-1 m-0 fw-bolder"
+                        ></i>
+                        <div class="m-0">
+                          <h6 class="mb-1 fw-bolder">Location</h6>
+                          <p class="mb-0">Work From Home</p>
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- Schedule -->
+                    <div class="col-md-4 col-sm-6 mb-4 p-0  cus-m">
+                      <div class="d-flex m-0">
+                        <i class="bi bi-clock fs-4 me-3 m-0 fw-bolder"></i>
+                        <!-- Icon -->
+                        <div class="m-0">
+                          <h6 class="mb-1 fw-bolder">Schedule</h6>
+                          <p class="mb-0">Day Shift (Fixed)</p>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- Job Type -->
+                    <div class="col-md-4 col-sm-6 mb-4 p-0  cus-m">
+                      <div class="d-flex m-0">
+                        <i class="bi bi-briefcase fs-4 me-3 m-0 fw-bolder"></i>
+                        <!-- Icon -->
+                        <div class="m-0">
+                          <h6 class="mb-1 fw-bolder">Job Type</h6>
+                          <p class="mb-0">Full Time</p>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- Gender -->
+                    <div class="col-md-4 col-sm-6 mb-4 p-0 cus-m">
+                      <div class="d-flex m-0">
+                        <i
+                          class="bi bi-gender-ambiguous fs-4 me-3 m-0 fw-bolder"
+                        ></i>
+                        <!-- Icon -->
+                        <div class="m-0">
+                          <h6 class="mb-1 fw-bolder">Gender</h6>
+                          <p class="mb-0">Any</p>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- Department -->
+                    <div class="col-md-4 col-sm-6 mb-4 p-0  cus-m">
+                      <div class="d-flex m-0">
+                        <i class="bi bi-building fs-4 me-3 m-0 fw-bolder"></i>
+                        <!-- Icon -->
+                        <div class="m-0">
+                          <h6 class="mb-1 fw-bolder">Department</h6>
+                          <p class="mb-0">Accounts</p>
+                        </div>
+                      </div>
+                    </div>
+                    
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

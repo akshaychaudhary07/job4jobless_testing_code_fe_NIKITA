@@ -1,10 +1,15 @@
 <section
   class="vh-100 d-flex align-items-center justify-content-center pt-2"
-  style="background: #101a3a"
+  style="background: var(--primary-color);"
 >
   <div
-    class="container box bg-white mt-2 border border-2"
-    style="border-radius: 35px; max-width: 460px; padding: 20px"
+    class="container box bg-white mt-2 border border-2 d-block m-auto"
+    style="
+      border-radius: 35px;
+      max-width: 460px;
+      padding: 20px;
+      margin: auto !important;
+    "
   >
     <div class="d-flex justify-content-center">
       <a routerlink="/" class="navbar-logo" href="/">
@@ -17,7 +22,7 @@
     </div>
 
     <h3 class="text-center mt-3 mb-3">Login As Job Seeker</h3>
-    <form>
+    <form #loginForm="ngForm" (ngSubmit)="onSubmit(loginForm)">
       <!-- Email input -->
       <div data-mdb-input-init class="form-outline mb-4">
         <input
@@ -25,7 +30,17 @@
           id="form1Example13"
           placeholder="Username or Email"
           class="form-control form-control-lg"
+          ngModel
+          required
+          email
         />
+        <!-- Validation message -->
+        <div
+          *ngIf="loginForm.submitted && !loginForm.controls['email']?.valid"
+          class="text-danger"
+        >
+          Please enter a valid email address.
+        </div>
       </div>
 
       <!-- Password input -->
@@ -39,7 +54,7 @@
         <button
           type="button"
           (click)="togglePasswordVisibility()"
-          class="btn pass-btn position-absolute z-1 border-0"
+          class="btn pass-btn position-absolute z-1 border-0 bg-transparent"
         >
           <i
             [class]="isPasswordVisible ? 'fas fa-eye-slash' : 'fas fa-eye'"
@@ -51,7 +66,7 @@
         <a
           href="#!"
           class="text-left m-0 text-decoration-none fs-5"
-          style="color: #1e2d5b"
+          style="color: var(--primary-color);"
           >Forgot password?</a
         >
         <button
@@ -59,7 +74,7 @@
           data-mdb-button-init
           data-mdb-ripple-init
           class="btn text-white fs-5 w-25"
-          style="background-color: #1e2d5b"
+          style="background-color: var(--primary-color);"
         >
           Login
         </button>
@@ -83,16 +98,18 @@
         <a
           href="#!"
           class="text-left text-decoration-none"
-          style="color: #2f3847"
+          style="color: var(--text-color);"
           >Don’t have an account?</a
         >
         <a
           href="#!"
           class="text-end text-decoration-none fw-bold fs- 1"
-          style="color: #1e2d5b"
+          style="color: var(--primary-color);"
           >Create account</a
         >
       </div>
     </form>
   </div>
 </section>
+
+

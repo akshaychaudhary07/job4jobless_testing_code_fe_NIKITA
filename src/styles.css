@@ -3,10 +3,32 @@
     padding: 0 rem;
     box-sizing: border-box;
     margin: auto;
-    font-family: 'Poppins', sans-serif;
-    color: #2F3847;
+    font-family: 'Montserrat';
+    color: var(--text-color);
 }
-body.login-page app-header,
-body.login-page app-footer {
-  display: none;
+.text-success i {
+  fill: green;
+  color: green;
+}
+.text-danger i {
+  fill: red;
+  color: red;
+}
+.text-warning i {
+  fill: yellow;
+  color: yellow;
+}
+.text-primary i {
+  fill: blue;
+  color: var(--primary-color);
+}
+
+/* ----------Colors----------  var(--primary-color); color: var(--text-color); */
+:root {
+  --primary-color: #1E2D5B;
+  --secondary-color: #00FFFF;
+  --background-color: #EBF3FE;
+  --text-color: #2F3847;
+  /* --success-color: #28a745;
+  --error-color: #dc3545; */
 }

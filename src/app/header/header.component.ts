@@ -12,6 +12,10 @@ import { NgModule } from '@angular/core';
 })
 
 export class HeaderComponent {
+  @Input() navItems: { label: string; link: string; isDropdown?: boolean; dropdownItems?: { label: string, link: string }[] }[] = [];
+  @Input() buttonText: string = 'Start Job Hunting'; // default text
+    @Input() buttonLink: string = ''
+  
   @ViewChild('navbarToggler') navbarToggler!: ElementRef;
   renderer: any;
   constructor(private zone: NgZone, renderer: Renderer2) {}

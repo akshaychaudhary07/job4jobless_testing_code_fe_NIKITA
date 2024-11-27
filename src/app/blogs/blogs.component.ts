@@ -10,6 +10,7 @@ import { InterviewAdviceComponent } from './interview-advice/interview-advice.co
 import { BottomSecComponent } from './bottom-sec/bottom-sec.component';
 import { AdviceCareerComponent } from './advice-career/advice-career.component';
 import { CareerObjectiveComponent } from './career-objective/career-objective.component';
+import { RelatedBlogComponent } from './related-blog/related-blog.component';
 
 
 
@@ -17,7 +18,7 @@ import { CareerObjectiveComponent } from './career-objective/career-objective.co
   selector: 'app-blogs',
   standalone: true,
   imports: [CommonModule,HeaderComponent,BlogBannerComponent,BlogsHeaderComponent,BlogSliderComponent,CareerAdviceComponent,LearnSkillsComponent,InterviewAdviceComponent
-    ,BottomSecComponent,AdviceCareerComponent,CareerObjectiveComponent
+    ,BottomSecComponent,AdviceCareerComponent,CareerObjectiveComponent,RelatedBlogComponent
   ],
   templateUrl: './blogs.component.html',
   styleUrl: './blogs.component.css'
@@ -27,4 +28,9 @@ export class BlogsComponent {
     title: 'How to Manage Time Effectively to Maintain Work-Life Balance',
     description: 'In today’s fast-paced work environment, we often lose track of maintaining our personal lives...'
   };
+
+
+
+
+
 }

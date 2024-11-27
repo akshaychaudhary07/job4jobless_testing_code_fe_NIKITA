@@ -1,0 +1,75 @@
+<section class="add-resume">
+  <div class="container mt-2">
+    <!-- <form [formGroup]="form" (ngSubmit)="onSubmit()" novalidate> -->
+    <form [formGroup]="form" (ngSubmit)="onContinue()" novalidate>
+      <!-- Upload Resume -->
+      <div class="mb-3">
+        <input
+          type="text"
+          id="uploadResume"
+          class="form-control bg-white"
+          style="border: 2px solid var(--primary-color); cursor: pointer"
+          placeholder="Upload Resume"
+          readonly
+          (click)="uploadResume()"
+          [value]="uploadedFileName"
+        />
+        <input
+          type="file"
+          id="resumeFile"
+          style="display: none"
+          (change)="onFileSelected($event)"
+        />
+      </div>
+
+      <!-- Divider -->
+      <div class="divider d-flex align-items-center my-4">
+        <p
+          class="text-center fw-bold mx-3 mb-0 text-muted"
+          style="color: var(--primary-color) !important"
+        >
+          OR
+        </p>
+      </div>
+
+      <!-- Create Resume -->
+      <div class="mb-3">
+        <input
+          type="text"
+          id="createResume"
+          class="form-control bg-white"
+          style="border: 2px solid var(--primary-color); cursor: pointer"
+          placeholder="Create Resume"
+          readonly
+          (click)="createResume()"
+        />
+      </div>
+
+      <!-- Error Message -->
+      <div
+        class="invalid-feedback d-block text-center mb-3"
+        *ngIf="showUploadError"
+        style="color: red"
+      >
+        Please upload your resume or select "Create Resume" to continue.
+      </div>
+
+      <!-- Continue Button -->
+      <!-- [disabled]="form.invalid" -->
+      <div class="btn d-flex justify-content-center">
+        <button
+          type="submit"
+          class="btn text-white"
+          style="
+            background-color: var(--primary-color);
+            padding-left: 2rem;
+            padding-right: 2rem;
+          "
+          (click)="onContinue()"
+        >
+          Continue
+        </button>
+      </div>
+    </form>
+  </div>
+</section>

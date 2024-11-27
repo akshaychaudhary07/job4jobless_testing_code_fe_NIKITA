@@ -1,4 +1,4 @@
-<footer class="container-fluid footer">
+<footer class="container-fluid footer bg-white" style="padding: 2em 0">
   <div class="container">
     <div class="row">
       <div class="col-md-5">
@@ -15,22 +15,15 @@
       <div class="col-md-2">
         <h6 class="fw-bold">Pages</h6>
         <ul class="list-unstyled">
-          <li><a (click)="scrollToTop()" routerLink="/home">Home</a></li>
-          <li>
-            <a (click)="scrollToTop()" routerLink="/about-us">About Us</a>
+          <li *ngFor="let link of footerLinks">
+            <a (click)="scrollToTop()" [routerLink]="link.link">{{ link.label }}</a>
           </li>
-          <li>
-            <a (click)="scrollToTop()" routerLink="/contact-us">Contact Us</a>
-          </li>
-          <li><a (click)="scrollToTop()" routerLink="/blogs">Blogs</a></li>
-          <li>
-            <a (click)="scrollToTop()" routerLink="/privacy-policy"
-              >Privacy Policy</a
-            >
-          </li>
-          <li><a (click)="scrollToTop()" routerLink="">Find Job</a></li>
         </ul>
+        
       </div>
+      <!-- --updated--ul-- -->
+
+      <!-- --updated--ul-- -->
       <div class="col-md-3">
         <h6 class="fw-bold">Contact Us</h6>
         <div class="address-details">
@@ -41,13 +34,13 @@
               UTTAR PRADESH - 201301
             </p>
           </div>
-          <div class="contact-details ">
+          <div class="contact-details">
             <!-- <p class="fs-5">Email:</p> -->
             <a
               href="mailto:info&#64;job4jobless.com"
-              class="text-decoration-none "
-              >info&#64;job4jobless.com <br></a
-            >
+              class="text-decoration-none"
+              >info&#64;job4jobless.com <br
+            /></a>
             <p class="pb-2"></p>
             <!-- <p class="fs-5">Contact No. :</p> -->
             <a href="tel:+919958360795" class="text-decoration-none"
@@ -157,7 +150,10 @@
       </div>
     </div>
   </div>
-  <div class="text-center mt-3 box p-3">
+  <div
+    class="text-center m-auto w-50 mt-3 box p-3"
+    style="border-top: 1px solid var(--background-color);"
+  >
     <p class="m-0">
       CopyRight &#64;2023 <span style="font-weight: bold">job4jobless</span>.
       All Rights Reserved.

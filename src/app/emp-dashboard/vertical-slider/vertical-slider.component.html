@@ -1,81 +1,60 @@
-<div
-  class="d-flex align-items-start"
-  style="
-    padding-left: 20px;
-    height: 100vh;
-    position: relative;
-    background: #ebf3fe;
-  "
->
-  <!-- Vertical Line -->
-  <div
-    class="position-absolute"
-    style="top: 0; bottom: 0; left: 4rem; width: 2px; background-color: #ddd"
-  ></div>
-
-  <!-- Circles Container -->
-  <div
-    class="d-flex flex-column align-items-center"
-    style="position: relative; margin-left: 20px"
-  >
-    <!-- Create Job Post Circle (First Circle) -->
-    <a
-      [routerLink]="['/create-job-post']" 
-      class="btn btn-circle mb-4"
-      role="button"
-      aria-label="Navigate to Create Job Post"
-      (click)="setActive(1)"
-    >
-      <div class="circle bg-primary"></div>
-    </a>
-
-    <!-- Other Circles (For other components) -->
-    <a
-      [routerLink]="['/component2']"
-      class="btn btn-circle mb-4"
-      role="button"
-      aria-label="Navigate to Component 2"
-      (click)="setActive(2)"
-    >
-      <div class="circle bg-primary"></div>
-    </a>
-    <a
-      [routerLink]="['/component3']"
-      class="btn btn-circle"
-      role="button"
-      aria-label="Navigate to Component 3"
-      (click)="setActive(3)"
-    >
-      <div class="circle bg-primary"></div>
-    </a>
-  </div>
-
-  <!-- Headings -->
-  <div class="d-flex flex-column align-items-start" style="margin-left: 3rem">
-    <h2
-      class="fw-bolder pb-3"
-      style="color: #1e2d5b!important; margin-bottom: 20px"
-      [ngClass]="{ 'text-muted': activeStep !== 1, 'text-primary': activeStep === 1 }"
-    >
-      Create a Job Post
-    </h2>
-
-    <div *ngIf="activeStep === 1">
-      <app-create-job-post></app-create-job-post> 
+<section class="vertical-slider d-flex" style="background: var(--background-color);">
+  <!-- Progress Bar and Dots -->
+  <div class="progress-container">
+    <!-- Step 1 -->
+    <div class="step-container">
+      <div
+        class="step-dot"
+        [ngClass]="{ active: activeStep === 1 }"
+        (click)="activateStep(1)"
+      ></div>
+      <h2
+        [ngClass]="{ 'active-heading': activeStep === 1, 'disabled-heading': activeStep !== 1 }"
+      >
+        Create a Job Post
+      </h2>
+      <div *ngIf="activeStep === 1" class="step-item">
+        <app-create-job-post></app-create-job-post>
+      </div>
     </div>
 
-    <h3
-      [ngClass]="{ 'text-muted': activeStep !== 2, 'text-primary': activeStep === 2 }"
-    >
-      Heading 2
-    </h3>
-    <h3
-      [ngClass]="{ 'text-muted': activeStep !== 3, 'text-primary': activeStep === 3 }"
-    >
-      Heading 3
-    </h3>
+    <!-- Step 2 -->
+    <div class="step-container">
+      <div
+        class="step-dot"
+        [ngClass]="{ active: activeStep === 2 }"
+        (click)="activateStep(2)"
+      ></div>
+      <h2
+        [ngClass]="{ 'active-heading': activeStep === 2, 'disabled-heading': activeStep !== 2 }"
+      >
+        Job Details
+      </h2>
+      <div *ngIf="activeStep === 2" class="step-item">
+        <app-job-details></app-job-details>
+      </div>
+    </div>
+
+    <!-- Step 3 -->
+    <div class="step-container">
+      <div
+        class="step-dot"
+        [ngClass]="{ active: activeStep === 3 }"
+        (click)="activateStep(3)"
+      ></div>
+      <h2
+        [ngClass]="{ 'active-heading': activeStep === 3, 'disabled-heading': activeStep !== 3 }"
+      >
+        Review your Job Post
+      </h2>
+      <div *ngIf="activeStep === 3" class="step-item">
+        <app-review-job-post></app-review-job-post>
+      </div>
+    </div>
   </div>
-</div>
+</section>
+
+
 
 
 <!-- <app-create-job-post></app-create-job-post> -->

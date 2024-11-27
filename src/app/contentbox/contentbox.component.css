@@ -1,32 +1,11 @@
 
- .banner-text {
-    padding: 1.5rem 0;
-    background-color: #1E2D5B;
-}
-.head-btn {
-    background: #1E2D5B;
-    color: white;
-    border-radius: 10px;
-    padding: 12px !important;
-    flex-shrink: 0;
-}
 .no-border-input {
     border: none;
     outline: none; 
-    transition: border 0.3s; 
     flex: 1;
 }
 .flex-box input:nth-child(2) {
     border-left: 1px solid #e2dada;
-}
-.flex-box{
-    border: 1px solid;
-    border-radius: 12px;
-    padding: 1.2rem;
-    overflow: hidden;
-}
-.custom-width{
-    width: 15%;
 }
 @media (max-width: 768px) {
     .flex-box input:nth-child(2){
@@ -43,7 +22,7 @@
         min-width: 0; 
     }
     .custom-width{
-        width: 100%;
+        width: 100%!important;
         text-align: center !important;
     }
     .head-btn{
@@ -53,5 +32,4 @@
     .flex-box input:nth-child(2){
         border-left: none!important;
     }
-
 }
