@@ -4,11 +4,12 @@ import { VerticalSliderComponent } from '../vertical-slider/vertical-slider.comp
 import { Router, RouterLink } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { Dropdown } from 'bootstrap';
+import { JobPostSubmittedComponent } from '../job-post-submitted/job-post-submitted.component';
 
 @Component({
   selector: 'app-job-details',
   standalone: true,
-  imports: [CommonModule,VerticalSliderComponent,RouterLink,FormsModule,JobDetailsComponent],
+  imports: [CommonModule,VerticalSliderComponent,RouterLink,FormsModule,JobDetailsComponent,JobPostSubmittedComponent],
   templateUrl: './job-details.component.html',
   styleUrl: './job-details.component.css'
 })

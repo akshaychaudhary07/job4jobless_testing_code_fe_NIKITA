@@ -1,0 +1,48 @@
+<section
+  class="form-submit"
+  style="background-color: var(--background-color); padding: 1rem"
+>
+  <div
+    class="container bg-white text-center my-5"
+    style="padding: 5.5rem; border-radius: 14px"
+  >
+    <!-- Big Blue Icon -->
+    <div>
+      <i class="bi bi-check-circle-fill text-primary display-1"></i>
+    </div>
+
+    <!-- Heading -->
+    <h2 class="mt-4" style="color: var(--primary-color)">Job Post Submitted</h2>
+
+    <div class="box d-flex flex-column text-start ">
+      <!-- First Tick Icon and Text -->
+      <div class="d-flex text-start mt-3" style="gap: 15px">
+        <i class="bi bi-check-circle-fill text-success"></i>
+        <span class="">
+          You will get an email confirmation at
+          <strong>xyx.xyx09&#64;gmail.com</strong>
+        </span>
+      </div>
+
+      <!-- Second Tick Icon and Text -->
+      <div class="d-flex text-start mt-3" style="gap: 15px">
+        <i class="bi bi-check-circle-fill text-success"></i>
+        <span class="">
+          Thank You for Posting! We Typically Review and Respond to Job Posts
+          Within 1 Day.
+        </span>
+      </div>
+    </div>
+
+    <!-- Back to Job Search Button -->
+    <div class="mt-5">
+      <button
+        class="btn text-white px-4 py-2"
+        (click)="backToHome()"
+        style="background-color: var(--primary-color)"
+      >
+        Back to Home
+      </button>
+    </div>
+  </div>
+</section>

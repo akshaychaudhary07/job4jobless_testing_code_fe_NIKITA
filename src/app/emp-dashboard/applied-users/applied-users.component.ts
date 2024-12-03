@@ -1,11 +1,12 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
 import { EmpDashboardComponent } from '../emp-dashboard.component';
+import { JobPostSubmittedComponent } from '../job-post-submitted/job-post-submitted.component';
 
 @Component({
   selector: 'app-applied-users',
   standalone: true,
-  imports: [CommonModule,EmpDashboardComponent],
+  imports: [CommonModule,EmpDashboardComponent,JobPostSubmittedComponent],
   templateUrl: './applied-users.component.html',
   styleUrl: './applied-users.component.css'
 })

@@ -23,6 +23,7 @@ import { AboutUsComponent } from './about-us/about-us.component';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
+  showNotificationIcon: boolean = false; // Add this line
   isSpecialRoute = false;
   hideHeader = false; // Controls header visibility
   hideFooter = false; // Controls footer visibility
@@ -88,22 +89,26 @@ export class AppComponent implements OnInit {
       url.includes('/post-job') ||
       url.includes('/approved-jobs') ||
       url.includes('/rejected-jobs') ||
-      url.includes('/applied-users') // Include applied-users in dashboard-specific logic
+      url.includes('/applied-users') ||// Include applied-users in dashboard-specific logic
+      url.includes('/job-post-submitted') 
     ) {
       this.isSpecialRoute = true;
       this.hideHeader = false;
       this.hideFooter = false;
       this.navItems = this.dashboardNavItems;
+      this.showNotificationIcon = true; // Show notification icon
     } else if (url.includes('/employer') || url.includes('/hiring-solution')) {
       this.isSpecialRoute = true;
       this.hideHeader = false;
       this.hideFooter = false;
       this.navItems = this.employerNavItems; 
+      this.showNotificationIcon = false; // Hide notification icon
     } else {
       this.isSpecialRoute = false;
       this.hideHeader = false;
       this.hideFooter = false;
       this.navItems = this.defaultNavItems;
+      this.showNotificationIcon = false; // Hide notification icon
     }
     console.log('Current navItems:', this.navItems);
   }

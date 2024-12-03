@@ -1,0 +1,77 @@
+<section class="feedback">
+  <div
+    class="container text-center"
+    style="padding: 2rem; background-color: var(--background-color);padding-bottom: 5rem;"
+  >
+    <!-- Heading -->
+    <h1 class="fw-bolder fs-1" style="color: var(--primary-color)">
+      Your Feedback, Our Progress!
+    </h1>
+    <p>Share your feedback to help us improve your job search experience!</p>
+    <p class="mt-5">How was your experience?</p>
+
+    <!-- Star Rating -->
+    <div class="d-flex justify-content-center mb-3" style="gap: 16px">
+      <i
+        class="bi bi-star-fill m-0"
+        *ngFor="let star of stars; let i = index"
+        [ngClass]="star ? 'text-primary' : 'text-secondary'"
+        style="font-size: 1.5rem; cursor: pointer"
+        (click)="toggleStar(i)"
+      ></i>
+    </div>
+
+    <!-- Feedback Form -->
+    <form [formGroup]="feedbackForm" (ngSubmit)="onSubmit()" class="w-50">
+      <div class="mb-3">
+        <input
+          type="text"
+          formControlName="name"
+          class="form-control"
+          placeholder="Name"
+          style="padding: 1.5rem; padding-left: 1rem"
+        />
+      </div>
+      <div class="mb-3">
+        <input
+          type="email"
+          formControlName="email"
+          class="form-control"
+          placeholder="Email"
+          style="padding: 1.5rem; padding-left: 1rem"
+        />
+      </div>
+      <div class="mb-3">
+        <textarea
+          formControlName="feedback"
+          class="form-control"
+          rows="7"
+          placeholder="Describe Your Experience Here..."
+        ></textarea>
+      </div>
+      <div class="form-check mb-3 text-start">
+        <input
+          type="checkbox"
+          class="form-check-input"
+          formControlName="consent"
+          id="consentCheckbox"
+        />
+        <label class="form-check-label" for="consentCheckbox">
+          I am open to being contacted for any upcoming feedback initiatives.
+        </label>
+      </div>
+      <button
+        type="submit"
+        class="btn btn-primary mt-2 px-4 text-white fw-bolder fs-4"
+        style="
+          background-color: var(--primary-color);
+          padding-left: 3rem !important;
+          padding-right: 3rem !important;
+        "
+      >
+        SEND
+      </button>
+    </form>
+  </div>
+</section>
+<!-- [disabled]="feedbackForm.invalid" -->

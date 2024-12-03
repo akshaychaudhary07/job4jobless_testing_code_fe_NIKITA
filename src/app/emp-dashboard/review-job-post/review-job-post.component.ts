@@ -2,13 +2,14 @@ import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { VerticalSliderComponent } from '../vertical-slider/vertical-slider.component';
 import { FormsModule, NgForm } from '@angular/forms';
-import { Router, RouterLink } from '@angular/router';
+import { Router, RouterLink, RouterModule } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { JobPostSubmittedComponent } from '../job-post-submitted/job-post-submitted.component';
 
 @Component({
   selector: 'app-review-job-post',
   standalone: true,
-  imports: [CommonModule,VerticalSliderComponent,FormsModule,RouterLink],
+  imports: [CommonModule,VerticalSliderComponent,FormsModule,RouterLink,JobPostSubmittedComponent,RouterModule],
   templateUrl: './review-job-post.component.html',
   styleUrl: './review-job-post.component.css'
 })
@@ -29,7 +30,10 @@ export class ReviewJobPostComponent {
 isDisabled = true; // Fields and buttons are disabled by default
 
 constructor(private router: Router) {}
-
+submitbtn(): void {
+  // Perform any validation or logic if needed
+  this.router.navigate(['/job-post-submitted']); // Adjust the route to your desired target
+}
 // Enable fields and buttons on form click
 enableFields(): void {
   this.isDisabled = false;
@@ -58,4 +62,5 @@ isEditable = false;
 toggleEdit() {
   this.isEditable = !this.isEditable;
 }
+ 
 }

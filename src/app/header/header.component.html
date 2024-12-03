@@ -64,10 +64,39 @@
             </div>
           </li>
         </ul>
-        <!-- routerLink="/login-page" -->
+        <!-- Notification Button (Only show on specific routes) -->
         <button
+          *ngIf="showNotificationIcon"
           type="button"
-         
+          [routerLink]="buttonLink"
+          class="btn btn-custom rounded-pill btn head-btn text-white"
+          tabindex="0"
+        >
+          <span class=""
+            ><i class="fa-solid fa-bell" style="color: var(--primary-color)"></i
+          ></span>
+        </button>
+
+        <!-- Admin Icon (Only show when notification icon is shown) -->
+        <span *ngIf="showNotificationIcon">
+          <button
+            type="button"
+            class="btn btn-custom rounded-pill btn head-btn text-white"
+            tabindex="0"
+          >
+            <span class=""
+              ><i
+                class="fa-solid fa-user"
+                style="color: var(--primary-color)"
+              ></i
+            ></span>
+          </button>
+        </span>
+
+        <!-- Regular Button (Shows in other components) -->
+        <button
+          *ngIf="!showNotificationIcon"
+          type="button"
           [routerLink]="buttonLink"
           class="btn btn-custom rounded-pill btn head-btn text-white"
           tabindex="0"

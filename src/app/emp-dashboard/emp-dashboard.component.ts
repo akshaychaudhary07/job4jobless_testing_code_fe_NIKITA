@@ -8,12 +8,15 @@ import { JobDetailsComponent } from './job-details/job-details.component';
 import { VerticalSliderComponent } from './vertical-slider/vertical-slider.component';
 import { PostJobComponent } from './post-job/post-job.component';
 import { AppliedUsersComponent } from './applied-users/applied-users.component';
+import { JobPostSubmittedComponent } from './job-post-submitted/job-post-submitted.component';
 
 
 @Component({
   selector: 'app-emp-dashboard',
   standalone: true,
-  imports: [CommonModule, RouterModule,CreateJobPostComponent,ReviewJobPostComponent,JobDetailsComponent,VerticalSliderComponent,PostJobComponent,AppliedUsersComponent],  // Include HeaderComponent
+  imports: [CommonModule, RouterModule,CreateJobPostComponent,ReviewJobPostComponent,JobDetailsComponent,VerticalSliderComponent,PostJobComponent,AppliedUsersComponent
+    ,JobPostSubmittedComponent
+  ],  // Include HeaderComponent
   templateUrl: './emp-dashboard.component.html',
   styleUrls: ['./emp-dashboard.component.css']
 })

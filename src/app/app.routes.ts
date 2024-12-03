@@ -21,6 +21,9 @@ import { LoginJobsComponent } from './find-jobs/login-jobs/login-jobs.component'
 import { AddDetailsComponent } from './find-jobs/add-details/add-details.component';
 import { AddResumeComponent } from './find-jobs/add-details/add-resume/add-resume.component';
 import { FormSubmitComponent } from './find-jobs/add-details/form-submit/form-submit.component';
+import { FeedbackComponent } from './feedback/feedback.component';
+import { JobPostSubmittedComponent } from './emp-dashboard/job-post-submitted/job-post-submitted.component';
+import { CreateJobPostComponent } from './emp-dashboard/create-job-post/create-job-post.component';
 
 
 
@@ -47,6 +50,9 @@ export const routes: Routes = [
   {path: 'login-jobs', component:LoginJobsComponent},
   {path: 'add-details', component:AddDetailsComponent},
   {path:'app-form-submit',component:FormSubmitComponent},
+  {path:'feedback',component:FeedbackComponent},
+  {path:'job-post-submitted',component:JobPostSubmittedComponent},
+
  
 
   // { path: 'applied-users', component: AppliedUsersComponent }, 

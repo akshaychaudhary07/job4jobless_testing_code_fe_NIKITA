@@ -15,6 +15,7 @@ export class HeaderComponent {
   @Input() navItems: { label: string; link: string; isDropdown?: boolean; dropdownItems?: { label: string, link: string }[] }[] = [];
   @Input() buttonText: string = 'Start Job Hunting'; // default text
     @Input() buttonLink: string = ''
+    @Input() showNotificationIcon: boolean = false; // Accept the input
   
   @ViewChild('navbarToggler') navbarToggler!: ElementRef;
   renderer: any;

@@ -20,8 +20,10 @@ export class FooterComponent implements OnInit {
     { label: 'About Us', link: '/about-us' },
     { label: 'Contact Us', link: '/contact-us' },
     { label: 'Blogs', link: '/blogs' },
-    { label: 'Privacy Policy', link: '/privacy-policy' },
-    { label: 'Find Job', link: '/find-job' },
+    { label: 'Employer', link: '/employer' },
+    { label: 'Company', link: '/company' },
+    { label: 'Find Jobs', link: '/find-jobs' },
+    { label: 'Feedback', link: '/feedback' },
   ];
 
   // Define alternative footer links (for specific pages)

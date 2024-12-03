@@ -3,11 +3,12 @@ import { Router, RouterLink } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { VerticalSliderComponent } from '../vertical-slider/vertical-slider.component';
+import { JobPostSubmittedComponent } from '../job-post-submitted/job-post-submitted.component';
 
 @Component({
   selector: 'app-create-job-post',
   standalone: true,
-  imports: [CommonModule, FormsModule,RouterLink,VerticalSliderComponent],
+  imports: [CommonModule, FormsModule,RouterLink,VerticalSliderComponent,JobPostSubmittedComponent],
   templateUrl: './create-job-post.component.html',
   styleUrls: ['./create-job-post.component.css']
 })

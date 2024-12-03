@@ -1,0 +1,13 @@
+.text-secondary {
+    --bs-text-opacity: 1;
+    color: white!important;
+}
+.text-primary {
+    --bs-text-opacity: 1;
+    color: var(--primary-color)!important;
+}
+@media (max-width:600px){
+    form{
+    width: 100%!important;
+}
+}
