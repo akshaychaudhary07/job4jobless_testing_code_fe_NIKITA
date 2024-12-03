@@ -1,0 +1,30 @@
+.first{
+    font-size: 5rem;
+    color: #f2f26fe0;
+}
+i.fas.first.fa-exclamation {
+    border-radius: 50%;
+    border: 2px solid;
+    background: red;
+    font-size: 2rem;
+    padding: 0.8rem;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    color: white;
+}
+.dot {
+    width: 10px; /* Adjust size */
+    height: 10px;
+    border-radius: 50%; /* Make it a circle */
+    background-color: var(--primary-color);
+    position: absolute; /* Position it relative to the card */
+    top: -23px;
+  }
+  .bg-light {
+    background-color: rgb(226 231 236) !important;
+}
+@media (max-width:600px){
+    .card {
+        width: fit-content!important;
+    }
+}

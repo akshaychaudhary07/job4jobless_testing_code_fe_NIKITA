@@ -24,6 +24,8 @@ import { FormSubmitComponent } from './find-jobs/add-details/form-submit/form-su
 import { FeedbackComponent } from './feedback/feedback.component';
 import { JobPostSubmittedComponent } from './emp-dashboard/job-post-submitted/job-post-submitted.component';
 import { CreateJobPostComponent } from './emp-dashboard/create-job-post/create-job-post.component';
+import { NotificationComponent } from './emp-dashboard/notification/notification.component';
+import { NoNotificationComponent } from './emp-dashboard/notification/no-notification/no-notification.component';
 
 
 
@@ -52,6 +54,8 @@ export const routes: Routes = [
   {path:'app-form-submit',component:FormSubmitComponent},
   {path:'feedback',component:FeedbackComponent},
   {path:'job-post-submitted',component:JobPostSubmittedComponent},
+  {path:'notification',component:NotificationComponent},
+  {path:'no-notification',component:NoNotificationComponent},
 
  
 

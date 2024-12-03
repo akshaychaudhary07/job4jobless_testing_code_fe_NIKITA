@@ -1,0 +1,68 @@
+<section
+  class="notifications"
+  style="background-color: var(--background-color)"
+>
+  <div class="container" style="padding: 3rem">
+    <!-- Notifications Header -->
+    <div class="d-flex justify-content-between align-items-center mb-4">
+      <h1 class="fw-bolder fs-1"  style="color: var(--primary-color)" (click)="navigateToNoNotifications()">
+        Notifications
+      </h1>
+      <h6
+        (click)="markAllRead()"
+        class="cursor-pointer"
+        style="color: var(--primary-color)"
+      >
+        Mark all read
+      </h6>
+    </div>
+
+    <!-- Notification Boxes (Row-wise) -->
+    <div class="row">
+      <div class="col-12 mb-4" *ngFor="let notification of notifications">
+        <div
+          class="card border-0 position-relative"
+          [ngClass]="{ 'bg-light': notification.status === 'read' }" 
+          style="width: 65%; border-radius: 15px; padding: 1rem"
+        >
+          <div class="card-body m-0">
+            <!-- Notification Content -->
+            <div class="d-flex m-0">
+              <!-- Icon Section -->
+              <div class="notification-icon m-0">
+                <i class="fas first" [ngClass]="notification.icon"></i>
+              </div>
+
+              <div class="ms-3">
+                <!-- Heading -->
+                <h6 class="fw-bolder">{{ notification.heading }}</h6>
+                <!-- Message -->
+                <p>{{ notification.message }}</p>
+              </div>
+            </div>
+
+            <!-- Time Section -->
+            <div class="d-flex mt-3 " style="float: right; flex-direction: column-reverse;">
+              <div class="m-0" *ngIf="notification.status === 'unread'">
+                <p><span class=""></span> Now</p>
+              </div>
+              <div class="m-0" *ngIf="notification.status === 'read'">
+                <p>{{ notification.time }}</p>
+              </div>
+              <div class="position-relative">
+                <span
+                  *ngIf="notification.status === 'unread'"
+                  class="dot"
+                ></span>
+              </div>
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+  </div>
+</section>
+

@@ -65,16 +65,33 @@
           </li>
         </ul>
         <!-- Notification Button (Only show on specific routes) -->
+        <!-- Notification Button (Only show on specific routes) -->
         <button
           *ngIf="showNotificationIcon"
+          (click)="navigateToNotifications()"
           type="button"
-          [routerLink]="buttonLink"
-          class="btn btn-custom rounded-pill btn head-btn text-white"
+          class="btn btn-custom rounded-pill btn head-btn text-white position-relative"
           tabindex="0"
         >
-          <span class=""
-            ><i class="fa-solid fa-bell" style="color: var(--primary-color)"></i
-          ></span>
+          <!-- Bell Icon -->
+          <span>
+            <i class="fa-solid fa-bell" style="color: var(--primary-color)"></i>
+          </span>
+
+          <!-- Notification Badge -->
+          <span
+            *ngIf="unreadCount > 0"
+            class="position-absolute top-0 start-100 translate-middle badge rounded-circle"
+            style="
+              font-size: 0.75rem;
+              padding: 8px;
+              background-color: var(--secondary-color);
+              color: var(--primary-color);
+            "
+          >
+            {{ unreadCount }}
+            <span class="visually-hidden">unread notifications</span>
+          </span>
         </button>
 
         <!-- Admin Icon (Only show when notification icon is shown) -->

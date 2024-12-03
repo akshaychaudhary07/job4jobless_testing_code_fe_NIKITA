@@ -9,13 +9,15 @@ import { VerticalSliderComponent } from './vertical-slider/vertical-slider.compo
 import { PostJobComponent } from './post-job/post-job.component';
 import { AppliedUsersComponent } from './applied-users/applied-users.component';
 import { JobPostSubmittedComponent } from './job-post-submitted/job-post-submitted.component';
+import { NotificationComponent } from './notification/notification.component';
+import { NoNotificationComponent } from './notification/no-notification/no-notification.component';
 
 
 @Component({
   selector: 'app-emp-dashboard',
   standalone: true,
   imports: [CommonModule, RouterModule,CreateJobPostComponent,ReviewJobPostComponent,JobDetailsComponent,VerticalSliderComponent,PostJobComponent,AppliedUsersComponent
-    ,JobPostSubmittedComponent
+    ,JobPostSubmittedComponent,NotificationComponent,NoNotificationComponent
   ],  // Include HeaderComponent
   templateUrl: './emp-dashboard.component.html',
   styleUrls: ['./emp-dashboard.component.css']

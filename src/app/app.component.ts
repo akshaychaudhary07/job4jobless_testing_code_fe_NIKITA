@@ -90,7 +90,9 @@ export class AppComponent implements OnInit {
       url.includes('/approved-jobs') ||
       url.includes('/rejected-jobs') ||
       url.includes('/applied-users') ||// Include applied-users in dashboard-specific logic
-      url.includes('/job-post-submitted') 
+      url.includes('/job-post-submitted') ||
+      url.includes('/notification') ||
+      url.includes('/no-notification')
     ) {
       this.isSpecialRoute = true;
       this.hideHeader = false;
@@ -130,3 +132,4 @@ export class AppComponent implements OnInit {
     }
   }
 }
+
