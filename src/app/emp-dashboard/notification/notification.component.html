@@ -19,7 +19,7 @@
 
     <!-- Notification Boxes (Row-wise) -->
     <div class="row">
-      <div class="col-12 mb-4" *ngFor="let notification of notifications">
+      <div class="col-12 mb-4" *ngFor="let notification of notifications" (click)="markAsRead(notification)">
         <div
           class="card border-0 position-relative"
           [ngClass]="{ 'bg-light': notification.status === 'read' }" 

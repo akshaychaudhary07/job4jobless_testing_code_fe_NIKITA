@@ -58,7 +58,11 @@ export class NotificationComponent implements OnInit {
       notification.status = 'read'; // Mark all notifications as read
     });
   }
-
+  markAsRead(notification: any) {
+    if (notification.status === 'unread') {
+      notification.status = 'read'; // Change the status to read
+    }
+  }
 
     // Navigate to the notification page when the notification icon is clicked
     navigateToNoNotifications(): void {
