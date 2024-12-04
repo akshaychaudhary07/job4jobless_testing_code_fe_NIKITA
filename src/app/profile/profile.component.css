@@ -18,13 +18,30 @@ a.list-group-item.list-group-item-action:hover i {
 .cus-class{
     padding-right: 0rem!important;
 }
+.table>:not(caption)>*>* {
+    padding: 0.8rem 1rem;
+}
 @media (max-width:600px){
     .card{
         width: fit-content!important;
         margin-bottom: 6rem !important;
     }
-    .circle {
-        height: 60px!important;
-        width: 60px!important;
+    .card-text{
+        padding: 1rem !important;
+    }
+    .container-fluid{
+        padding: 0rem;
+    }
+    .card-data{
+        padding: 0rem!important;
+    }
+    .cus-flex{
+        flex-wrap: wrap;
+        gap: 7px;
+    }
+    .cus-border{
+        border-top-right-radius: 8px!important;
+        border-bottom-right-radius: 8px!important;
+        border-right: 1px solid #dee2e6!important;
     }
 }

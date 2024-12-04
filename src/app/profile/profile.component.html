@@ -45,28 +45,18 @@
       <!-- Main Content -->
       <div
         class="col-md-10 p-4 cus-pad"
-        style="background-color: var(--background-color); min-height: 100%;"
+        style="background-color: var(--background-color); min-height: 100%"
       >
         <!-- Name -->
         <h1 class="fw-bold mb-4 pt-3 pb-3" style="color: var(--primary-color)">
           {{ selectedItem }}
         </h1>
+        <!-- Cards For Account -->
         <div
-          class="card shadow-sm p-4 m-0 border-0 "
-          style="border-radius: 10px; position: relative;width: 80%;"
+          *ngIf="selectedItem === 'Account'"
+          class="card shadow-sm p-4 m-0 border-0"
+          style="border-radius: 10px; position: relative; width: 80%"
         >
-          <!-- Top Circle -->
-          <div
-            class="position-absolute circle"
-            style="
-              right: 2rem;
-              height: 100px;
-              width: 100px;
-              background-color: var(--secondary-color);
-              border-radius: 50%;
-            "
-          ></div>
-
           <div class="card-body m-0">
             <h5 class="fw-bold fs-4 pb-2">Name</h5>
             <p style="margin-bottom: 0.5rem">
@@ -91,7 +81,7 @@
             <!-- Description -->
             <h6 class="fs-5 pt-4">Description</h6>
             <div
-              class="text  m-0 p-2"
+              class="text m-0 p-2"
               style="border: 2px solid #eceffa; border-radius: 10px"
             >
               It is a long established fact that a reader will be distracted by
@@ -106,8 +96,396 @@
             </div>
           </div>
         </div>
+
+        <!-- Card for Password -->
+        <div
+          *ngIf="selectedItem === 'Password'"
+          class="card shadow-sm p-4 m-0 border-0"
+          style="border-radius: 10px; position: relative; width: 80%"
+        >
+          <div class="card-body m-0 mt-5 mb-5">
+            <form #passwordForm="ngForm" (ngSubmit)="onSubmit(passwordForm)">
+              <!-- Employee Email -->
+              <div class="mb-3">
+                <input
+                  type="email"
+                  id="email"
+                  class="form-control"
+                  name="email"
+                  [(ngModel)]="employee.email"
+                  placeholder="Employee Email*"
+                  required
+                  email
+                  #emailInput="ngModel"
+                  style="padding: 23px"
+                />
+                <div
+                  class="text-danger"
+                  *ngIf="emailInput.invalid && emailInput.touched"
+                >
+                  Please enter a valid email address.
+                </div>
+              </div>
+
+              <!-- Current Password -->
+              <div class="mb-3">
+                <input
+                  type="password"
+                  id="currentPassword"
+                  class="form-control"
+                  name="currentPassword"
+                  placeholder="Current Password*"
+                  [(ngModel)]="employee.currentPassword"
+                  required
+                  minlength="6"
+                  #currentPasswordInput="ngModel"
+                  (ngModelChange)="validatePasswords()"
+                  style="padding: 23px"
+                />
+                <div
+                  class="text-danger"
+                  *ngIf="passwordsConflict && currentPasswordInput.touched"
+                >
+                  Current password must not match the new password.
+                </div>
+              </div>
+
+              <!-- New Password -->
+              <div class="mb-3">
+                <input
+                  type="password"
+                  id="newPassword"
+                  class="form-control"
+                  name="newPassword"
+                  placeholder="New Password*"
+                  [(ngModel)]="employee.newPassword"
+                  required
+                  minlength="6"
+                  #newPasswordInput="ngModel"
+                  (ngModelChange)="validatePasswords()"
+                  style="padding: 23px"
+                />
+                <div
+                  class="text-danger"
+                  *ngIf="newPasswordInput.invalid && newPasswordInput.touched"
+                >
+                  Password must be at least 6 characters long.
+                </div>
+              </div>
+
+              <!-- Verify Password -->
+              <div class="mb-3">
+                <input
+                  type="password"
+                  placeholder="Verify Password*"
+                  id="verifyPassword"
+                  class="form-control"
+                  name="verifyPassword"
+                  [(ngModel)]="employee.verifyPassword"
+                  required
+                  #verifyPasswordInput="ngModel"
+                  (ngModelChange)="validatePasswords()"
+                  style="padding: 23px"
+                />
+                <div
+                  class="text-danger"
+                  *ngIf="passwordsMismatch && verifyPasswordInput.touched"
+                >
+                  Passwords do not match.
+                </div>
+              </div>
+
+              <!-- Save Changes Button -->
+              <div class="text-center">
+                <button
+                  type="submit"
+                  style="
+                    background-color: var(--primary-color);
+                    padding-left: 26px;
+                    padding-right: 26px;
+                  "
+                  class="btn text-white fs-5 mt-3"
+                  [disabled]="
+                    passwordForm.invalid ||
+                    passwordsMismatch ||
+                    passwordsConflict
+                  "
+                >
+                  Save Changes
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+
+        <!-- Card for Your Data -->
+        <div
+          *ngIf="selectedItem === 'Your Data'"
+          class="card card-text shadow-sm p-4 m-0 border-0 mb-5"
+          style="border-radius: 10px; position: relative"
+        >
+          <div class="card-body m-0 card-data" style="padding: 2rem">
+            <div class="table-responsive">
+              <table
+                class="table"
+                style="
+                  border-collapse: collapse;
+                  width: 100%;
+                  border: 2px solid #dee2e6;
+                "
+              >
+                <tbody>
+                  <tr>
+                    <td
+                      class="fw-bold"
+                      style="border: 2px solid #dee2e6; width: 14%"
+                    >
+                      First Name
+                    </td>
+                    <td style="border: 2px solid #dee2e6">
+                      <span *ngIf="!isEditing">{{ tableData.firstName }}</span>
+                      <input
+                        *ngIf="isEditing"
+                        type="text"
+                        [(ngModel)]="tableData.firstName"
+                        class="form-control"
+                      />
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="fw-bold" style="border: 2px solid #dee2e6">
+                      Last Name
+                    </td>
+                    <td style="border: 2px solid #dee2e6">
+                      <span *ngIf="!isEditing">{{ tableData.lastName }}</span>
+                      <input
+                        *ngIf="isEditing"
+                        type="text"
+                        [(ngModel)]="tableData.lastName"
+                        class="form-control"
+                      />
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="fw-bold" style="border: 2px solid #dee2e6">
+                      Company
+                    </td>
+                    <td style="border: 2px solid #dee2e6">
+                      <span *ngIf="!isEditing">{{ tableData.company }}</span>
+                      <input
+                        *ngIf="isEditing"
+                        type="text"
+                        [(ngModel)]="tableData.company"
+                        class="form-control"
+                      />
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="fw-bold" style="border: 2px solid #dee2e6">
+                      Email
+                    </td>
+                    <td style="border: 2px solid #dee2e6">
+                      <span *ngIf="!isEditing">{{ tableData.email }}</span>
+                      <input
+                        *ngIf="isEditing"
+                        type="email"
+                        [(ngModel)]="tableData.email"
+                        class="form-control"
+                      />
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="fw-bold" style="border: 2px solid #dee2e6">
+                      Phone
+                    </td>
+                    <td style="border: 2px solid #dee2e6">
+                      <span *ngIf="!isEditing">{{ tableData.phone }}</span>
+                      <input
+                        *ngIf="isEditing"
+                        type="text"
+                        [(ngModel)]="tableData.phone"
+                        class="form-control"
+                      />
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="fw-bold" style="border: 2px solid #dee2e6">
+                      Country
+                    </td>
+                    <td style="border: 2px solid #dee2e6">
+                      <span *ngIf="!isEditing">{{ tableData.country }}</span>
+                      <input
+                        *ngIf="isEditing"
+                        type="text"
+                        [(ngModel)]="tableData.country"
+                        class="form-control"
+                      />
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="fw-bold" style="border: 2px solid #dee2e6">
+                      State
+                    </td>
+                    <td style="border: 2px solid #dee2e6">
+                      <span *ngIf="!isEditing">{{ tableData.state }}</span>
+                      <input
+                        *ngIf="isEditing"
+                        type="text"
+                        [(ngModel)]="tableData.state"
+                        class="form-control"
+                      />
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="fw-bold" style="border: 2px solid #dee2e6">
+                      City
+                    </td>
+                    <td style="border: 2px solid #dee2e6">
+                      <span *ngIf="!isEditing">{{ tableData.city }}</span>
+                      <input
+                        *ngIf="isEditing"
+                        type="text"
+                        [(ngModel)]="tableData.city"
+                        class="form-control"
+                      />
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="fw-bold" style="border: 2px solid #dee2e6">
+                      Description
+                    </td>
+                    <td style="border: 2px solid #dee2e6">
+                      <span *ngIf="!isEditing">{{
+                        tableData.description
+                      }}</span>
+                      <textarea
+                        *ngIf="isEditing"
+                        [(ngModel)]="tableData.description"
+                        class="form-control"
+                        rows="3"
+                      ></textarea>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <!-- Update and Save Buttons -->
+            <div class="text-center">
+              <button
+                *ngIf="!isEditing"
+                (click)="enableEditing()"
+                style="
+                  background-color: var(--primary-color);
+                  padding: 0.5rem 2rem;
+                "
+                class="btn text-white fs-5 mt-3"
+              >
+                Update Profile
+              </button>
+              <button
+                *ngIf="isEditing"
+                (click)="saveChanges()"
+                style="
+                  background-color: var(--primary-color);
+                  padding: 0.5rem 2rem;
+                "
+                class="btn text-white fs-5 mt-3"
+              >
+                Save Changes
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card for Delete Account -->
+        <div
+          *ngIf="selectedItem === 'Delete Account'"
+          class="card shadow-sm p-4 m-0 border-0"
+          style="border-radius: 10px; position: relative; width: 80%"
+        >
+        <div *ngIf="!showDeleteConfirmationCard" class="card-body m-0">
+          <!-- Confirmation Text -->
+          <p>You are about to delete the following account:</p>
+          <ul style="padding: 0rem 1.5rem">
+            <li><strong>Username:</strong> xyz.yxz98&#64;gmail.com</li>
+            <li><strong>Employee Name:</strong> xyz zxy</li>
+          </ul>
+          <p>This action cannot be undone. Are you sure you want to proceed?</p>
+        
+          <!-- Delete Account Button -->
+          <div class="delbtn text-center">
+            <button
+              class="btn text-white"
+              (click)="showDeleteConfirmation()"
+              style="background-color: var(--primary-color); padding: 0.5rem 2rem;"
+              [disabled]="isDeleting"
+            >
+              <span *ngIf="!isDeleting" style="color: white; font-size: 1.3rem">Delete Account</span>
+              <span *ngIf="isDeleting">Deleting...</span>
+            </button>
+          </div>
+        
+          <!-- Success Message -->
+          <p *ngIf="isDeleted" class="text-success mt-3">
+            Account has been successfully deleted!
+          </p>
+        </div>
+        
+        <!-- ---------After confirmation of Deletion ----------- -->
+        <div *ngIf="showDeleteConfirmationCard" class="card-body m-0">
+          <!-- Warning Text -->
+          <p>
+            Deleting your account will remove all of your information from our database.<br />
+            <span>This cannot be undone.</span>
+          </p>
+          <p class="text-muted pb-0 mb-0">To confirm this, type “Delete” below:</p>
+        
+          <!-- Input Field and Button -->
+          <div class="d-flex align-items-center cus-flex">
+            <input
+              type="text"
+              class="form-control pe-0 w-50 cus-border"
+              placeholder="Type 'Delete'"
+              [(ngModel)]="confirmText"
+              aria-label="Confirm Delete"
+              style="border-top-right-radius: 0; border-bottom-right-radius: 0; border-right: none;"
+            />
+            <button
+              class="btn text-white fs-5"
+              [disabled]="confirmText !== 'Delete'"
+              (click)="deleteAccount()"
+              style="background-color: var(--primary-color)"
+            >
+              Delete Account
+            </button>
+          </div>
+        
+          <!-- Success Message -->
+          <p *ngIf="isDeleted" class="text-success mt-3">
+            Your account has been successfully deleted.
+          </p>
+        </div>
+        
+        
+
+
+
+        </div>
+
+        <!-- Card for Logout -->
+        <div
+          *ngIf="selectedItem === 'Logout'"
+          class="card shadow-sm p-4 m-0 border-0"
+          style="border-radius: 10px; position: relative; width: 80%"
+        >
+          <div class="card-body m-0">
+            <h5 class="fw-bold fs-4 pb-2">Logout</h5>
+            <p>Are you sure you want to log out?</p>
+            <button class="btn text-white fs-5" style="background-color: var(--primary-color);">Logout</button>
+          </div>
+        </div>
       </div>
     </div>
   </div>
-  
 </section>
