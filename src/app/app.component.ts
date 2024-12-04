@@ -89,15 +89,16 @@ export class AppComponent implements OnInit {
       url.includes('/post-job') ||
       url.includes('/approved-jobs') ||
       url.includes('/rejected-jobs') ||
-      url.includes('/applied-users') ||// Include applied-users in dashboard-specific logic
+      url.includes('/applied-users') || // Include applied-users in dashboard-specific logic
       url.includes('/job-post-submitted') ||
       url.includes('/notification') ||
-      url.includes('/no-notification')
+      url.includes('/no-notification') ||
+      url.includes('/profile') // Include /profile for same header as other routes
     ) {
       this.isSpecialRoute = true;
-      this.hideHeader = false;
-      this.hideFooter = false;
-      this.navItems = this.dashboardNavItems;
+      this.hideHeader = false; // Show header on these routes
+      this.hideFooter = url.includes('/profile') ? true : false; // Hide footer only on /profile
+      this.navItems = this.dashboardNavItems; // Set the nav items for the dashboard
       this.showNotificationIcon = true; // Show notification icon
     } else if (url.includes('/employer') || url.includes('/hiring-solution')) {
       this.isSpecialRoute = true;
@@ -114,6 +115,8 @@ export class AppComponent implements OnInit {
     }
     console.log('Current navItems:', this.navItems);
   }
+  
+  
 
   // Update button text and link based on the current route
   private updateButtonProperties(url: string): void {

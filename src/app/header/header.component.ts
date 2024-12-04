@@ -44,6 +44,11 @@ export class HeaderComponent {
     navigateToNotifications(): void {
       this.router.navigate(['/notification']); // Navigate to the notification page
     }
+   // Navigate to the profile page when the profile icon is clicked
+    showProfilePage():void{
+      this.router.navigate(['/profile']);// Navigate to the profile page
+    }
+
   openModal() {
     this.zone.run(() => {
       const modalElement = document.getElementById('loginModal');

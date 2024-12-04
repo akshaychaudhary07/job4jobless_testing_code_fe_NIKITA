@@ -26,6 +26,7 @@ import { JobPostSubmittedComponent } from './emp-dashboard/job-post-submitted/jo
 import { CreateJobPostComponent } from './emp-dashboard/create-job-post/create-job-post.component';
 import { NotificationComponent } from './emp-dashboard/notification/notification.component';
 import { NoNotificationComponent } from './emp-dashboard/notification/no-notification/no-notification.component';
+import { ProfileComponent } from './profile/profile.component';
 
 
 
@@ -56,6 +57,7 @@ export const routes: Routes = [
   {path:'job-post-submitted',component:JobPostSubmittedComponent},
   {path:'notification',component:NotificationComponent},
   {path:'no-notification',component:NoNotificationComponent},
+  {path:'profile',component:ProfileComponent},
 
  
 

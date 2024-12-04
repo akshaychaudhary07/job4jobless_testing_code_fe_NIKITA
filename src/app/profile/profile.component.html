@@ -1,0 +1,113 @@
+<section class="profile">
+  <div class="container-fluid vh-100">
+    <div class="row h-100">
+      <!-- Sidebar -->
+      <div
+        class="col-md-2 cus-class pt-5 text-white d-flex flex-column p-3 d-none d-md-flex mb-0"
+        style="min-height: 100%; background-color: var(--primary-color)"
+      >
+        <div class="list-group d-flex flex-grow-1 p-0 m-0" style="gap: 2rem">
+          <a
+            *ngFor="let item of sidebarItems"
+            (click)="selectItem(item.title)"
+            [ngClass]="{
+              'active text-white hover-effect-selected':
+                selectedItem === item.title
+            }"
+            class="list-group-item text-white list-group-item-action border-0 p-0 m-0"
+            style="cursor: pointer"
+          >
+            <i [class]="item.icon" class="me-2" style="color: white"></i>
+            {{ item.title }}
+          </a>
+        </div>
+      </div>
+
+      <!-- Bottom Navbar for Small Screens -->
+      <div
+        class="d-flex d-md-none fixed-bottom text-white justify-content-around py-2"
+        style="background-color: var(--primary-color); color: white"
+      >
+        <a
+          *ngFor="let item of sidebarItems"
+          (click)="selectItem(item.title)"
+          [ngClass]="{
+            'active text-white': selectedItem === item.title
+          }"
+          class="text-white text-center"
+          style="cursor: pointer; color: white"
+        >
+          <i [class]="item.icon" class="d-block" style="color: white"></i>
+          <small style="color: white">{{ item.title }}</small>
+        </a>
+      </div>
+
+      <!-- Main Content -->
+      <div
+        class="col-md-10 p-4 cus-pad"
+        style="background-color: var(--background-color); min-height: 100%;"
+      >
+        <!-- Name -->
+        <h1 class="fw-bold mb-4 pt-3 pb-3" style="color: var(--primary-color)">
+          {{ selectedItem }}
+        </h1>
+        <div
+          class="card shadow-sm p-4 m-0 border-0 "
+          style="border-radius: 10px; position: relative;width: 80%;"
+        >
+          <!-- Top Circle -->
+          <div
+            class="position-absolute circle"
+            style="
+              right: 2rem;
+              height: 100px;
+              width: 100px;
+              background-color: var(--secondary-color);
+              border-radius: 50%;
+            "
+          ></div>
+
+          <div class="card-body m-0">
+            <h5 class="fw-bold fs-4 pb-2">Name</h5>
+            <p style="margin-bottom: 0.5rem">
+              <i class="fa-solid fa-user"></i> xyz.zxy98&#64;gmail.com
+            </p>
+
+            <!-- Phone -->
+            <p style="margin-bottom: 0.5rem">
+              <i class="fa-solid fa-phone"></i> 9953264582
+            </p>
+
+            <!-- Company -->
+            <p style="margin-bottom: 0.5rem">
+              <i class="fa-solid fa-building"></i> Xyz Company
+            </p>
+
+            <!-- Resume -->
+            <h6 class="pt-3 fs-5 pb-0">Resume</h6>
+            <p class="m-0">Resume.pdf</p>
+            <p class="text-muted">Uploaded on 20-10-2024</p>
+
+            <!-- Description -->
+            <h6 class="fs-5 pt-4">Description</h6>
+            <div
+              class="text  m-0 p-2"
+              style="border: 2px solid #eceffa; border-radius: 10px"
+            >
+              It is a long established fact that a reader will be distracted by
+              the readable content of a page when looking at its layout. The
+              point of using Lorem Ipsum is that it has a more-or-less normal
+              distribution of letters, as opposed to using 'Content here,
+              content here', making it look like readable English. It is a long
+              established fact that a reader will be distracted by the readable
+              content of a page when looking at its layout. The point of using
+              Lorem Ipsum is that it has a more-or-less normal distribution of
+              letters.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+</section>

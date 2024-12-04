@@ -1,0 +1,30 @@
+a.list-group-item.list-group-item-action{
+    background-color: transparent ; 
+    color: white;
+}
+/* Hover Effect */
+a.list-group-item.list-group-item-action:hover {
+    background-color: white;
+    border-radius: 14px;
+    border-bottom-right-radius: 0;
+    border-top-right-radius: 0;
+    color: var(--primary-color)!important;
+    padding: 6px !important
+  }
+/* Ensure the icon inherits hover styles */
+a.list-group-item.list-group-item-action:hover i {
+    color: var(--primary-color) !important;
+}
+.cus-class{
+    padding-right: 0rem!important;
+}
+@media (max-width:600px){
+    .card{
+        width: fit-content!important;
+        margin-bottom: 6rem !important;
+    }
+    .circle {
+        height: 60px!important;
+        width: 60px!important;
+    }
+}
