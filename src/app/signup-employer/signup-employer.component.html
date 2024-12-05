@@ -111,7 +111,7 @@
               </p>
               <!-- Input Field and Button -->
 
-              <form #emailForm="ngForm" (ngSubmit)="onSubmit(emailForm)">
+              <form #emailForm="ngForm" (ngSubmit)="onSubmit(emailForm)" novalidate>
                 <div class="d-flex align-items-center cus-flex pb-5">
                   <input
                     type="email"
@@ -239,7 +239,7 @@
               </p>
 
               <!-- Phone Number Input Form -->
-              <form #phoneForm="ngForm" (ngSubmit)="onSubmitPhone(phoneForm)">
+              <form #phoneForm="ngForm" (ngSubmit)="onSubmitPhone(phoneForm)" novalidate>
                 <div class="d-flex align-items-center cus-flex pb-5">
                   <input
                     type="number"
