@@ -1,0 +1,484 @@
+<section class="signup" style="background: var(--background-color)">
+  <div class="container m-0">
+    <div class="row flex-box d-flex flex-wrap">
+      <!-- Left Column -->
+      <div
+        class="col-md-6 col-sm-12 map-container m-0 p-0 overflow-hidden position-relative"
+      >
+        <!-- Background Image -->
+        <img
+          src="https://github.com/job4jobless/Images/blob/main/Banners/Employer-signup-banner.jpg?raw=true"
+          alt="Banner"
+          class="img-fluid w-100 h-100"
+          style="object-fit: fill"
+        />
+
+        <!-- Overlay Content -->
+        <div
+          class="position-absolute cus-top start-50 translate-middle text-center text-white"
+          style="top: 25%"
+        >
+          <h1
+            class="fw-bold mb-4 cus-head"
+            style="color: var(--secondary-color)"
+          >
+            Where Employers Find Top Talent
+          </h1>
+
+          <!-- Icon and Text Row 1 -->
+          <div
+            class="d-flex justify-content-between cus-margin align-items-center mb-3 mb-5 mt-5"
+            style="margin-left: -5rem; margin-right: -7rem"
+          >
+            <!-- Video Call -->
+            <div class="d-flex align-items-start" style="line-height: 1.3">
+              <i class="bi bi-camera-video-fill fs-3 text-white fw-bold"></i>
+              <span class="text-white fw-bold fs-5"
+                >Video Call <br />Interview</span
+              >
+            </div>
+
+            <!-- Resume Icon -->
+            <div class="d-flex align-items-end" style="line-height: 1.3">
+              <i
+                class="bi bi-file-earmark-text-fill fs-3 text-white fw-bold"
+              ></i>
+              <span class="text-white fw-bold fs-5">Create <br />Job Post</span>
+            </div>
+          </div>
+
+          <!-- Icon and Text Row 2 -->
+          <div
+            class="d-flex cus-left mt-5 justify-content-end align-items-center bottom-0 position-relative end-0 mb-3"
+            style="left: 7rem"
+          >
+            <!-- Search Icon -->
+            <div class="d-flex" style="line-height: 1.3">
+              <i class="bi bi-search fs-3 text-white fw-bold"></i>
+              <span class="text-white fw-bold fs-5"
+                >Track Applicant <br />
+                Journey</span
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Column -->
+      <div
+        class="col-md-6 col-sm-12 custom-pad"
+        style="padding-top: 2rem; padding-bottom: 2rem"
+      >
+        <div
+          class="container form-box text-center"
+          style="padding: 3rem; margin-left: -1rem; padding-bottom: 8rem"
+        >
+          <h1
+            class="pb-5 fw-bold text-left"
+            style="color: var(--primary-color)"
+          >
+            Create Your Account
+          </h1>
+
+          <!-- -------divider------- -->
+
+          <a
+            data-mdb-ripple-init
+            class="btn fs-5 text-decoration-none bg-white text-left btn-lg btn-block border border-2"
+            style="border-radius: 25px; padding: 15px 35px"
+            href="#!"
+            role="button"
+          >
+            <i class="fab fa-google me-2"></i>Sign up with your Google account.
+          </a>
+          <!-- Submit button -->
+          <div class="divider d-flex align-items-center my-4">
+            <p class="text-center fw-bold mx-3 mb-0 text-muted">OR</p>
+          </div>
+
+          <!-- ---------Email Verificaiton --------- -->
+          <div
+            *ngIf="!showOtpCard && !showPhoneCard && !showMobileOtpVerified"
+            class="card border-0"
+            style="border-radius: 14px; padding: 20px; padding-bottom: 7rem"
+          >
+            <div class="card-body m-0">
+              <p
+                class="text-center pt-3 pb-5"
+                style="color: var(--primary-color)"
+              >
+                Enter your email address to receive a verification code
+              </p>
+              <!-- Input Field and Button -->
+
+              <form #emailForm="ngForm" (ngSubmit)="onSubmit(emailForm)">
+                <div class="d-flex align-items-center cus-flex pb-5">
+                  <input
+                    type="email"
+                    class="form-control pe-0 cus-border cus-font"
+                    placeholder="Email*"
+                    [(ngModel)]="email"
+                    name="email"
+                    #emailInput="ngModel"
+                    required
+                    email
+                    style="
+                      border-top-right-radius: 0;
+                      border-bottom-right-radius: 0;
+                      border-right: none;
+                      padding: 20px;
+                    "
+                  />
+
+                  <!-- Validation Feedback -->
+                  <div
+                    *ngIf="emailInput.invalid && emailInput.touched"
+                    class="text-danger"
+                  >
+                    <!-- <p *ngIf="emailInput.errors?.required">
+                      Email is required.
+                    </p> -->
+                    <!-- <p *ngIf="emailInput.errors?.email">
+                      Please enter a valid email address.
+                    </p> -->
+                  </div>
+                  <button
+                    class="btn text-white fs-5 w-50 cus-width"
+                    style="
+                      background-color: var(--primary-color);
+                      border-top-left-radius: 0;
+                      border-bottom-left-radius: 0;
+                    "
+                    (click)="sendEmailOtp()"
+                  >
+                    Get OTP
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+
+          <!-- ---------After Email otp received --------- -->
+          <div
+            *ngIf="showOtpCard && !showPhoneCard && !showMobileOtpVerified"
+            class="card border-0"
+            style="border-radius: 14px; padding: 20px; padding-bottom: 7rem"
+          >
+            <div class="card-body m-0">
+              <p
+                class="text-center pt-3 pb-5"
+                style="color: var(--primary-color)"
+              >
+                Enter the six-digit code we sent to your email address to verify
+              </p>
+
+              <!-- Input Field -->
+              <input
+                type="email"
+                class="form-control pe-0 cus-border cus-font"
+                placeholder="Email*"
+                [(ngModel)]="email"
+                style="padding: 20px"
+              />
+
+              <!-- OTP Boxes -->
+              <div
+                class="d-flex cus-gap justify-content-center align-items-center mt-4 mb-4 otp-container"
+                style="gap: 10px; padding-left: 4rem"
+              >
+                <input
+                  *ngFor="let box of otpArray; let i = index"
+                  type="password"
+                  maxlength="1"
+                  [(ngModel)]="otpInputs[i]"
+                  class="otp-box text-center"
+                  style="
+                    width: 2rem;
+                    height: 2rem;
+                    border: 1px solid var(--bs-border-color);
+                  "
+                  (input)="focusNextBox(i, $event)"
+                />
+                <h6 class="" style="color: rgb(210 213 217)">
+                  Resend OTP in 5
+                </h6>
+              </div>
+
+              <!-- Verify Button -->
+              <button
+                class="btn text-white mt-4 fs-5 w-50 cus-width"
+                style="background-color: var(--primary-color)"
+                (click)="verifyEmailOtp()"
+              >
+                VERIFY
+              </button>
+            </div>
+          </div>
+          <!-- ---------Mobile Verificaiton --------- -->
+
+          <!-- ---------After otp verified --------- -->
+
+          <!-- Mobile Verification Card (Initially Hidden, Shown after OTP Verification) -->
+          <div
+            *ngIf="
+              showPhoneCard &&
+              !showOtpCard &&
+              !showMobileOtpVerified &&
+              !showOtherDetails &&
+              !showLastDetails
+            "
+            class="card border-0"
+            style="border-radius: 14px; padding: 20px; padding-bottom: 7rem"
+          >
+            <div class="card-body m-0">
+              <p
+                class="text-center pt-3 pb-5"
+                style="color: var(--primary-color)"
+              >
+                Enter your phone number to receive a verification code
+              </p>
+
+              <!-- Phone Number Input Form -->
+              <form #phoneForm="ngForm" (ngSubmit)="onSubmitPhone(phoneForm)">
+                <div class="d-flex align-items-center cus-flex pb-5">
+                  <input
+                    type="number"
+                    class="form-control pe-0 cus-border cus-font"
+                    placeholder="Phone Number*"
+                    [(ngModel)]="number"
+                    name="number"
+                    #phoneInput="ngModel"
+                    required
+                    minlength="10"
+                    maxlength="15"
+                    style="
+                      padding: 20px;
+                      border-top-right-radius: 0;
+                      border-bottom-right-radius: 0;
+                      border-right: none;
+                    "
+                  />
+                  <button
+                    class="btn text-white fs-5 w-50 cus-width"
+                    style="
+                      background-color: var(--primary-color);
+                      border-top-left-radius: 0;
+                      border-bottom-left-radius: 0;
+                    "
+                    (click)="sendMobileOtp()"
+                    [disabled]="!phoneForm.valid"
+                    type="submit"
+                  >
+                    Get OTP
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+
+          <!-- ---------After otp received --------- -->
+          <div
+            *ngIf="showMobileOtpVerified && !showOtherDetails"
+            class="card border-0"
+            style="border-radius: 14px; padding: 20px; padding-bottom: 7rem"
+          >
+            <div class="card-body m-0">
+              <p
+                class="text-center pt-3 pb-5"
+                style="color: var(--primary-color)"
+              >
+                Enter the six digit code we sent to your Mobile Number to verify
+              </p>
+
+              <!-- Input Field -->
+              <input
+                type="number"
+                class="form-control pe-0 cus-border cus-font"
+                placeholder="Number*"
+                [(ngModel)]="number"
+                style="padding: 20px"
+              />
+
+              <!-- OTP Boxes -->
+              <div
+                class="d-flex cus-gap justify-content-center align-items-center mt-4 mb-4 otp-container"
+                style="gap: 10px; padding-left: 4rem"
+              >
+                <input
+                  *ngFor="let box of otpArray; let i = index"
+                  type="password"
+                  maxlength="1"
+                  [(ngModel)]="otpInputs[i]"
+                  class="otp-box text-center"
+                  style="
+                    width: 2rem;
+                    height: 2rem;
+                    border: 1px solid var(--bs-border-color);
+                  "
+                  (input)="focusNextBox(i, $event)"
+                />
+                <h6 class="" style="color: rgb(210 213 217)">
+                  Resend OTP in 5
+                </h6>
+              </div>
+
+              <!-- Verify Button -->
+              <button
+                class="btn text-white mt-4 fs-5 w-50 cus-width"
+                style="background-color: var(--primary-color)"
+                (click)="verifyMobileOtp()"
+              >
+                VERIFY
+              </button>
+            </div>
+          </div>
+
+          <!-- --------------------Other Details--------------------- -->
+          <div
+            *ngIf="showOtherDetails && !showLastDetails"
+            class="card border-0"
+            style="border-radius: 14px; padding: 20px; padding-bottom: 7rem"
+          >
+            <div class="card-body m-0">
+              <h6
+                class="text-center pt-3 pb-5"
+                style="color: var(--primary-color)"
+              >
+                Other Details
+              </h6>
+
+              <!-- Input Fields -->
+              <div class="d-flex mb-3 gap-3">
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="First Name*"
+                  [(ngModel)]="firstName"
+                />
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="Last Name*"
+                  [(ngModel)]="lastName"
+                />
+              </div>
+
+              <select class="form-select mb-3" [(ngModel)]="country">
+                <option value="">Country*</option>
+                <option *ngFor="let c of countries" [value]="c">{{ c }}</option>
+              </select>
+
+              <select class="form-select mb-3" [(ngModel)]="state">
+                <option value="">Select Your State*</option>
+                <option *ngFor="let s of states" [value]="s">{{ s }}</option>
+              </select>
+
+              <select class="form-select mb-3" [(ngModel)]="city">
+                <option value="">Select Your City*</option>
+                <option *ngFor="let ci of cities" [value]="ci">{{ ci }}</option>
+              </select>
+
+              <input
+                type="text"
+                class="form-control mb-3"
+                placeholder="Name Of The Company*"
+                [(ngModel)]="companyName"
+              />
+
+              <input
+                type="text"
+                class="form-control mb-3"
+                placeholder="Enter Your Designation*"
+                [(ngModel)]="designation"
+              />
+
+              <!-- Continue Button -->
+              <button
+                class="btn text-white mt-4 fs-5 w-50 cus-width"
+                style="background-color: var(--primary-color)"
+                (click)="continueBtn()"
+              >
+                CONTINUE
+              </button>
+            </div>
+          </div>
+
+          <!-- -------------------- Last Other Details--------------------- -->
+          <div
+            *ngIf="showLastDetails"
+            class="card border-0"
+            style="border-radius: 14px; padding: 20px; padding-bottom: 7rem"
+          >
+            <div class="card-body m-0">
+              <div class="d-flex justify-content-between">
+                <h6
+                  class="text-center pt-3 pb-5"
+                  style="color: var(--primary-color)"
+                >
+                  Other Details
+                </h6>
+                <a
+                  href="javascript:void(0)"
+                  class="text-primary pt-3 m-0"
+                  (click)="skipToPrevious()"
+                  style="text-decoration: none"
+                  >Skip</a
+                >
+              </div>
+
+              <!-- Input Fields with Icons -->
+              <div class="d-flex align-items-center mb-3">
+                <i
+                  class="bi bi-linkedin me-2"
+                  style="font-size: 2rem; color: blue"
+                ></i>
+                <input
+                  type="url"
+                  class="form-control"
+                  placeholder="Enter LinkedIn URL*"
+                  [(ngModel)]="linkedinUrl"
+                />
+              </div>
+
+              <div class="d-flex align-items-center mb-3">
+                <i class="bi bi-github me-2" style="font-size: 2rem"></i>
+                <input
+                  type="url"
+                  class="form-control"
+                  placeholder="Enter GitHub URL*"
+                  [(ngModel)]="githubUrl"
+                />
+              </div>
+
+              <div class="d-flex align-items-center mb-3">
+                <i class="bi bi-globe me-2" style="font-size: 2rem"></i>
+                <input
+                  type="url"
+                  class="form-control"
+                  placeholder="Enter Other URL*"
+                  [(ngModel)]="otherUrl"
+                />
+              </div>
+
+              <textarea
+                class="form-control mb-3"
+                placeholder="Description..."
+                rows="7"
+                [(ngModel)]="description"
+              ></textarea>
+
+              <!-- Continue Button -->
+              <button
+                class="btn text-white mt-4 fs-5 w-50 cus-width"
+                style="background-color: var(--primary-color)"
+                (click)="navigateToEmployerPage()"
+              >
+                CONTINUE
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

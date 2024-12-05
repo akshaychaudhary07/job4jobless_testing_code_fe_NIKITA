@@ -1,0 +1,78 @@
+.divider:after,
+.divider:before {
+content: "";
+flex: 1;
+height: 1px;
+background: #cfc5c5;
+}
+i.fab.fa-google {
+    background: linear-gradient(90deg, #DB4437, #F4B400, #0F9D58, #4285F4);
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-size: 30px;
+    vertical-align: bottom;
+}
+.fs-3 {
+    font-size: 2.6rem !important;
+    margin-right: 5px;
+}
+@media (max-width:990px) {
+    .container, .container-md, .container-sm {
+        max-width: 930px;
+    }
+    .cus-flex{
+        flex-wrap: wrap;
+        gap: 1rem;
+    }
+    .cus-border{
+        border-bottom-right-radius: 8px!important;
+        border-top-right-radius: 8px!important;
+        border-right: 1px solid #dee2e6!important;
+    }
+    
+    .cus-width{
+        width: 100%!important;
+        border-top-left-radius: 8px!important;
+        border-bottom-left-radius: 8px!important;
+    }
+    .cus-left{
+        left: 4rem!important;
+    }
+}
+@media (max-width:600px){
+    .cus-top{
+        top: 30%!important;
+    }
+    .fs-3[_ngcontent-ng-c3690668808] {
+        font-size: 2rem !important;
+    }
+    .fs-5 {
+        font-size: 0.9rem!important;
+    }
+    .cus-head{
+        font-size:1.2rem;
+    }
+    .container.form-box.text-center {
+        margin-left: 1px !important;
+        padding: 0!important;
+    }
+    .cus-margin{
+        margin-top: 0rem!important;
+    }
+    .cus-gap{
+        padding-left: 0rem!important;
+        flex-wrap: wrap;
+    }
+    .cus-font{
+        font-size: 12px;
+    }
+}
+@media (min-width: 768px) and (max-width: 1280px){
+    .cus-gap{
+        padding-left: 0rem!important;
+        flex-wrap: wrap;
+    }
+    .cus-font{
+        font-size: 12px;
+    }
+}
