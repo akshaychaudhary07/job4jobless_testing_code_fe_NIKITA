@@ -1,0 +1,26 @@
+@media (max-width:1300px){
+    .cus-pad{
+        padding-left: 2rem!important;
+    }
+    input{
+        font-size: 12px;
+    }
+}
+@media (max-width: 400px){
+    .cus-gap{
+        flex-wrap: wrap;
+        gap: 12px;
+    }
+    .cus-border{
+        border-top-right-radius: 8px!important;
+        border-bottom-right-radius: 8px!important;
+        border-right: 1px solid #dee2e6!important ;
+    }
+    .cus-width{
+        width: 100%!important;
+    }
+    .cus-border-left{
+        border-top-left-radius: 8px!important;
+        border-bottom-left-radius: 8px!important;
+    }
+}

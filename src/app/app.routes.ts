@@ -28,6 +28,7 @@ import { NotificationComponent } from './emp-dashboard/notification/notification
 import { NoNotificationComponent } from './emp-dashboard/notification/no-notification/no-notification.component';
 import { ProfileComponent } from './profile/profile.component';
 import { JobSeekerSignupComponent } from './job-seeker-signup/job-seeker-signup.component';
+import { CompanyComponent } from './company/company.component';
 
 
 
@@ -60,6 +61,7 @@ export const routes: Routes = [
   {path:'no-notification',component:NoNotificationComponent},
   {path:'profile',component:ProfileComponent},
   {path:'job-seeker-signup',component:JobSeekerSignupComponent},
+  {path:'company',component:CompanyComponent},
 
  
 

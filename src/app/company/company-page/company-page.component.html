@@ -1,0 +1,122 @@
+<section class="company-page">
+  <div class="container">
+    <div class="row">
+      <div class="col cus-pad" style="padding-left: 5rem">
+        <h1 class="fw-bold fs-1 pt-5 pb-5" style="color: var(--primary-color)">
+          Explore The Best <br />
+          Companies To Work
+        </h1>
+
+        <div class="d-flex cus-gap align-items-center cus-flex pb-5">
+          <input
+            type="text"
+            class="form-control w-50 pe-0 cus-border cus-width cus-font"
+            placeholder="Company Name or Job Title"
+            name="text"
+            style="
+              padding: 22px;
+              border-top-right-radius: 0;
+              border-bottom-right-radius: 0;
+              border-right: none;
+            "
+          />
+          <button
+            class="btn text-white fs-5 cus-width cus-border-left"
+            style="
+              background-color: var(--primary-color);
+              border-top-left-radius: 0;
+              border-bottom-left-radius: 0;
+            "
+          >
+            Find Companies
+          </button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <!-- -------companies---------- -->
+  <div class="container cus-pad mt-4 mb-5" style="padding-left: 5rem">
+    <h4 class="fw-bold pt-3 mb-4">Popular Companies</h4>
+    <div class="row justify-content-center">
+      <div class="col-lg-4 col-md-6 col-sm-12 mb-3 d-flex align-items-stretch" *ngFor="let company of displayedCompanies">
+        <div
+          class="card m-0 border-0 p-3 d-flex align-items-center"
+          style="background: white"
+        >
+          <!-- Flex Row for Logo and Data -->
+          <div class="d-flex align-items-start w-100" style="gap: 2rem;">
+            <!-- Logo -->
+            <img
+              [src]="company.logo"
+              alt="{{ company.name }} Logo"
+              class="img-fluid mt-0 "
+              style="
+                width: 80px;
+                height: auto;
+                padding: 12px;
+                display: inline-block;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+              "
+            />
+
+            <!-- Company Details -->
+            <div>
+              <!-- Company Name -->
+              <h5 class="text-primary mb-2">
+                <a href="#" class="text-decoration-none">{{ company.name }}</a>
+              </h5>
+
+              <!-- Rating -->
+              <div>
+                <span
+                  *ngFor="let star of getStars(company.rating); let i = index"
+                  class="me-1 stars"
+                >
+                  <i
+                    style="color: var(--primary-color)"
+                    [ngClass]="{
+                      'bi bi-star-fill ': star === 'full',
+                      'bi bi-star-half ': star === 'half',
+                      'bi bi-star': star === 'empty'
+                    }"
+                  ></i>
+                </span>
+                <span class="small" style="color: var(--primary-color)">
+                  ({{ company.reviews }} Reviews)
+                </span>
+              </div>
+
+              <!-- Stats -->
+              <div class="mt-2 small d-flex" style="gap: 50px">
+                <span class="" style="color: var(--primary-color)"
+                  >{{ company.jobs }} Active Jobs</span
+                >
+                <span
+                  class="ms-2 fw-bold"
+                  style="color: var(--primary-color)"
+                  >{{ company.status }}</span
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Pagination -->
+    <div class="d-flex justify-content-end mt-1">
+      <button
+        class="btn btn-link text-decoration-none me-3"
+        (click)="prevPage()"
+      >
+        Prev
+      </button>
+      <button class="btn btn-link text-decoration-none" (click)="nextPage()">
+        Next
+      </button>
+    </div>
+  </div>
+
+</section>
