@@ -1,19 +1,18 @@
 import { CommonModule } from '@angular/common';
-import { AfterViewInit, Component, ElementRef, HostListener, OnDestroy, OnInit, Renderer2 } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { LoginComponent } from '../login-page/login/login.component';
 import { LoginPageComponent } from '../login-page/login-page.component';
-import { FormsModule, NgModel } from '@angular/forms';
 import { Router, RouterModule } from '@angular/router';
-
+import { FormsModule } from '@angular/forms';
 
 @Component({
-  selector: 'app-signup-employer',
+  selector: 'app-job-seeker-signup',
   standalone: true,
-  imports: [CommonModule,LoginComponent,LoginPageComponent,FormsModule,RouterModule],
-  templateUrl: './signup-employer.component.html',
-  styleUrl: './signup-employer.component.css'
+  imports: [CommonModule,LoginComponent,LoginPageComponent,RouterModule,FormsModule],
+  templateUrl: './job-seeker-signup.component.html',
+  styleUrl: './job-seeker-signup.component.css'
 })
-export class SignupEmployerComponent implements OnInit, OnDestroy {
+export class JobSeekerSignupComponent implements OnInit, OnDestroy {
   email: string = '';
   otp: string = '';
   number: string = '';

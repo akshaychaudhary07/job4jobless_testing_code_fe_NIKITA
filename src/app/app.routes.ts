@@ -27,6 +27,7 @@ import { CreateJobPostComponent } from './emp-dashboard/create-job-post/create-j
 import { NotificationComponent } from './emp-dashboard/notification/notification.component';
 import { NoNotificationComponent } from './emp-dashboard/notification/no-notification/no-notification.component';
 import { ProfileComponent } from './profile/profile.component';
+import { JobSeekerSignupComponent } from './job-seeker-signup/job-seeker-signup.component';
 
 
 
@@ -58,6 +59,7 @@ export const routes: Routes = [
   {path:'notification',component:NotificationComponent},
   {path:'no-notification',component:NoNotificationComponent},
   {path:'profile',component:ProfileComponent},
+  {path:'job-seeker-signup',component:JobSeekerSignupComponent},
 
  
 
