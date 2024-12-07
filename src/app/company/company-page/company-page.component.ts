@@ -1,16 +1,24 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import { RouterModule } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 import { CompanyComponent } from '../company.component';
+import { CompanyDetailsComponent } from '../company-details/company-details.component';
 
 @Component({
   selector: 'app-company-page',
   standalone: true,
-  imports: [CommonModule,RouterModule,CompanyComponent],
+  imports: [CommonModule,RouterModule,CompanyComponent,CompanyDetailsComponent,],
   templateUrl: './company-page.component.html',
   styleUrl: './company-page.component.css'
 })
 export class CompanyPageComponent { 
+
+// constructor(private router : Router){}
+// companyDetailsShow(){
+//   this.router.navigate(['/company-details']);
+// }
+
+
   companies = [
     { name: 'Volkswagen', logo: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJkrL0osmFNtQJ78o-cvEcWhYUc1KYL1su0w&s', rating: 4.5, reviews: 7345, jobs: 3, status: 'Following' },
     { name: 'HP', logo: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTGdf5gr7aXXDi54ys87m_dK1RZftVkn4mubw&s', rating: 3.8, reviews: 6200, jobs: 2, status: 'Follow' },

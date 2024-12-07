@@ -33,31 +33,32 @@
         </div>
       </div>
     </div>
-
   </div>
   <!-- -------companies---------- -->
   <div class="container cus-pad mt-4 mb-5" style="padding-left: 5rem">
     <h4 class="fw-bold pt-3 mb-4">Popular Companies</h4>
     <div class="row justify-content-center">
-      <div class="col-lg-4 col-md-6 col-sm-12 mb-3 d-flex align-items-stretch" *ngFor="let company of displayedCompanies">
+      <div
+        class="col-lg-4 col-md-6 col-sm-12 mb-3 d-flex align-items-stretch"
+        *ngFor="let company of companies"
+      >
         <div
           class="card m-0 border-0 p-3 d-flex align-items-center"
           style="background: white"
         >
           <!-- Flex Row for Logo and Data -->
-          <div class="d-flex align-items-start w-100" style="gap: 2rem;">
+          <div class="d-flex align-items-start w-100" style="gap: 2rem">
             <!-- Logo -->
             <img
               [src]="company.logo"
               alt="{{ company.name }} Logo"
-              class="img-fluid mt-0 "
+              class="img-fluid mt-0"
               style="
                 width: 80px;
                 height: auto;
                 padding: 12px;
                 display: inline-block;
                 box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-
               "
             />
 
@@ -65,7 +66,13 @@
             <div>
               <!-- Company Name -->
               <h5 class="text-primary mb-2">
-                <a href="#" class="text-decoration-none">{{ company.name }}</a>
+                <a
+                  class="text-decoration-none"
+                  (click)="companyDetailsShow(company.name)"
+                  [routerLink]="['/company-page', company.name]"
+                >
+                  {{ company.name }}
+                </a>
               </h5>
 
               <!-- Rating -->
@@ -118,5 +125,4 @@
       </button>
     </div>
   </div>
-
 </section>

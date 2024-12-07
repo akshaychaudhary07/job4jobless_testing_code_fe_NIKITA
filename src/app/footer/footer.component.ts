@@ -29,7 +29,7 @@ export class FooterComponent implements OnInit {
   // Define alternative footer links (for specific pages)
   specialFooterLinks = [
     { label: 'Hiring-solution', link: '/hiring-solution' },
-    { label: 'Dashboard', link: '/ashboard' },
+    { label: 'Dashboard', link: '/dashboard' },
   ];
 
   constructor(private router: Router) {}

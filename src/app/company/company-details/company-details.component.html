@@ -1,0 +1,245 @@
+<section class="company-details">
+  <div class="container mt-4 ">
+    <!-- <h4 class="fw-bold pt-3 mb-4">{{ selectedCompany?.name }}</h4> -->
+    <div class="row justify-content-center">
+      <div
+        class="col-12 cus-pad  mb-3 d-flex align-items-stretch"
+        *ngIf="selectedCompany"
+        style="padding-left: 3rem"
+      >
+        <div
+          class="card m-0 border-0 p-3 d-flex align-items-center w-100"
+          style="background: white"
+        >
+          <div class="d-flex justify-content-between align-items-center w-100 flex-wrap">
+            <!-- Left Content: Logo and Details -->
+            <div class="d-flex align-items-start m-0" style="gap: 2rem">
+              <!-- Logo -->
+              <img
+                [src]="selectedCompany.logo"
+                alt="{{ selectedCompany.name }} Logo"
+                class="img-fluid mt-0"
+                style="
+                  width: 100px;
+                  height: auto;
+                  padding: 12px;
+                  display: inline-block;
+                  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+                "
+              />
+
+              <!-- Company Details -->
+              <div>
+                <h5 class="text-primary mb-2">{{ selectedCompany.name }}</h5>
+                <div>
+                  <span
+                    *ngFor="let star of getStars(selectedCompany.rating)"
+                    class="me-1 stars"
+                  >
+                    <i
+                      style="color: var(--primary-color)"
+                      [ngClass]="{
+                        'bi bi-star-fill': star === 'full',
+                        'bi bi-star-half': star === 'half',
+                        'bi bi-star': star === 'empty'
+                      }"
+                    ></i>
+                  </span>
+                  <span class="small" style="color: var(--primary-color)">
+                    ({{ selectedCompany.reviews }} Reviews)
+                  </span>
+                </div>
+                <div class="mt-2 small">
+                  <span style="color: var(--primary-color)"
+                    >{{ selectedCompany.jobs }} Active Jobs</span
+                  >
+                </div>
+              </div>
+            </div>
+
+            <!-- Right Content: Status -->
+            <div class="m-0 cus-btn">
+              <button
+                type="button"
+                class="btn"
+                (click)="toggleFollowStatus()"
+                style="
+                  font-weight: bold;
+                  color: white;
+                  padding: 5px 25px;
+                  background-color: var(--primary-color);
+                  border-radius: 32px;
+                "
+              >
+                {{ selectedCompany.status }}
+              </button>
+            </div>
+
+
+
+
+
+
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- -----next-content------ -->
+
+    <!-- -----next-content------ -->
+  </div>
+
+  <div class="container">
+    <div
+      class="row pb-5 cus-pad "
+      style="
+        background: var(--background-color);
+        margin-left: 3rem;
+        padding: 1rem;
+        border-radius: 10px;
+      "
+    >
+      <div class="col-12 d-flex align-items-stretch gap-3 flex-wrap pt-5">
+        <!-- Card 1: Founded -->
+        <div
+          class="card cus-card text-center shadow-sm m-0 pb-4 pt-4"
+          style="width: 23%; border: none; border-radius: 10px"
+        >
+          <div class="card-body">
+            <h6 class="card-title pb-2">Founded</h6>
+            <p class="card-text fs-5 cus-font fw-bold" style="color: var(--primary-color)">
+              {{ selectedCompany.founded }}
+            </p>
+          </div>
+        </div>
+        <!-- Card 2: Business Size -->
+        <div
+          class="card cus-card text-center shadow-sm m-0 pb-4 pt-4"
+          style="width: 23%; border: none; border-radius: 10px"
+        >
+          <div class="card-body">
+            <h6 class="card-title pb-2">Business Size</h6>
+            <p class="card-text fs-5 cus-font fw-bold" style="color: var(--primary-color)">
+              {{ selectedCompany.businessSize }}
+            </p>
+          </div>
+        </div>
+        <!-- Card 3: Industry -->
+        <div
+          class="card cus-card text-center shadow-sm m-0 pb-4 pt-4"
+          style="width: 23%; border: none; border-radius: 10px"
+        >
+          <div class="card-body">
+            <h6 class="card-title pb-2">Industry</h6>
+            <p class="card-text fs-5 cus-font fw-bold" style="color: var(--primary-color)">
+              {{ selectedCompany.industry }}
+            </p>
+          </div>
+        </div>
+        <!-- Card 4: Website -->
+        <div
+          class="card cus-card text-center shadow-sm m-0 pb-4 pt-4"
+          style="width: 23%; border: none; border-radius: 10px"
+        >
+          <div class="card-body">
+            <h6 class="card-title pb-2">Website</h6>
+            <p class="card-text fs-5  cus-font fw-bold">
+              <a
+                href="{{ selectedCompany.website }}"
+                target="_blank"
+                class="d-flex align-items-center justify-content-center gap-2 text-decoration-none text-primary"
+                rel="noopener noreferrer"
+              >
+                {{ selectedCompany.name || "Visit Website" }}
+                <i
+                  class="fa-solid text-primary fa-arrow-up-right-from-square"
+                ></i>
+              </a>
+            </p>
+          </div>
+        </div>
+      </div>
+      <!-- ---------next--------- -->
+      <div class="content-text mt-5 mb-5">
+        <h2 class="fw-bold" style="color: var(--primary-color)">Who We are?</h2>
+        <p class="mb-0">
+          {{ selectedCompany.name }} Company Limited is a joint venture between
+          offers insurance products for financial planning and life insurance.
+          {{ selectedCompany.name }} Company Limited is a joint venture between
+          offers insurance products for financial planning and life insurance.
+          Lorem Ipsum has been the industry's standard dummy text ever since the
+          1500s, when an unknown printer took a galley of type and scrambled it
+          to make a type specimen book.
+        </p>
+        <p>
+          It has survived not only five centuries, but also the leap into
+          electronic typesetting, remaining essentially unchanged. It was
+          popularised in the 1960s with the release of Letraset sheets
+          containing Lorem Ipsum passages, and more recently with desktop
+          publishing software like Aldus PageMaker including versions of Lorem
+          Ipsum.
+        </p>
+      </div>
+      <!-- -------------next----------- -->
+      <div class="browse-content">
+        <h2 class="fw-bold" style="color: var(--primary-color)">
+          Browse jobs at {{ selectedCompany.name }}
+        </h2>
+        <!-- Dynamic Cards Section -->
+        <div class="row mt-3">
+          <div class="col-lg-4 col-md-6 mb-4" *ngFor="let card of visibleCards">
+            <!-- ---------next Page------ -->
+            <div class="card p-0" style="border-radius: 15px; border: none">
+              <div class="card-body m-0" style="padding: 1.5rem">
+                <h4
+                  class="card-title m-0 mb-3 fw-bolder"
+                  style="color: var(--primary-color)"
+                >
+                  {{ card.heading }}
+                </h4>
+                <div
+                  class="d-flex justify-content-between flex-wrap"
+                  style="gap: 10px"
+                >
+                  <span class="text-secondary m-0">
+                    <i class="fas fa-building"></i> {{ card.company }}
+                  </span>
+                  <span class="text-secondary m-0">
+                    <i class="fas fa-briefcase"></i> {{ card.experience }}
+                  </span>
+                </div>
+                <div
+                  class="d-flex justify-content-between mt-2 flex-wrap"
+                  style="gap: 10px"
+                >
+                  <span class="text-secondary m-0">
+                    <i class="fas fa-map-marker-alt"></i> {{ card.location }}
+                  </span>
+                  <span class="text-secondary m-0">
+                    <i class="fas fa-dollar-sign"></i> {{ card.salary }}
+                  </span>
+                </div>
+                <div class="d-flex justify-content-center mt-3">
+                  <button
+                    class="btn btn-sm text-white"
+                    style="
+                      background-color: var(--primary-color);
+                      padding: 0.5rem 2rem;
+                    "
+                    (click)="navigateToAddDetails()"
+                    [routerLink]="'/add-details'"
+                  >
+                    {{ card.buttonText }}
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+

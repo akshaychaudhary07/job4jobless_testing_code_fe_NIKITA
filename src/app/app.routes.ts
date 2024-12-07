@@ -1,4 +1,4 @@
-import { Routes } from '@angular/router';
+import { Routes, RouterModule } from '@angular/router';
 import { AboutUsComponent } from './about-us/about-us.component';
 import { ContentboxComponent } from './contentbox/contentbox.component';
 import { ContactUsComponent } from './contact-us/contact-us.component';
@@ -29,6 +29,8 @@ import { NoNotificationComponent } from './emp-dashboard/notification/no-notific
 import { ProfileComponent } from './profile/profile.component';
 import { JobSeekerSignupComponent } from './job-seeker-signup/job-seeker-signup.component';
 import { CompanyComponent } from './company/company.component';
+import { CompanyDetailsComponent } from './company/company-details/company-details.component';
+import { NgModule } from '@angular/core';
 
 
 
@@ -62,6 +64,8 @@ export const routes: Routes = [
   {path:'profile',component:ProfileComponent},
   {path:'job-seeker-signup',component:JobSeekerSignupComponent},
   {path:'company',component:CompanyComponent},
+  { path: 'company-page/:companyName', component: CompanyDetailsComponent },
+  {path: 'company-details' , component: CompanyDetailsComponent},
 
  
 

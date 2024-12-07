@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { CompanyPageComponent } from './company-page.component';
+import { CompanyDetailsComponent } from './company-details.component';
 
-describe('CompanyPageComponent', () => {
-  let component: CompanyPageComponent;
-  let fixture: ComponentFixture<CompanyPageComponent>;
+describe('CompanyDetailsComponent', () => {
+  let component: CompanyDetailsComponent;
+  let fixture: ComponentFixture<CompanyDetailsComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [CompanyPageComponent]
+      imports: [CompanyDetailsComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(CompanyPageComponent);
+    fixture = TestBed.createComponent(CompanyDetailsComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
@@ -20,5 +20,4 @@ describe('CompanyPageComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
-  
 });
