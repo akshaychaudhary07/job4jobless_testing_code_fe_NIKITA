@@ -2,13 +2,11 @@ import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { MessagesComponent } from './messages/messages.component';
-import { NoMessagesComponent } from './no-messages/no-messages.component';
-import { ShowMessagesComponent } from './show-messages/show-messages.component';
 
 @Component({
   selector: 'app-job-seeker-chat',
   standalone: true,
-  imports: [CommonModule,RouterModule,NoMessagesComponent,MessagesComponent,ShowMessagesComponent],
+  imports: [CommonModule,RouterModule,MessagesComponent,],
   templateUrl: './job-seeker-chat.component.html',
   styleUrl: './job-seeker-chat.component.css'
 })

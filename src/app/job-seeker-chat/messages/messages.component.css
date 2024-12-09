@@ -1,3 +1,31 @@
+.bg-primary-text p{
+    color: white;
+    width: fit-content;
+    padding: 1rem;
+    border-radius: 12px;
+    border-bottom-right-radius: 0;
+    opacity: 0.8;
+    background-color: var(--primary-color);
+}
+.bg-light-text p{
+    color: black;
+    background: rgb(130 133 135 / 75%) !important;
+    width: fit-content;
+    padding: 1rem;
+    border-radius: 14px;
+    border-bottom-left-radius: 0;
+    opacity: 0.8;
+    margin: 0rem;
+}
+.list-group-item.active {
+    background-color: var(--background-color);
+    margin-left: -1rem!important;
+    margin-right: -1rem!important;
+}
+li.list-group-item{
+    margin: 0rem!important;
+    padding-bottom: 2rem !important
+}
 @media (max-width:990px){
     .cus-pad{
         padding: 2rem 2rem!important;
