@@ -24,6 +24,7 @@ import { AboutUsComponent } from './about-us/about-us.component';
 })
 export class AppComponent implements OnInit {
   showNotificationIcon: boolean = false; // Add this line
+  showMessageIcon: boolean = false;
   isSpecialRoute = false;
   hideHeader = false; // Controls header visibility
   hideFooter = false; // Controls footer visibility
@@ -79,43 +80,66 @@ export class AppComponent implements OnInit {
       }
     });
   }
-
   private updateNavItemsBasedOnRoute(url: string) {
     if (url.includes('/login')) {
       this.hideHeader = true; // Hide header on login page
       this.hideFooter = true; // Hide footer on login page
+      this.showNotificationIcon = false;
+      this.showMessageIcon = false;
+    } else if (
+      url.includes('/company') || 
+      url.includes('/job-seeker-chat')
+    ) {
+      // Update for profile and job-seeker-chat URLs
+      this.isSpecialRoute = true;
+      this.hideHeader = false;
+      this.hideFooter = false;
+      this.navItems = [
+        { label: 'Find Jobs', link: '/find-jobs' },
+        { label: 'Company Reviews', link: '/company-reviews' },
+        { label: 'Saved Jobs', link: '/saved-jobs' },
+        { label: 'Resume Builder', link: '/resume-builder' },
+      ]; // Set specific labels
+      this.showNotificationIcon = true; // Show notification icon
+      this.showMessageIcon = true; // Show message icon
     } else if (
       url.includes('/dashboard') ||
       url.includes('/post-job') ||
       url.includes('/approved-jobs') ||
       url.includes('/rejected-jobs') ||
-      url.includes('/applied-users') || // Include applied-users in dashboard-specific logic
+      url.includes('/applied-users') ||
       url.includes('/job-post-submitted') ||
       url.includes('/notification') ||
-      url.includes('/no-notification') ||
-      url.includes('/profile') // Include /profile for same header as other routes
+      url.includes('/profile') || 
+      url.includes('/no-notification')
     ) {
       this.isSpecialRoute = true;
-      this.hideHeader = false; // Show header on these routes
-      this.hideFooter = url.includes('/profile') ? true : false; // Hide footer only on /profile
+      this.hideHeader = false;
+      this.hideFooter = false;
       this.navItems = this.dashboardNavItems; // Set the nav items for the dashboard
-      this.showNotificationIcon = true; // Show notification icon
+      this.showNotificationIcon = true;
+      this.showMessageIcon = false;
     } else if (url.includes('/employer') || url.includes('/hiring-solution')) {
       this.isSpecialRoute = true;
       this.hideHeader = false;
       this.hideFooter = false;
-      this.navItems = this.employerNavItems; 
-      this.showNotificationIcon = false; // Hide notification icon
+      this.navItems = this.employerNavItems;
+      this.showNotificationIcon = false;
+      this.showMessageIcon = false;
     } else {
       this.isSpecialRoute = false;
       this.hideHeader = false;
       this.hideFooter = false;
       this.navItems = this.defaultNavItems;
-      this.showNotificationIcon = false; // Hide notification icon
+      this.showNotificationIcon = false;
+      this.showMessageIcon = false;
     }
     console.log('Current navItems:', this.navItems);
-  }
+}
+
   
+  
+
   
 
   // Update button text and link based on the current route

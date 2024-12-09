@@ -20,6 +20,8 @@ export class HeaderComponent {
   @Input() buttonText: string = 'Start Job Hunting'; // default text
     @Input() buttonLink: string = ''
     @Input() showNotificationIcon: boolean = true; // Accept the input
+    @Input() showMessageIcon: boolean = true; // Toggle to show/hide message icon
+    unreadMessagesCount = 3; // Example unread message count
     notifications = [
       { id: 1, status: 'unread' },
       { id: 2, status: 'unread' },
@@ -48,6 +50,9 @@ export class HeaderComponent {
     showProfilePage():void{
       this.router.navigate(['/profile']);// Navigate to the profile page
     }
+    navigateToMessages() {
+      this.router.navigate(['/job-seeker-chat']);// Navigate to the chat page
+    }
 
   openModal() {
     this.zone.run(() => {
@@ -63,5 +68,5 @@ export class HeaderComponent {
   toggleNavbar() {
     this.isCollapsed = !this.isCollapsed; 
   }
-  
+
 }

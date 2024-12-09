@@ -1,18 +1,19 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { CompanyPageComponent } from './company-page/company-page.component';
-import { CompanyDetailsComponent } from './company-details/company-details.component';
+import { MessagesComponent } from './messages/messages.component';
+import { NoMessagesComponent } from './no-messages/no-messages.component';
+import { ShowMessagesComponent } from './show-messages/show-messages.component';
 
 @Component({
-  selector: 'app-company',
+  selector: 'app-job-seeker-chat',
   standalone: true,
-  imports: [CommonModule,RouterModule,CompanyPageComponent,CompanyDetailsComponent,],
-  templateUrl: './company.component.html',
-  styleUrl: './company.component.css'
+  imports: [CommonModule,RouterModule,NoMessagesComponent,MessagesComponent,ShowMessagesComponent],
+  templateUrl: './job-seeker-chat.component.html',
+  styleUrl: './job-seeker-chat.component.css'
 })
-export class CompanyComponent {
- navItems = [
+export class JobSeekerChatComponent {
+  navItems = [
     { label: 'Find Jobs', link: '/find-jobs' },
     { label: 'Company Reviews', link: '/company-reviews' },
     { label: 'Saved Jobs', link: '/saved-jobs' },

@@ -31,6 +31,7 @@ import { JobSeekerSignupComponent } from './job-seeker-signup/job-seeker-signup.
 import { CompanyComponent } from './company/company.component';
 import { CompanyDetailsComponent } from './company/company-details/company-details.component';
 import { NgModule } from '@angular/core';
+import { JobSeekerChatComponent } from './job-seeker-chat/job-seeker-chat.component';
 
 
 
@@ -66,6 +67,7 @@ export const routes: Routes = [
   {path:'company',component:CompanyComponent},
   { path: 'company-page/:companyName', component: CompanyDetailsComponent },
   {path: 'company-details' , component: CompanyDetailsComponent},
+  {path: 'job-seeker-chat' , component: JobSeekerChatComponent},
 
  
 

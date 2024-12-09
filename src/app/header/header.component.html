@@ -64,6 +64,37 @@
             </div>
           </li>
         </ul>
+                <!-- Message Icon -->
+                <button
+                *ngIf="showMessageIcon"
+                (click)="navigateToMessages()"
+                type="button"
+                class="btn btn-custom rounded-pill btn head-btn text-white position-relative"
+                tabindex="0"
+              >
+                <!-- Message Icon -->
+                <span>
+                  <i
+                    class="fa-solid fa-envelope"
+                    style="color: var(--primary-color)"
+                  ></i>
+                </span>
+      
+                <!-- Message Badge -->
+                <!-- <span
+                  *ngIf="unreadMessagesCount > 0"
+                  class="position-absolute top-0 start-100 translate-middle badge rounded-circle"
+                  style="
+                    font-size: 0.75rem;
+                    padding: 8px;
+                    background-color: var(--secondary-color);
+                    color: var(--primary-color);
+                  "
+                >
+                  {{ unreadMessagesCount }}
+                  <span class="visually-hidden">unread messages</span>
+                </span> -->
+              </button>
         <!-- Notification Button (Only show on specific routes) -->
         <!-- Notification Button (Only show on specific routes) -->
         <button
@@ -99,7 +130,7 @@
           <button
             type="button"
             class="btn btn-custom rounded-pill btn head-btn text-white"
-            (click) = "showProfilePage()"
+            (click)="showProfilePage()"
             tabindex="0"
           >
             <span class=""
@@ -110,6 +141,7 @@
             ></span>
           </button>
         </span>
+
 
         <!-- Regular Button (Shows in other components) -->
         <button

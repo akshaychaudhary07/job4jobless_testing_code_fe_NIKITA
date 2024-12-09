@@ -1,0 +1,94 @@
+<section
+  class="messages cus-pad"
+  style="background-color: var(--background-color); padding: 2rem 10rem"
+>
+  <div class="container-fluid h-100 bg-white" style="border-radius: 12px">
+    <div class="row h-100">
+      <!-- Left Side -->
+      <div class="col-md-4 col-sm-12 d-flex flex-column p-3 border-end">
+        <h5 style="color: var(--primary-color)" class="fw-bolder fs-1 m-0 mb-3">
+          Messages
+        </h5>
+        <!-- Search Bar -->
+        <div
+          class="input-group my-3 fw-bold"
+          style="border: 2px solid var(--primary-color); border-radius: 5px"
+        >
+          <input
+            type="text"
+            class="form-control border-0"
+            placeholder="Search messages..."
+          />
+          <span class="input-group-text bg-white border-0">
+            <i
+              class="bi bi-search fw-bolder"
+              style="color: var(--primary-color)"
+            ></i>
+          </span>
+        </div>
+
+        <!-- Chat List -->
+        <ul class="list-group flex-grow-1 overflow-auto m-0">
+          <li
+            *ngFor="let chat of chatList"
+            class="list-group-item border-0 d-flex mb-5 mt-4 p-0 m-0"
+            [class.active]="chat.id === activeChat?.id"
+            (click)="selectChat(chat)"
+            style="
+              cursor: pointer;
+              border-top: 1px solid #dee2e6 !important;
+              border-radius: 0;
+            "
+          >
+            <img
+              [src]="chat.photo"
+              alt=""
+              class="rounded-circle me-3 m-0 mt-4"
+              style="width: 40px; height: 40px;background: #8b98a0;"
+            />
+            <div class="m-0 mt-4">
+              <strong>{{ chat.name }}</strong>
+              <p class="text-muted mb-0">{{ chat.message }}</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Right Side -->
+      <div
+        class="col-md-8 col-sm-12 d-flex align-items-center justify-content-center p-3 m-auto"
+      >
+        <ng-container *ngIf="!activeChat">
+          <!-- Default View -->
+          <div class="text-center">
+            <i
+              class="bi bi-chat-dots-fill display-1"
+              style="color: var(--primary-color)"
+            ></i>
+            <h6 style="color: var(--primary-color)" class="fw-bolder fs-4">
+              Select a conversation
+            </h6>
+            <p class="text-muted">Click on an existing chat</p>
+          </div>
+        </ng-container>
+        <ng-container *ngIf="activeChat">
+          <!-- Active Chat View -->
+          <div>
+            <h5>{{ activeChat.name }}</h5>
+            <p>{{ activeChat.message }}</p>
+            <div class="mt-4">
+              <div *ngFor="let chatMessage of activeChat.messages">
+                <p>{{ chatMessage }}</p>
+              </div>
+            </div>
+          </div>
+        </ng-container>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+</section>
