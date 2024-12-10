@@ -1,0 +1,136 @@
+.progress-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: fit-content;
+    padding: 20px;
+    position: relative;
+    width: 100%; 
+    
+  }
+  .step-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+  }
+  .step-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 10px;
+    margin-left: 6rem;
+  }
+  .step-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; 
+    padding: 10px 0;
+    margin-left: 6rem;
+    z-index:  2;
+    
+  }
+  .step-dot {
+    width: 20px;
+    height: 20px;
+    background-color: var(--primary-color);
+    border-radius: 50%;
+    position: absolute;
+    left: 6%;
+    transform: translateX(-50%);
+    cursor: pointer;
+  }
+  /* .step-dot.active {
+    background-color: var(--primary-color);
+  } */
+  .progress-container::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 6%; 
+    transform: translateX(-50%);
+    width: 4px;
+    height: 100%;
+    background-color: var(--primary-color);
+    z-index: 0;
+  }
+  h2 {
+    color: #D9D9D9;
+    margin: 0;
+  }
+  .active-heading {
+    font-weight: bold;
+    background: var(--primary-color);
+    padding: 7px 45px 7px 85px;
+    clip-path: polygon(23% 0, 100% 0, 100% 100%, 23% 100%, 0 50%);
+    border-radius: 9px;
+    color: var(--secondary-color);
+  }
+  .disabled-heading {
+    opacity: 0;
+  }
+  .step-content {
+    margin-top: 15px;
+  }
+  /* --refined code -- */
+  @media (min-width: 992px) {
+    .progress-container {
+        max-width: 1300px;
+    }
+    .step-item {
+      margin-left: 1rem;
+  }
+  }
+   @media (max-width: 768px) {
+    .progress-container {
+      flex-direction: row;
+      align-items: flex-start;
+      justify-content: flex-start;
+      padding: 10px 0;
+      overflow: hidden;
+      position: relative;
+    }
+    .progress-container::before {
+      content: "";
+      position: absolute;
+      top: 28px; 
+      right: 0;
+      height: 4px;
+      background-color: #ccc;
+      z-index: 0;
+      width: 190%;
+    }
+    .step-container {
+      flex-direction: column;
+      margin: 0 0px;
+    }
+    .step-item {
+      margin-left: 1rem;
+  }
+    .step-container:nth-child(2) .step-dot {
+      left: 35%;
+    }
+    .step-container:nth-child(3) .step-dot {
+      left: 50%;
+    }
+    .step-container:nth-child(4) .step-dot {
+      left: 75%;
+    }
+    .step-container:nth-child(5) .step-dot {
+      left: 90%;
+    }
+    h2 {
+      font-size: 1rem;
+      margin-top: 3rem;
+      width: 50%;
+    }
+  }
+  @media (max-width: 567px) {
+  .step-container {
+    margin-right: -1rem;
+  }
+  }

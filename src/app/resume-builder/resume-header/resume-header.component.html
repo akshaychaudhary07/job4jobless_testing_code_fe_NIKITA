@@ -1,0 +1,201 @@
+<section
+  class="resume-header"
+  style="
+    background-color: var(--background-color);
+    padding: 1rem;
+    border-radius: 12px;
+  "
+>
+  <div class="container mt-4 mb-4">
+    <!-- Top Section: Circle with + Icon and Input -->
+    <div class="d-flex align-items-center mb-4">
+      <div class="position-relative me-3 m-0">
+        <div
+          class="circle position-relative d-flex align-items-center justify-content-center"
+          (click)="openFileInput('direct')"
+        >
+          <span
+            *ngIf="!directImage"
+            style="cursor: pointer"
+            class="add-icon fw-bolder add-icon-overlay position-absolute text-white d-flex align-items-center justify-content-center"
+            >+</span
+          >
+          <img
+            *ngIf="directImage"
+            [src]="directImage"
+            alt="Selected Photo"
+            class="circle-img w-100 h-100"
+            style="object-fit: cover; border-radius: 50%"
+          />
+        </div>
+        <input
+          type="file"
+          #directFileInput
+          class="d-none"
+          (change)="onFileSelected($event, 'direct')"
+          accept="image/*"
+        />
+      </div>
+      <div class="d-flex flex-column gap-3 m-0">
+        <div class="flex-grow-1">
+          <input
+            type="text"
+            class="form-control bg-white"
+            placeholder="Choose from library"
+            readonly
+            (click)="openFileInput('library')"
+          />
+        </div>
+        <input
+          type="file"
+          #libraryFileInput
+          class="d-none"
+          (change)="onFileSelected($event, 'library')"
+          accept="image/*"
+        />
+        <div class="d-flex gap-1 m-0">
+          <div class="m-0">
+            <button
+              class="btn text-white"
+              [disabled]="!directImage && !uploadedImage"
+              (click)="uploadPhoto()"
+              style="background-color: var(--primary-color)"
+            >
+              Upload
+            </button>
+          </div>
+          <div class="ms-2">
+            <span style="color: var(--primary-color)">{{
+              uploadedImageName || "No file chosen"
+            }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Form Fields -->
+    <form [formGroup]="resumeForm" (ngSubmit)="saveDataAndNavigate()" novalidate>
+      <!-- Input Fields -->
+      <div class="row mb-3 cus-gap">
+        <div class="col-md-6">
+          <input
+            type="text"
+            class="form-control"
+            placeholder="First Name"
+            formControlName="firstName"
+          />
+          <small
+            *ngIf="
+              resumeForm.get('firstName')?.touched &&
+              resumeForm.get('firstName')?.invalid
+            "
+            class="text-danger"
+          >
+            First Name is required.
+          </small>
+        </div>
+        <div class="col-md-6">
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Last Name"
+
+            formControlName="lastName"
+          />
+          <small
+            *ngIf="
+              resumeForm.get('lastName')?.touched &&
+              resumeForm.get('lastName')?.invalid
+            "
+            class="text-danger"
+          >
+            Last Name is required.
+          </small>
+        </div>
+      </div>
+      <div class="row mb-3 cus-gap">
+        <div class="col-md-6">
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Mobile Number"
+          
+            formControlName="mobileNumber"
+          />
+          <small
+            *ngIf="
+              resumeForm.get('mobileNumber')?.touched &&
+              resumeForm.get('mobileNumber')?.invalid
+            "
+            class="text-danger"
+          >
+            Mobile number must be 10 digits.
+          </small>
+        </div>
+        <div class="col-md-6">
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Job Title"
+          
+            formControlName="jobTitle"
+          />
+          <small
+            *ngIf="
+              resumeForm.get('jobTitle')?.touched &&
+              resumeForm.get('jobTitle')?.invalid
+            "
+            class="text-danger"
+          >
+            Job Title is required.
+          </small>
+        </div>
+      </div>
+      <div class="mb-3">
+        <input
+          type="email"
+          class="form-control"
+          placeholder="Email Address"
+
+          formControlName="email"
+        />
+        <small
+          *ngIf="
+            resumeForm.get('email')?.touched && resumeForm.get('email')?.invalid
+          "
+          class="text-danger"
+        >
+          Please enter a valid email address.
+        </small>
+      </div>
+      <div class="mb-3">
+        <textarea
+          class="form-control"
+          placeholder="Address"
+          rows="3"
+       
+          formControlName="address"
+        >
+        </textarea>
+        <small *ngIf="resumeForm.get('address')?.touched && resumeForm.get('address')?.invalid" class="text-danger">
+          Address is required.
+        </small>
+      </div>
+
+      <!-- Buttons -->
+      <div class="d-flex justify-content-between">
+        <button class="btn btn-secondary" style="width: 40%" disabled>
+          PREV
+        </button>
+        <button
+          class="btn text-white"
+          [disabled]="resumeForm.invalid"
+          style="background-color: var(--primary-color); width: 40%"
+          (click)="saveDataAndNavigate()"
+        >
+          NEXT
+        </button>
+      </div>
+    </form>
+  </div>
+</section>
+<!-- routerLink="/next-page" -->

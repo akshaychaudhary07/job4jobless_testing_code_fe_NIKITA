@@ -88,6 +88,7 @@ export class AppComponent implements OnInit {
       this.showMessageIcon = false;
     } else if (
       url.includes('/company') || 
+      url.includes('/resume-builder') ||
       url.includes('/job-seeker-chat')
     ) {
       // Update for profile and job-seeker-chat URLs
