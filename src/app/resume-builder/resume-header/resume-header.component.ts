@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, ElementRef, ViewChild } from '@angular/core';
+import { Component, ElementRef, EventEmitter, Output, ViewChild } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { ResumeBuilderComponent } from '../resume-builder.component';
 import { ResumeExperienceComponent } from '../resume-experience/resume-experience.component';
@@ -18,14 +18,15 @@ import { Router } from '@angular/router'; // Import Router
   styleUrl: './resume-header.component.css'
 })
 export class ResumeHeaderComponent {
-  resumeForm: FormGroup;
+  // resumeForm: FormGroup;
+  form: FormGroup;
   constructor(private fb: FormBuilder, private router: Router) {
-    this.resumeForm = this.fb.group({
-      firstName: ['', [Validators.required]],
-      lastName: ['', [Validators.required]],
-      mobileNumber: ['', [Validators.required, Validators.pattern(/^\d{10}$/)]], // Mobile number pattern
+    this.form = this.fb.group({
+      firstName: ['', [Validators.required, Validators.minLength(2)]],
+      lastName: ['', [Validators.required, Validators.minLength(2)]],
+      mobileNumber: ['', [Validators.required, Validators.pattern(/^\d{10}$/)]],
       jobTitle: ['', [Validators.required]],
-      email: ['', [Validators.required, Validators.email]], // Email validation
+      email: ['', [Validators.required, Validators.email]],
       address: ['', [Validators.required]],
     });
   }
@@ -81,18 +82,21 @@ uploadPhoto(): void {
     // Add your logic to upload the image or process it as required
 }
 
-// Save data and navigate to the next page
-saveDataAndNavigate(): void {
-  if (this.resumeForm.valid) {
-    console.log('Form Data:', this.resumeForm.value);
-    this.router.navigate(['/next-page']);
+@Output() continueClicked = new EventEmitter<void>();
+
+onContinue(): void {
+  if (this.form.valid) {
+    // Perform actions (e.g., save data or send to API)
+    console.log('Form submitted:', this.form.value);
+
+    // Navigate to the next page
+      // Emit the event when the Continue button is clicked
+      this.continueClicked.emit();
   } else {
-    console.log('Form is invalid');
+    // Mark all controls as touched to show errors
+    this.form.markAllAsTouched();
   }
 }
-
-
-// this.router.navigate(['/next-page']); // Navigate to the next page
 
 }
 

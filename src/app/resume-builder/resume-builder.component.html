@@ -1,15 +1,13 @@
 <div class="head-sec mt-5 mb-5">
-    <h1 class="fw-bolder fs-1 text-center" style="color: var(--primary-color)">
-      {{ currentHeading }}
-    </h1>
-    <h6 class="text-center">
-      {{ currentSubtitle }}
-    </h6>
-  </div>
+  <h1 class="fw-bolder fs-1 text-center" style="color: var(--primary-color)">
+    {{ currentHeading }}
+  </h1>
+  <h6 class="text-center">
+    {{ currentSubtitle }}
+  </h6>
+</div>
 
-<section
-  class="vertical-slider d-flex"
->
+<section class="vertical-slider d-flex">
   <!-- Progress Bar and Dots -->
   <div class="progress-container">
     <!-- Step 1 -->
@@ -30,7 +28,7 @@
           Header
         </h2>
         <div *ngIf="activeStep === 1" class="step-item">
-          <app-resume-header></app-resume-header>
+          <app-resume-header (continueClicked)="nextPage()"></app-resume-header>
         </div>
       </div>
     </div>
@@ -42,7 +40,7 @@
         [ngClass]="{ active: activeStep === 2 }"
         (click)="activateStep(2)"
       ></div>
-      <div class="d-flex flex-grow-1 align-items-center flex-wrap">
+      <div class="d-flex flex-grow-1 align-items-baseline flex-wrap">
         <h2
           [ngClass]="{
             'active-heading': activeStep === 2,
@@ -53,7 +51,7 @@
           Experience
         </h2>
         <div *ngIf="activeStep === 2" class="step-item">
-          <app-resume-experience></app-resume-experience>
+          <app-resume-experience (continueClicked)="nextPage()" (prevClicked)="prevPage()"></app-resume-experience>
         </div>
       </div>
     </div>
@@ -65,7 +63,7 @@
         [ngClass]="{ active: activeStep === 3 }"
         (click)="activateStep(3)"
       ></div>
-      <div class="d-flex flex-grow-1 align-items-center flex-wrap">
+      <div class="d-flex flex-grow-1 align-items-baseline flex-wrap">
         <h2
           [ngClass]="{
             'active-heading': activeStep === 3,
@@ -76,7 +74,7 @@
           Education
         </h2>
         <div *ngIf="activeStep === 3" class="step-item">
-          <app-resume-education></app-resume-education>
+          <app-resume-education (continueClicked)="nextPage()"(prevclicked)="prevPage"></app-resume-education>
         </div>
       </div>
     </div>
@@ -88,7 +86,7 @@
         [ngClass]="{ active: activeStep === 4 }"
         (click)="activateStep(4)"
       ></div>
-      <div class="d-flex flex-grow-1 align-items-center flex-wrap">
+      <div class="d-flex flex-grow-1 align-items-baseline flex-wrap">
         <h2
           [ngClass]="{
             'active-heading': activeStep === 4,
@@ -99,7 +97,7 @@
           Skills
         </h2>
         <div *ngIf="activeStep === 4" class="step-item">
-          <app-resume-skills></app-resume-skills>
+          <app-resume-skills (continueClicked)="nextPage()"(prevclicked)="prevPage"></app-resume-skills>
         </div>
       </div>
     </div>
@@ -111,7 +109,7 @@
         [ngClass]="{ active: activeStep === 5 }"
         (click)="activateStep(5)"
       ></div>
-      <div class="d-flex flex-grow-1 align-items-center flex-wrap">
+      <div class="d-flex flex-grow-1 align-items-baseline flex-wrap">
         <h2
           [ngClass]="{
             'active-heading': activeStep === 5,
@@ -122,7 +120,7 @@
           Summary
         </h2>
         <div *ngIf="activeStep === 5" class="step-item">
-          <app-resume-summary></app-resume-summary>
+          <app-resume-summary (continueClicked)="nextPage()" (prevclicked)="prevPage"></app-resume-summary>
         </div>
       </div>
     </div>

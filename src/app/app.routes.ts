@@ -33,6 +33,11 @@ import { CompanyDetailsComponent } from './company/company-details/company-detai
 import { NgModule } from '@angular/core';
 import { JobSeekerChatComponent } from './job-seeker-chat/job-seeker-chat.component';
 import { ResumeBuilderComponent } from './resume-builder/resume-builder.component';
+import { ResumeExperienceComponent } from './resume-builder/resume-experience/resume-experience.component';
+import { ResumeSkillsComponent } from './resume-builder/resume-skills/resume-skills.component';
+import { ResumeSummaryComponent } from './resume-builder/resume-summary/resume-summary.component';
+import { ResumeEducationComponent } from './resume-builder/resume-education/resume-education.component';
+import { ResumeHeaderComponent } from './resume-builder/resume-header/resume-header.component';
 
 
 
@@ -70,7 +75,11 @@ export const routes: Routes = [
   {path: 'company-details' , component: CompanyDetailsComponent},
   {path: 'job-seeker-chat' , component: JobSeekerChatComponent},
   {path: 'resume-builder' , component: ResumeBuilderComponent},
-
+  {path: 'resume-experience', component : ResumeExperienceComponent},
+  {path: 'resume-skills', component : ResumeSkillsComponent},
+  {path: 'resume-summary', component : ResumeSummaryComponent},
+  {path: 'resume-education', component : ResumeEducationComponent},
+  {path: 'resume-header', component : ResumeHeaderComponent},
  
 
   // { path: 'applied-users', component: AppliedUsersComponent }, 

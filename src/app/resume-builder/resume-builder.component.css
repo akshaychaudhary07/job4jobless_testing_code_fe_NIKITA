@@ -126,7 +126,7 @@
     h2 {
       font-size: 1rem;
       margin-top: 3rem;
-      width: 50%;
+      width: fit-content;
     }
   }
   @media (max-width: 567px) {

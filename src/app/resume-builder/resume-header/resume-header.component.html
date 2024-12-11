@@ -73,7 +73,8 @@
       </div>
     </div>
     <!-- Form Fields -->
-    <form [formGroup]="resumeForm" (ngSubmit)="saveDataAndNavigate()" novalidate>
+    <!-- <form [formGroup]="resumeForm" (ngSubmit)="saveDataAndNavigate()" novalidate> -->
+    <form [formGroup]="form" (ngSubmit)="onContinue()" novalidate>
       <!-- Input Fields -->
       <div class="row mb-3 cus-gap">
         <div class="col-md-6">
@@ -82,34 +83,31 @@
             class="form-control"
             placeholder="First Name"
             formControlName="firstName"
+            [ngClass]="{
+              'is-invalid':
+                form.controls['firstName']?.invalid && form.controls['firstName']?.touched
+            }"
           />
-          <small
-            *ngIf="
-              resumeForm.get('firstName')?.touched &&
-              resumeForm.get('firstName')?.invalid
-            "
-            class="text-danger"
-          >
-            First Name is required.
-          </small>
+
+          <div class="invalid-feedback">
+            First Name is required and must be at least 2 characters long.
+          </div>
         </div>
         <div class="col-md-6">
           <input
             type="text"
             class="form-control"
             placeholder="Last Name"
-
             formControlName="lastName"
+            [ngClass]="{
+              'is-invalid':
+                form.controls['lastName']?.invalid && form.controls['lastName']?.touched
+            }"
+         
           />
-          <small
-            *ngIf="
-              resumeForm.get('lastName')?.touched &&
-              resumeForm.get('lastName')?.invalid
-            "
-            class="text-danger"
-          >
-            Last Name is required.
-          </small>
+          <div class="invalid-feedback">
+            Last Name is required and must be at least 2 characters long.
+          </div>
         </div>
       </div>
       <div class="row mb-3 cus-gap">
@@ -118,36 +116,32 @@
             type="text"
             class="form-control"
             placeholder="Mobile Number"
-          
             formControlName="mobileNumber"
+            [ngClass]="{
+              'is-invalid':
+                form.controls['mobileNumber']?.invalid && form.controls['mobileNumber']?.touched
+            }"
+          
           />
-          <small
-            *ngIf="
-              resumeForm.get('mobileNumber')?.touched &&
-              resumeForm.get('mobileNumber')?.invalid
-            "
-            class="text-danger"
-          >
-            Mobile number must be 10 digits.
-          </small>
+          <div class="invalid-feedback">
+            Phone number is required and must be 10 digits.
+          </div>
         </div>
         <div class="col-md-6">
           <input
             type="text"
             class="form-control"
             placeholder="Job Title"
-          
             formControlName="jobTitle"
+            [ngClass]="{
+              'is-invalid':
+                form.controls['jobTitle']?.invalid && form.controls['jobTitle']?.touched
+            }"
+          
           />
-          <small
-            *ngIf="
-              resumeForm.get('jobTitle')?.touched &&
-              resumeForm.get('jobTitle')?.invalid
-            "
-            class="text-danger"
-          >
-            Job Title is required.
-          </small>
+          <div class="invalid-feedback">
+            Job Tittle is required.
+          </div>
         </div>
       </div>
       <div class="mb-3">
@@ -155,30 +149,29 @@
           type="email"
           class="form-control"
           placeholder="Email Address"
-
           formControlName="email"
+          [ngClass]="{
+            'is-invalid':
+              form.controls['email']?.invalid && form.controls['email']?.touched
+          }"
+         
         />
-        <small
-          *ngIf="
-            resumeForm.get('email')?.touched && resumeForm.get('email')?.invalid
-          "
-          class="text-danger"
-        >
-          Please enter a valid email address.
-        </small>
+        <div class="invalid-feedback">Please enter a valid email address.</div>
       </div>
       <div class="mb-3">
         <textarea
           class="form-control"
           placeholder="Address"
           rows="3"
-       
           formControlName="address"
+          [ngClass]="{
+            'is-invalid':
+              form.controls['address']?.invalid && form.controls['address']?.touched
+          }"
+         
         >
         </textarea>
-        <small *ngIf="resumeForm.get('address')?.touched && resumeForm.get('address')?.invalid" class="text-danger">
-          Address is required.
-        </small>
+        <div class="invalid-feedback">Please enter a valid  Address.</div>
       </div>
 
       <!-- Buttons -->
@@ -188,9 +181,9 @@
         </button>
         <button
           class="btn text-white"
-          [disabled]="resumeForm.invalid"
+          [disabled]="form.invalid"
           style="background-color: var(--primary-color); width: 40%"
-          (click)="saveDataAndNavigate()"
+          (click)="onContinue()"
         >
           NEXT
         </button>
@@ -198,4 +191,3 @@
     </form>
   </div>
 </section>
-<!-- routerLink="/next-page" -->

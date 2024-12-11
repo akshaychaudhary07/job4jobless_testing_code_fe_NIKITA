@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { ResumeBuilderComponent } from '../resume-builder.component';
 import { ResumeHeaderComponent } from '../resume-header/resume-header.component';
@@ -15,5 +15,8 @@ import { ResumeSummaryComponent } from '../resume-summary/resume-summary.compone
   styleUrl: './resume-education.component.css'
 })
 export class ResumeEducationComponent {
+  @Output() prevClicked = new EventEmitter<void>(); // New output event for previous page navigation
+
+
 
 }

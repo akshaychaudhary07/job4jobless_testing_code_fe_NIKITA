@@ -64,4 +64,17 @@ export class ResumeBuilderComponent {
   checkMobileView() {
     this.isMobileView = window.innerWidth <= 768;
   }
+     // Navigate to the next step
+     nextPage(): void {
+      if (this.activeStep < 5) {
+        this.activeStep++; // Increment to the next step
+      }
+    }
+ // Navigate to the next step
+ prevPage(): void {
+  if (this.activeStep > 1) {
+    this.activeStep--; // Decrement to the previous step
+  }
+}
+  
 }

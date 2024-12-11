@@ -31,10 +31,6 @@ export class AddContactComponent {
   }
   @Output() continueClicked = new EventEmitter<void>();
 
-  // onContinue(): void {
- 
-  //   this.continueClicked.emit();
-  // }
   onContinue(): void {
     if (this.form.valid) {
       // Perform actions (e.g., save data or send to API)
