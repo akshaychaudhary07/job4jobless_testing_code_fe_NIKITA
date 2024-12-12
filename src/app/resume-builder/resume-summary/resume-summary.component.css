@@ -1,0 +1,13 @@
+.editing-content{
+    border-radius: 12px;
+    border: 2px solid #d3d4d5;
+    width: fit-content;
+    height: fit-content;
+    overflow: hidden;
+}
+@media(max-width:900px){
+    section.resume-summary {
+        margin-left: -9rem;
+        margin-right: 2rem;
+    }
+}

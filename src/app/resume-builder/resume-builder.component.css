@@ -134,4 +134,7 @@
   .step-container {
     margin-right: -1rem;
   }
+  .active-heading {
+    padding: 7px 25px 7px 60px;
+}
   }

@@ -10,3 +10,9 @@ textarea {
       gap: 1.3rem;
     }
   }
+  @media (max-width:900px){
+    section.resume-experience {
+      margin-right: -5rem;
+      margin-left: -2rem;
+  }
+  }

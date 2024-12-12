@@ -1,6 +1,186 @@
-<p>resume-skills works!</p>
+<section
+  class="resume-skills"
+  style="
+    background-color: var(--background-color);
+    padding: 1rem;
+    border-radius: 12px;
+  "
+>
+  <div class="container mt-4 mb-4">
+    <form [formGroup]="formGroup" (ngSubmit)="onContinue()">
+      <!-- Rich Text Editor for Skills -->
+      <div class="mb-3 editing-content bg-white">
+        <div class="editor-toolbar">
+          <button
+            type="button"
+            class="btn btn-sm btn-light"
+            (click)="applyFormatting('bold')"
+          >
+            <i class="bi bi-type-bold"></i>
+            <!-- Bold Icon -->
+          </button>
+          <button
+            type="button"
+            class="btn btn-sm btn-light"
+            (click)="applyFormatting('italic')"
+          >
+            <i class="bi bi-type-italic"></i>
+            <!-- Italic Icon -->
+          </button>
+          <button
+            type="button"
+            class="btn btn-sm btn-light"
+            (click)="applyFormatting('underline')"
+          >
+            <i class="bi bi-type-underline"></i>
+            <!-- Underline Icon -->
+          </button>
+          <button
+            type="button"
+            class="btn btn-sm btn-light"
+            (click)="applyFormatting('strikeThrough')"
+          >
+            <i class="bi bi-type-strikethrough"></i>
+            <!-- Strikethrough Icon -->
+          </button>
 
+          <input
+            type="color"
+            class="btn btn-sm btn-light"
+            title="Text Color"
+            (input)="applyFormatting('foreColor', $event.target.value)"
+            
+          />
+        
 
-  
-      
+          <input
+            type="color"
+            class="btn btn-sm btn-light"
+            title="Background Color"
+            (input)="applyFormatting('backColor', $event.target.value)"
+          />
 
+          <button
+            type="button"
+            class="btn btn-sm btn-light"
+            (click)="applyFormatting('justifyLeft')"
+          >
+            <i class="bi bi-text-left"></i>
+            <!-- Align Left Icon -->
+          </button>
+          <button
+            type="button"
+            class="btn btn-sm btn-light"
+            (click)="applyFormatting('justifyCenter')"
+          >
+            <i class="bi bi-text-center"></i>
+            <!-- Align Center Icon -->
+          </button>
+          <button
+            type="button"
+            class="btn btn-sm btn-light"
+            (click)="applyFormatting('justifyRight')"
+          >
+            <i class="bi bi-text-right"></i>
+            <!-- Align Right Icon -->
+          </button>
+          <button
+            type="button"
+            class="btn btn-sm btn-light"
+            (click)="applyFormatting('justifyFull')"
+          >
+            <i class="bi bi-justify"></i>
+            <!-- Justify Icon -->
+          </button>
+          <button
+            type="button"
+            class="btn btn-sm btn-light"
+            (click)="applyFormatting('fontSize', '16px')"
+          >
+            <i class="bi bi-fonts"></i>
+            <!-- Font Size Icon -->
+          </button>
+
+          <button
+            type="button"
+            class="btn btn-sm btn-light"
+            (click)="applyFormatting('fontWeight', 'bold')"
+          >
+            <i class="bi bi-text-bold"></i>Font-Weight
+            <!-- Font Weight Icon -->
+          </button>
+          <button
+            type="button"
+            class="btn btn-sm btn-light"
+            (click)="applyFormatting('fontFamily', 'Arial')"
+          >
+            <i class="bi bi-font-family"></i>Font-Family
+            <!-- Font Family Icon -->
+          </button>
+          <button
+            type="button"
+            class="btn btn-sm btn-light"
+            (click)="applyFormatting('undo')"
+          >
+            <i class="bi bi-arrow-counterclockwise"></i>
+            <!-- Undo Icon -->
+          </button>
+          <button
+            type="button"
+            class="btn btn-sm btn-light"
+            (click)="applyFormatting('redo')"
+          >
+            <i class="bi bi-arrow-clockwise"></i>
+            <!-- Redo Icon -->
+          </button>
+        </div>
+
+        <div
+          contenteditable="true"
+          class="editor-content bg-white"
+          [innerHTML]="content || 'Enter the skills you possess'"
+          (keydown)="handleKeyDown($event)"
+          (input)="updateFormControl($event)"
+          style="padding: 3rem"
+        ></div>
+      </div>
+
+      <!-- Submit Buttons -->
+      <div class="d-flex justify-content-between">
+        <button
+          type="button"
+          class="btn btn-secondary"
+          style="width: 40%; background-color: var(--primary-color)"
+          (click)="onPrev()"
+        >
+          PREV
+        </button>
+        <button
+          type="submit"
+          class="btn text-white"
+          [disabled]="formGroup.invalid"
+          style="background-color: var(--primary-color); width: 40%"
+        >
+          NEXT
+        </button>
+      </div>
+    </form>
+  </div>
+</section>
+
+<!-- <button
+type="button"
+class="btn btn-sm btn-light"
+(click)="applyFormatting('foreColor', '#000000')"
+>
+<i class="bi bi-palette"></i>
+
+</button>
+<button
+type="button"
+class="btn btn-sm btn-light"
+(click)="applyFormatting('backColor', '#ffffff')"
+>
+<i class="bi bi-paint-bucket"></i>
+
+</button> -->
