@@ -127,6 +127,7 @@
       font-size: 1rem;
       margin-top: 3rem;
       width: fit-content;
+      margin-right: 0rem!important;
     }
   }
   @media (max-width: 567px) {

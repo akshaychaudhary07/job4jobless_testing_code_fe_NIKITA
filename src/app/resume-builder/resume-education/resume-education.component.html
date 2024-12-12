@@ -1,1 +1,193 @@
-<p>resume-education works!</p>
+<section
+  class="resume-education"
+  style="
+    background-color: var(--background-color);
+    padding: 1rem;
+    border-radius: 12px;
+  "
+>
+  <div class="container mt-4 mb-4">
+    <form [formGroup]="formGroup" (ngSubmit)="onContinue()">
+      <!-- Standard Fields -->
+      <div class="row mb-3 cus-gap">
+        <div class="col-md-6">
+          <input
+            type="text"
+            class="form-control"
+            placeholder="School / College"
+            formControlName="schoolCollege"
+          />
+        </div>
+        <div class="col-md-6">
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Location"
+            formControlName="location"
+          />
+        </div>
+      </div>
+      <!-- --------Degree and Field Of Study------ -->
+      <div class="row mb-3 cus-gap">
+        <div class="col-md-6 d-flex position-relative">
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Degree"
+            formControlName="degree"
+            style="padding-right: 50px"
+          />
+          <!-- Dropdown in front of the Degree input -->
+          <select
+            class="form-select position-absolute"
+            style="
+              top: 11px;
+              right: 20px;
+              width: 14px;
+              height: 45%;
+              border: none;
+            "
+            formControlName="degreeDropdown"
+            (change)="onDegreeSelect($event)"
+          >
+            <option value="" disabled selected>Select</option>
+            <option value="Bachelor">Bachelor</option>
+            <option value="Master">Master</option>
+            <option value="Doctorate">Doctorate</option>
+          </select>
+        </div>
+
+        <div class="col-md-6">
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Field Of Study"
+            formControlName="fieldOfStudy"
+          />
+        </div>
+      </div>
+
+      <!-- Start Date and End Date -->
+      <div class="row mb-3 cus-gap align-items-center">
+        <div class="col-md-6">
+          <input type="date" class="form-control" formControlName="startDate" />
+        </div>
+        <div class="col-md-6">
+          <input
+            type="date"
+            class="form-control"
+            [min]="formGroup.get('startDate').value"
+            formControlName="endDate"
+          />
+        </div>
+      </div>
+
+      <!-- --------------- -->
+      <!-- Assigned to Role Checkbox -->
+      <div class="mb-3 d-flex justify-content-end align-items-center gap-2">
+        <input
+          type="checkbox"
+          formControlName="assignedToRole"
+          id="assignedToRole"
+          class="border-0 bg-white"
+          (change)="onAssignedToRoleChange($event)"
+        />
+        <small class="m-0" style="color: var(--primary-color)"
+          >I am currently enrolled</small
+        >
+      </div>
+
+      <!-- ---------------- -->
+
+      <!-- Custom Fields Section -->
+      <div class="custom-fields mb-4">
+        <!-- <h5>Custom Fields</h5> -->
+        <div
+          formArrayName="customFields"
+          *ngIf="customFields.controls.length > 0"
+        >
+          <div
+            *ngFor="let customField of customFields.controls; let i = index"
+            [formGroupName]="i"
+            class="row align-items-center mb-3"
+          >
+            <div class="col-md-4">
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Field Name"
+                formControlName="fieldName"
+              />
+            </div>
+            <div class="col-md-4">
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Field Value"
+                formControlName="fieldValue"
+              />
+            </div>
+            <div class="col-md-4 d-flex justify-content-between">
+              <!-- Add Button -->
+              <button
+                type="button"
+                class="btn btn-outline-success me-2"
+                *ngIf="showAddButton"
+                (click)="duplicateCustomField(i)"
+              >
+                Add
+              </button>
+
+              <!-- Remove Button -->
+              <button
+                type="button"
+                class="btn btn-outline-danger"
+                (click)="removeCustomField(i)"
+              >
+                Remove
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Add More Fields Button -->
+        <div class="d-flex mt-4 align-items-center justify-content-start gap-2">
+          <button
+            type="button"
+            class="btn"
+            style="
+              color: var(--primary-color);
+              border: 2px solid var(--primary-color);
+              padding: 2px 6px;
+              border-radius: 3px;
+            "
+            (click)="addCustomField()"
+          >
+            <i class="bi bi-plus text-center"></i>
+          </button>
+          <small class="m-0">Add More</small>
+        </div>
+      </div>
+
+      <!-- Submit Buttons -->
+      <div class="d-flex justify-content-between">
+        <button
+          type="button"
+          class="btn btn-secondary"
+          style="width: 40%; background-color: var(--primary-color)"
+          (click)="onPrev()"
+        >
+          PREV
+        </button>
+        <button
+          type="submit"
+          class="btn text-white"
+          [disabled]="formGroup.invalid"
+          style="background-color: var(--primary-color); width: 40%"
+        >
+          NEXT
+        </button>
+      </div>
+    </form>
+  </div>
+</section>

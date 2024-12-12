@@ -17,7 +17,7 @@
     height: 20px;
     border: 2px solid #fff; /* Optional border for better visibility */
   }
-  @media (max-width:600px){
+  @media (max-width:767px){
     .cus-gap{
       gap: 1.3rem;
     }
