@@ -7,7 +7,7 @@
   "
 >
   <div class="container mt-4 mb-4">
-    <form [formGroup]="form" (ngSubmit)="onContinue()" novalidate>
+    <form [formGroup]="formGroup" (ngSubmit)="onContinue()">
       <!-- Standard Fields -->
       <div class="row mb-3 cus-gap">
         <div class="col-md-6">
@@ -52,7 +52,12 @@
           <input type="date" class="form-control" formControlName="startDate" />
         </div>
         <div class="col-md-6">
-          <input type="date" class="form-control" formControlName="endDate" />
+          <input
+            type="date"
+            class="form-control"
+            [min]="formGroup.get('startDate').value"
+            formControlName="endDate"
+          />
         </div>
       </div>
 
@@ -64,6 +69,7 @@
           formControlName="assignedToRole"
           id="assignedToRole"
           class="border-0 bg-white"
+          (change)="onAssignedToRoleChange($event)"
         />
         <small class="m-0" style="color: var(--primary-color)"
           >I am currently assigned to this role</small
@@ -86,45 +92,50 @@
       <div class="custom-fields mb-4">
         <!-- <h5>Custom Fields</h5> -->
         <div
-          *ngFor="let customField of customFields.controls; let i = index"
-          [formGroupName]="i"
-          class="row align-items-center mb-3"
+          formArrayName="customFields"
+          *ngIf="customFields.controls.length > 0"
         >
-          <div class="col-md-4">
-            <input
-              type="text"
-              class="form-control"
-              placeholder="Field Name"
-              formControlName="fieldName"
-            />
-          </div>
-          <div class="col-md-4">
-            <input
-              type="text"
-              class="form-control"
-              placeholder="Field Value"
-              formControlName="fieldValue"
-            />
-          </div>
-          <div class="col-md-4 d-flex justify-content-between">
-            <!-- Add Button -->
-            <button
-              type="button"
-              class="btn btn-outline-success me-2"
-              *ngIf="showAddButton"
-              (click)="duplicateCustomField(i)"
-            >
-              Add
-            </button>
+          <div
+            *ngFor="let customField of customFields.controls; let i = index"
+            [formGroupName]="i"
+            class="row align-items-center mb-3"
+          >
+            <div class="col-md-4">
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Field Name"
+                formControlName="fieldName"
+              />
+            </div>
+            <div class="col-md-4">
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Field Value"
+                formControlName="fieldValue"
+              />
+            </div>
+            <div class="col-md-4 d-flex justify-content-between">
+              <!-- Add Button -->
+              <button
+                type="button"
+                class="btn btn-outline-success me-2"
+                *ngIf="showAddButton"
+                (click)="duplicateCustomField(i)"
+              >
+                Add
+              </button>
 
-            <!-- Remove Button -->
-            <button
-              type="button"
-              class="btn btn-outline-danger"
-              (click)="removeCustomField(i)"
-            >
-              Remove
-            </button>
+              <!-- Remove Button -->
+              <button
+                type="button"
+                class="btn btn-outline-danger"
+                (click)="removeCustomField(i)"
+              >
+                Remove
+              </button>
+            </div>
           </div>
         </div>
 
@@ -150,6 +161,7 @@
       <!-- Submit Buttons -->
       <div class="d-flex justify-content-between">
         <button
+          type="button"
           class="btn btn-secondary"
           style="width: 40%; background-color: var(--primary-color)"
           (click)="onPrev()"
@@ -157,10 +169,10 @@
           PREV
         </button>
         <button
+          type="submit"
           class="btn text-white"
-          [disabled]="form.invalid"
+          [disabled]="formGroup.invalid"
           style="background-color: var(--primary-color); width: 40%"
-          (click)="onContinue()"
         >
           NEXT
         </button>

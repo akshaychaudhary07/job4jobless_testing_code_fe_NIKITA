@@ -19,12 +19,13 @@ import { UnaryOperator } from '@angular/compiler';
 })
 
 export class ResumeExperienceComponent {
-  form: FormGroup;
+  formGroup: FormGroup;
   // showAddButton: boolean = true; // Initial visibility of the "Add" button
 
   constructor(private fb: FormBuilder) {
-    // Initialize the form with controls and form array
-    this.form = this.fb.group({
+       // Initialize the form with controls and form array
+       this.formGroup = this.fb.group({
+        fieldsArray: this.fb.array([]),
       jobTitle: ['', Validators.required],
       employer: ['', Validators.required],
       startDate: [''],
@@ -35,11 +36,28 @@ export class ResumeExperienceComponent {
       assignedToRole: [false], // Checkbox control for current role assignment
       customFields: this.fb.array([]) // Initialize the customFields FormArray
     });
+    if (this.formGroup) {
+      this.formGroup.get('assignedToRole')?.valueChanges.subscribe(value => {
+        this.onAssignedToRoleChange(value);
+      });
+    }
   }
+  onAssignedToRoleChange(isChecked: boolean): void {
+    const assignedToRoleControl = this.formGroup.get('assignedToRole');
+    const endDateControl = this.formGroup.get('endDate');
 
+    if (assignedToRoleControl && endDateControl) {
+      if (isChecked) {
+        const today = new Date().toISOString().split('T')[0];
+        endDateControl.setValue(today);
+      } else {
+        endDateControl.reset();
+      }
+    }
+  }
   // Getter for custom fields FormArray
   get customFields(): FormArray {
-    return this.form.get('customFields') as FormArray;
+    return this.formGroup.get('customFields') as FormArray;
   }
 
   // Add a new custom field
@@ -48,13 +66,11 @@ export class ResumeExperienceComponent {
       fieldName: ['', Validators.required], // Field Name control
       fieldValue: ['', Validators.required], // Field Value control
     });
-
-    this.customFields.push(fieldGroup); // Add the new FormGroup to the FormArray
-    this.updateFieldNames(); // Ensure correct naming after addition
-    this.showAddButton = this.customFields.length > 1 ? false : true; // Toggle "Add More Fields" button visibility
-    console.log('Added field:', fieldGroup);
       // Mark the form as dirty so it recognizes changes
-  this.form.markAsDirty(); 
+      this.formGroup.markAsDirty(); 
+    this.customFields.push(fieldGroup); // Add the new FormGroup to the FormArray
+    this.showAddButton = this.customFields.length > 1 ? false : true; // Toggle "Add More Fields" button visibility
+    console.log('Added field:', this.customFields.value);
   }
 
   removeCustomField(index: number): void {
@@ -69,12 +85,7 @@ export class ResumeExperienceComponent {
     
   }
 
-  // Ensure the custom fields have correct names after any change
-  private updateFieldNames(): void {
-    this.customFields.controls.forEach((control, index) => {
-      control.get('fieldName')?.setValue(`customField_${index}`); // Update fieldName control with the new index
-    });
-  }
+
 
   @Output() prevClicked = new EventEmitter<void>(); // New output event for previous page navigation
 
@@ -86,16 +97,16 @@ export class ResumeExperienceComponent {
   @Output() continueClicked = new EventEmitter<void>();
 
   onContinue(): void {
-    if (this.form.valid) {
+    if (this.formGroup.valid) {
       // Perform actions (e.g., save data or send to API)
-      console.log('Form submitted:', this.form.value);
+      console.log('Form submitted:', this.formGroup.value);
   
       // Navigate to the next page
         // Emit the event when the Continue button is clicked
         this.continueClicked.emit();
     } else {
       // Mark all controls as touched to show errors
-      this.form.markAllAsTouched();
+      this.formGroup.markAllAsTouched();
     }
   }
 
