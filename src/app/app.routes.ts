@@ -38,6 +38,12 @@ import { ResumeSkillsComponent } from './resume-builder/resume-skills/resume-ski
 import { ResumeSummaryComponent } from './resume-builder/resume-summary/resume-summary.component';
 import { ResumeEducationComponent } from './resume-builder/resume-education/resume-education.component';
 import { ResumeHeaderComponent } from './resume-builder/resume-header/resume-header.component';
+import { AdminPortalComponent } from './admin-portal/admin-portal.component';
+import { AdminLoginComponent } from './admin-portal/admin-login/admin-login.component';
+import { SubAdminLoginComponent } from './admin-portal/sub-admin-login/sub-admin-login.component';
+import { SubAdminDashboardComponent } from './admin-portal/sub-admin-dashboard/sub-admin-dashboard.component';
+import { AdminDashboardComponent } from './admin-portal/admin-dashboard/admin-dashboard.component';
+import { DashboardComponent } from './admin-portal/admin-dashboard/dashboard/dashboard.component';
 
 
 
@@ -80,6 +86,12 @@ export const routes: Routes = [
   {path: 'resume-summary', component : ResumeSummaryComponent},
   {path: 'resume-education', component : ResumeEducationComponent},
   {path: 'resume-header', component : ResumeHeaderComponent},
+  {path: 'admin-login', component : AdminLoginComponent},
+  {path: 'admin-portal', component : AdminPortalComponent},
+  {path: 'sub-admin-login', component : SubAdminLoginComponent},
+  {path: 'sub-admin-dashboard', component : SubAdminDashboardComponent},
+  {path: 'admin-dashboard', component : AdminDashboardComponent},
+  {path: 'dashboard', component : DashboardComponent},
  
 
   // { path: 'applied-users', component: AppliedUsersComponent }, 

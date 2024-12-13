@@ -1,0 +1,31 @@
+table td {
+    vertical-align: middle;
+    padding: 10px 20px;
+}
+table th{
+    padding: 10px 20px;
+    background-color: var(--primary-color);
+    color: white;
+    font-weight: normal;
+}
+table tbody tr:nth-child(even) td{
+    background-color: #c6d6ec;
+}
+table thead{
+    border-radius: 8px;
+}
+@media (max-width:800px){
+ .dashboard{
+    padding-bottom: 25rem;
+ }
+}
+@media (max-width:1024px){
+    table td{
+        width: 18%;
+  }
+}
+@media (max-width:600px){
+    .cus-pad{
+     padding-left: 12px!important;
+  }
+}

@@ -81,7 +81,7 @@ export class AppComponent implements OnInit {
     });
   }
   private updateNavItemsBasedOnRoute(url: string) {
-    if (url.includes('/login')) {
+    if (url.includes('/login') || (url.includes('/admin-portal')) )  {
       this.hideHeader = true; // Hide header on login page
       this.hideFooter = true; // Hide footer on login page
       this.showNotificationIcon = false;
@@ -120,14 +120,27 @@ export class AppComponent implements OnInit {
       this.navItems = this.dashboardNavItems; // Set the nav items for the dashboard
       this.showNotificationIcon = true;
       this.showMessageIcon = false;
-    } else if (url.includes('/employer') || url.includes('/hiring-solution')) {
+    }
+     else if (url.includes('/employer') || url.includes('/hiring-solution')) {
       this.isSpecialRoute = true;
       this.hideHeader = false;
       this.hideFooter = false;
       this.navItems = this.employerNavItems;
       this.showNotificationIcon = false;
       this.showMessageIcon = false;
-    } else {
+    }
+    else if (url.includes('/admin-dashboard') || url.includes('/sub-admin-dashboard')) {
+      this.isSpecialRoute = true;
+      this.hideHeader = false;
+      this.hideFooter = true;
+      this.navItems = [
+        { label: '', link: '/notification' },
+        { label: '', link: '/profile' }
+      ]; // Show only Notification and Profile in the header
+      this.showNotificationIcon = true;
+      this.showMessageIcon = false;
+    } 
+    else {
       this.isSpecialRoute = false;
       this.hideHeader = false;
       this.hideFooter = false;

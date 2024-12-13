@@ -24,6 +24,7 @@ export class FooterComponent implements OnInit {
     { label: 'Company', link: '/company' },
     { label: 'Find Jobs', link: '/find-jobs' },
     { label: 'Feedback', link: '/feedback' },
+    { label: 'Admin', link: '/admin-portal' },
   ];
 
   // Define alternative footer links (for specific pages)
