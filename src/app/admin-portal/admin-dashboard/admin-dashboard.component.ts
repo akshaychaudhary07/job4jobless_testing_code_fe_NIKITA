@@ -7,12 +7,15 @@ import { AdminLoginComponent } from '../admin-login/admin-login.component';
 import { SubAdminLoginComponent } from '../sub-admin-login/sub-admin-login.component';
 import { SubAdminDashboardComponent } from '../sub-admin-dashboard/sub-admin-dashboard.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { JobFinderProfileComponent } from './job-finder-profile/job-finder-profile.component';
+import { JobProvidedComponent } from './job-provided/job-provided.component';
+import { CompanyDetailsComponent } from './company-details/company-details.component';
 
 @Component({
   selector: 'app-admin-dashboard',
   standalone: true,
   imports: [CommonModule,RouterLink,FormsModule,AdminPortalComponent,AdminLoginComponent,SubAdminLoginComponent,
-    SubAdminDashboardComponent,DashboardComponent,],
+    SubAdminDashboardComponent,DashboardComponent,JobFinderProfileComponent,JobProvidedComponent,CompanyDetailsComponent,],
   templateUrl: './admin-dashboard.component.html',
   styleUrl: './admin-dashboard.component.css'
 })

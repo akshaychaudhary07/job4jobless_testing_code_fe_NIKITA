@@ -4,11 +4,12 @@ import { FormsModule } from '@angular/forms';
 import { RouterLink } from '@angular/router';
 import { AdminPortalComponent } from '../../admin-portal.component';
 import { AdminDashboardComponent } from '../admin-dashboard.component';
+import { JobFinderProfileComponent } from '../job-finder-profile/job-finder-profile.component';
 
 @Component({
   selector: 'app-dashboard',
   standalone: true,
-  imports: [CommonModule,RouterLink,FormsModule,AdminPortalComponent,AdminDashboardComponent,],
+  imports: [CommonModule,RouterLink,FormsModule,AdminPortalComponent,AdminDashboardComponent,JobFinderProfileComponent,],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.css'
 })

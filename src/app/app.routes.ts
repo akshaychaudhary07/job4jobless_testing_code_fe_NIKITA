@@ -44,6 +44,8 @@ import { SubAdminLoginComponent } from './admin-portal/sub-admin-login/sub-admin
 import { SubAdminDashboardComponent } from './admin-portal/sub-admin-dashboard/sub-admin-dashboard.component';
 import { AdminDashboardComponent } from './admin-portal/admin-dashboard/admin-dashboard.component';
 import { DashboardComponent } from './admin-portal/admin-dashboard/dashboard/dashboard.component';
+import { JobFinderProfileComponent } from './admin-portal/admin-dashboard/job-finder-profile/job-finder-profile.component';
+import { JobProvidedComponent } from './admin-portal/admin-dashboard/job-provided/job-provided.component';
 
 
 
@@ -92,6 +94,9 @@ export const routes: Routes = [
   {path: 'sub-admin-dashboard', component : SubAdminDashboardComponent},
   {path: 'admin-dashboard', component : AdminDashboardComponent},
   {path: 'dashboard', component : DashboardComponent},
+  {path: 'job-finder-profile', component : JobFinderProfileComponent},
+  {path: 'company-details', component : CompanyDetailsComponent},
+  {path: 'job-provided', component : JobProvidedComponent},
  
 
   // { path: 'applied-users', component: AppliedUsersComponent }, 
