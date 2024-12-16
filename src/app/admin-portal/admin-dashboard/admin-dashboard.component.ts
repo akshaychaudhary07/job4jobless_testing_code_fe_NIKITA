@@ -10,12 +10,13 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { JobFinderProfileComponent } from './job-finder-profile/job-finder-profile.component';
 import { JobProvidedComponent } from './job-provided/job-provided.component';
 import { CompanyDetailsComponent } from './company-details/company-details.component';
+import { EnquiryDetailsComponent } from './enquiry-details/enquiry-details.component';
 
 @Component({
   selector: 'app-admin-dashboard',
   standalone: true,
   imports: [CommonModule,RouterLink,FormsModule,AdminPortalComponent,AdminLoginComponent,SubAdminLoginComponent,
-    SubAdminDashboardComponent,DashboardComponent,JobFinderProfileComponent,JobProvidedComponent,CompanyDetailsComponent,],
+    SubAdminDashboardComponent,DashboardComponent,JobFinderProfileComponent,JobProvidedComponent,CompanyDetailsComponent,EnquiryDetailsComponent,],
   templateUrl: './admin-dashboard.component.html',
   styleUrl: './admin-dashboard.component.css'
 })
@@ -28,7 +29,7 @@ export class AdminDashboardComponent {
       { title: 'Enquiry Details', icon: 'fa-solid fa-trash', heading: 'Enquiry Details' },
       { title: 'Create Sub Admin', icon: 'fa-solid fa-user-plus', heading: 'Create Sub Admin' },
       { title: 'Sub Admin Details', icon: 'fa-solid fa-user-check', heading: 'Sub Admin Details' },
-      { title: 'Push Notification', icon: 'fa-solid fa-trash', heading: 'Push Notification' },
+      { title: 'Push Notification', icon: 'fa-regular fa-bell', heading: 'Push Notification' },
       { title: 'Blogs', icon: 'fa-solid fa-file-lines', heading: 'Blogs' },
       { title: 'Logout', icon: 'fa-solid fa-sign-out-alt', heading: 'Logout' },
   ];

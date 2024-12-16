@@ -1,1 +1,164 @@
-<p>company-details works!</p>
+<section class="company-details">
+  <!-- Table Content -->
+  <div class="table overflow-auto">
+    <table class="table d-none d-md-table w-100">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Company</th>
+          <th>Email</th>
+          <th>Phone</th>
+          <th>Description</th>
+          <th>Notification</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of displayedItems">
+          <td>{{ item.Name }}</td>
+          <td>{{ item.Company }}</td>
+          <td>{{ item.Email }}</td>
+          <td>{{ item.Phone }}</td>
+          <td>{{ item.Description }}</td>
+          <td>
+            <span
+              style="
+                border: 2px solid #caced2;
+                padding: 2px 4px;
+                width: fit-content;
+              "
+              class="bg-white d-block m-0"
+              >{{ item.Notification }}</span
+            >
+          </td>
+          <td>
+            <div class="dropdown">
+              <button
+                class="btn togg-btn dropdown-toggle bg-white"
+                style="
+                  border: 2px solid #caced2;
+                  padding: 0px 10px;
+                  border-radius: 0;
+                "
+                type="button"
+                id="dropdownMenuButton"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                <span
+                  class=""
+                  style="border-right: 2px solid #caced2; border-radius: 0"
+                  >Actions &nbsp;
+                </span>
+              </button>
+              <ul
+                class="dropdown-menu ms-2"
+                aria-labelledby="dropdownMenuButton"
+              >
+                <li class="">
+                  <a class="dropdown-item" href="#">Deactivate</a>
+                </li>
+                <li class="">
+                  <a class="dropdown-item" href="#">Activate</a>
+                </li>
+              </ul>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <!-- ------responsive table--------------------- -->
+  <div class="table-responsive d-md-none">
+    <table class="table">
+      <thead>
+        <tr>
+          <th class="text-white d-flex" style="gap: 72px">
+            <span class="text-white m-0">Name</span>
+            <span class="text-white m-0">Company</span>
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of displayedItems; let i = index">
+          <td class="m-0 d-flex flex-wrap align-items-center" style="gap: 10px">
+            <span class="m-0 me-2">{{ item.Name }}</span>
+            <span class="m-0">{{ item.Company }}</span>
+
+            <!-- Inline Dropdown -->
+            <div class="dropdown m-0">
+              <button
+                class="btn btn-sm dropdown-toggle"
+                type="button"
+                (click)="toggleDropdown(i)"
+                aria-expanded="false"
+              ></button>
+              <div
+                *ngIf="currentOpenDropdown === i"
+                class="dropdown-content d-flex flex-wrap gap-2"
+              >
+                <span class="m-0">{{ item.Email }}</span>
+                <span class="m-0">{{ item.Phone }}</span>
+                <span class="m-0">{{ item.Description }}</span>
+                <span
+                  class="m-0 bg-white"
+                  style="border: 2px solid #caced2; padding: 2px 4px"
+                >
+                  {{ item.Notification }}
+                </span>
+                <div class="dropdown">
+                  <button
+                    type="button"
+                    class="btn dropdown-toggle bg-white"
+                    style="
+                      border: 2px solid #caced2;
+                      padding: 0px 10px;
+                      border-radius: 0;
+                    "
+                  >
+                    <span
+                      class="bg-white"
+                      style="border-right: 2px solid #caced2; border-radius: 0"
+                    >
+                      Actions &nbsp;
+                    </span>
+                  </button>
+                  <ul class="dropdown-menu ms-2">
+                    <li><a href="#" class="dropdown-item">Deactivate</a></li>
+                    <li><a href="#" class="dropdown-item">Activate</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="d-flex justify-content-between align-items-center mb-3">
+    <span class="m-0">
+      Showing {{ totalItems }} of {{ tableData.length }}
+    </span>
+    <span class="m-0"> {{ currentPage }} / {{ totalPages }} </span>
+  </div>
+
+  <div class="d-flex justify-content-around mt-5">
+    <button
+      class="btn fw-bold btn-secondary"
+      style="width: 30%"
+      (click)="onPrev()"
+      [disabled]="currentPage === 1"
+    >
+      PREV
+    </button>
+    <button
+      class="btn text-white fw-bold"
+      style="background-color: var(--primary-color); width: 30%"
+      (click)="onNext()"
+      [disabled]="currentPage === totalPages"
+    >
+      NEXT
+    </button>
+  </div>
+</section>

@@ -1,0 +1,41 @@
+table td {
+    vertical-align: middle;
+    padding: 10px;
+}
+table th{
+    padding: 10px 20px;
+    background-color: var(--primary-color);
+    color: white;
+    font-weight: normal;
+}
+table tbody tr:nth-child(even) td{
+    background-color: #c6d6ec;
+}
+table thead{
+    border-radius: 8px;
+}
+.dropdown-menu {
+    display: none;
+  }
+  .dropdown-menu.show {
+    display: block;
+  }
+  .table .btn.rounded-circle {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+  }
+@media (max-width:800px){
+ .job-provided{
+    padding-bottom: 25rem;
+ }
+ .togg-btn{
+  padding: 6px!important;
+ }
+}
+@media (max-width:600px){
+    .cus-pad{
+     padding-left: 12px!important;
+  }
+
+}

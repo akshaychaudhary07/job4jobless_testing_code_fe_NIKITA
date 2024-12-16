@@ -46,6 +46,7 @@ import { AdminDashboardComponent } from './admin-portal/admin-dashboard/admin-da
 import { DashboardComponent } from './admin-portal/admin-dashboard/dashboard/dashboard.component';
 import { JobFinderProfileComponent } from './admin-portal/admin-dashboard/job-finder-profile/job-finder-profile.component';
 import { JobProvidedComponent } from './admin-portal/admin-dashboard/job-provided/job-provided.component';
+import { EnquiryDetailsComponent } from './admin-portal/admin-dashboard/enquiry-details/enquiry-details.component';
 
 
 
@@ -97,6 +98,7 @@ export const routes: Routes = [
   {path: 'job-finder-profile', component : JobFinderProfileComponent},
   {path: 'company-details', component : CompanyDetailsComponent},
   {path: 'job-provided', component : JobProvidedComponent},
+  {path: 'enquiry-details', component : EnquiryDetailsComponent},
  
 
   // { path: 'applied-users', component: AppliedUsersComponent }, 

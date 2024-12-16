@@ -1,4 +1,188 @@
-<p>job-provided works!</p>
+<section class="job-provided">
+  <!-- Table Content -->
+  <div class="table overflow-auto">
+    <table class="table d-none d-md-table w-100">
+      <thead>
+        <tr>
+          <th>Employer Name</th>
+          <th>Employer Email</th>
+          <th>Job Title</th>
+          <th>Company</th>
+          <th>Status</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr
+          *ngFor="let item of displayedItems; let i = index"
+          [hidden]="item.hidden"
+        >
+          <td>{{ item.employerName }}</td>
+          <td>{{ item.employerEmail }}</td>
+          <td>{{ item.jobTitle }}</td>
+          <td>{{ item.Company }}</td>
+          <td>
+            <div class="dropdown" style="min-width: 150px">
+              <button
+                class="btn togg-btn dropdown-toggle bg-white d-flex align-items-center justify-content-between"
+                style="
+                  border: 2px solid #caced2;
+                  padding: 5px 10px;
+                  border-radius: 0;
+                  width: 60%;
+                "
+                type="button"
+                id="dropdownMenuButton{{ i }}"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                <span
+                  class="overflow-hidden white-space-nowrap text-overflow-ellipsis d-inline-block text-truncate m-0"
+                  style="max-width: 150px"
+                  >{{ item.Status }}</span
+                >
+              </button>
+              <ul
+                class="dropdown-menu"
+                aria-labelledby="dropdownMenuButton{{ i }}"
+              >
+                <li>
+                  <a class="dropdown-item" href="#">Approve</a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="#">Disapprove</a>
+                </li>
+              </ul>
+            </div>
+          </td>
+          <td>
+            <button
+              class="btn rounded-circle p-0 d-flex justify-content-center align-items-center"
+              style="
+                width: 24px;
+                height: 24px;
+                background-color: red;
+                color: white;
+                border: none;
+              "
+              (click)="hideRow(item)"
+              title="Remove Row"
+            >
+              ✖
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <!-- ------responsive table--------------------- -->
+  <div class="table-responsive d-md-none">
+    <table class="table">
+      <thead>
+        <tr>
+          <th class="text-white d-flex" style="gap: 72px">
+            <span class="text-white m-0">Employer Name</span>
+            <span class="text-white m-0">Employer Email</span>
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr
+          *ngFor="let item of displayedItems; let i = index"
+          [hidden]="item.hidden"
+        >
+          <td class="m-0 d-flex flex-wrap align-items-center" style="gap: 10px">
+            <span class="m-0 me-2">{{ item.employerName }}</span>
+            <span class="m-0">{{ item.employerEmail }}</span>
 
+            <!-- Inline Dropdown -->
+            <div class="dropdown cusdrop m-0">
+              <button
+                class="btn btn-sm dropdown-toggle"
+                type="button"
+                (click)="toggleDropdown(i)"
+                aria-expanded="false"
+              ></button>
+              <div
+                *ngIf="currentOpenDropdown === i"
+                class="dropdown-content d-flex flex-wrap gap-2"
+              >
+                <span class="m-0">{{ item.jobTitle }}</span>
+                <span class="m-0">{{ item.Company }}</span>
 
+                <span
+                  class="m-0 bg-white"
+                  style="border: 2px solid #caced2; padding: 2px 4px"
+                >
+                  {{ item.Status }}
+                </span>
+                <div class="dropdown d-flex gap-2 m-0">
+                  <button
+                    type="button"
+                    class="btn dropdown-toggle bg-white"
+                    style="
+                      border: 2px solid #caced2;
+                      padding: 0px 10px;
+                      border-radius: 0;
+                    "
+                  >
+                    <span
+                      class="bg-white"
+                      style="border-right: 2px solid #caced2; border-radius: 0"
+                    >
+                      Actions &nbsp;
+                    </span>
+                  </button>
+                  <ul class="dropdown-menu ms-2">
+                    <li><a href="#" class="dropdown-item">Deactivate</a></li>
+                    <li><a href="#" class="dropdown-item">Activate</a></li>
+                  </ul>
+                  <button
+                    class="btn rounded-circle p-0 d-flex justify-content-center align-items-center"
+                    style="
+                      width: 24px;
+                      height: 24px;
+                      background-color: red;
+                      color: white;
+                      border: none;
+                    "
+                    (click)="hideRow(item)"
+                    title="Remove Row"
+                  >
+                    ✖
+                  </button>
+                </div>
+              </div>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 
+  <div class="d-flex justify-content-between align-items-center mb-3">
+    <span class="m-0">
+      Showing {{ totalItems }} of {{ tableData.length }}
+    </span>
+    <span class="m-0"> {{ currentPage }} / {{ totalPages }} </span>
+  </div>
+
+  <div class="d-flex justify-content-around mt-5">
+    <button
+      class="btn fw-bold btn-secondary"
+      style="width: 30%"
+      (click)="onPrev()"
+      [disabled]="currentPage === 1"
+    >
+      PREV
+    </button>
+    <button
+      class="btn text-white fw-bold"
+      style="background-color: var(--primary-color); width: 30%"
+      (click)="onNext()"
+      [disabled]="currentPage === totalPages"
+    >
+      NEXT
+    </button>
+  </div>
+</section>
