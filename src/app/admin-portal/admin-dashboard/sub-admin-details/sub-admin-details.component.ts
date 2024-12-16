@@ -3,102 +3,92 @@ import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { AdminPortalComponent } from '../../admin-portal.component';
 import { AdminDashboardComponent } from '../admin-dashboard.component';
+import { NgModel } from '@angular/forms';
 
 @Component({
-  selector: 'app-enquiry-details',
+  selector: 'app-sub-admin-details',
   standalone: true,
   imports: [CommonModule,RouterLink,AdminPortalComponent,AdminDashboardComponent,],
-  templateUrl: './enquiry-details.component.html',
-  styleUrl: './enquiry-details.component.css'
+  templateUrl: './sub-admin-details.component.html',
+  styleUrl: './sub-admin-details.component.css'
 })
-export class EnquiryDetailsComponent {
+export class SubAdminDetailsComponent {
     tableData = [
       {
-        HelpType: 'Account Verification',
         Name: 'Manish Sharma',
         Email: 'manishsharma97@gmail.com',
-        Company: 'Microsoft',
-        Phone: '9953624578',
+        AccountID: '001263',
+        Status: 'Active',
         isExpanded: false,
       },
       {
-        HelpType: 'Billing',
         Name: 'Deepak Kumar',
         Email: 'deepakkumar034@gmail.com',
-        Company: 'Apple',
-        Phone: '9953624578',
+        AccountID: '001263',
+        Status: 'Suspend',
         isExpanded: false,
       },
       {
-        HelpType: 'Account Verification',
         Name: 'Manish Sharma',
         Email: 'manishsharma97@gmail.com',
-        Company: 'Microsoft',
-        Phone: '9953624578',
+        AccountID: '001263',
+        Status: 'Suspend',
         isExpanded: false,
       },
       {
-        HelpType: 'Billing',
         Name: 'Deepak Kumar',
         Email: 'deepakkumar034@gmail.com',
-        Company: 'Apple',
-        Phone: '9953624578',
+        AccountID: '001263',
+        Status: 'Active',
         isExpanded: false,
       },
       {
-        HelpType: 'Account Verification',
         Name: 'Manish Sharma',
         Email: 'manishsharma97@gmail.com',
-        Company: 'Microsoft',
-        Phone: '9953624578',
+        AccountID: '001263',
+        Status: 'Active',
         isExpanded: false,
       },
       {
-        HelpType: 'Billing',
         Name: 'Deepak Kumar',
         Email: 'deepakkumar034@gmail.com',
-        Company: 'Apple',
-        Phone: '9953624578',
+        AccountID: '001263',
+        Status: 'Active',
         isExpanded: false,
       },
       {
-        HelpType: 'Account Verification',
         Name: 'Manish Sharma',
         Email: 'manishsharma97@gmail.com',
-        Company: 'Microsoft',
-        Phone: '9953624578',
+        AccountID: '001263',
+        Status: 'Active',
         isExpanded: false,
       },
       {
-        HelpType: 'Billing',
         Name: 'Deepak Kumar',
         Email: 'deepakkumar034@gmail.com',
-        Company: 'Tech Mahindra',
-        Phone: '9953624578',
+        AccountID: '001263',
+        Status: 'Active',
         isExpanded: false,
       },
       {
-        HelpType: 'Account Verification',
         Name: 'Manish Sharma',
         Email: 'manishsharma97@gmail.com',
-        Company: 'Oracle',
-        Phone: '9953624578',
+        AccountID: '001263',
+        Status: 'Active',
         isExpanded: false,
       },
       {
-        HelpType: 'Billing',
         Name: 'Deepak Kumar',
         Email: 'deepakkumar034@gmail.com',
-        Company: 'Alphabet',
-        Phone: '9953624578',
+        AccountID: '001263',
+        Status: 'Active',
         isExpanded: false,
       },
       {
-        HelpType: 'Account Verification',
         Name: 'Manish Sharma',
         Email: 'manishsharma97@gmail.com',
-        Company: 'Microsoft',
-        Phone: '9953624578',
+        AccountID: '001263',
+        Status: 'Active',
         isExpanded: false,
       },
       
@@ -152,6 +142,11 @@ export class EnquiryDetailsComponent {
       }
     }
 
- 
+  item = { Status: 'Active' }; // or 'Suspend' for testing
+
+  updateStatus(item: any, newStatus: string) {
+    item.Status = newStatus;
+  }
+
   }
 

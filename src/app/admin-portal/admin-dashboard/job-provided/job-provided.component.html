@@ -38,8 +38,8 @@
               >
                 <span
                   class="overflow-hidden white-space-nowrap text-overflow-ellipsis d-inline-block text-truncate m-0"
-                  style="max-width: 150px"
-                  >{{ item.Status }}</span
+                  style="max-width: 150px; border-right: 2px solid #caced2"
+                  >{{ item.Status }} &nbsp;&nbsp;</span
                 >
               </button>
               <ul
@@ -98,6 +98,7 @@
             <!-- Inline Dropdown -->
             <div class="dropdown cusdrop m-0">
               <button
+             
                 class="btn btn-sm dropdown-toggle"
                 type="button"
                 (click)="toggleDropdown(i)"
@@ -110,12 +111,9 @@
                 <span class="m-0">{{ item.jobTitle }}</span>
                 <span class="m-0">{{ item.Company }}</span>
 
-                <span
-                  class="m-0 bg-white"
-                  style="border: 2px solid #caced2; padding: 2px 4px"
-                >
-                  {{ item.Status }}
-                </span>
+               
+               
+              
                 <div class="dropdown d-flex gap-2 m-0">
                   <button
                     type="button"
@@ -125,17 +123,19 @@
                       padding: 0px 10px;
                       border-radius: 0;
                     "
+                        data-bs-toggle="dropdown"
+                        aria-expanded="false"
                   >
                     <span
                       class="bg-white"
                       style="border-right: 2px solid #caced2; border-radius: 0"
                     >
-                      Actions &nbsp;
+                    {{ item.Status }} &nbsp;
                     </span>
                   </button>
                   <ul class="dropdown-menu ms-2">
-                    <li><a href="#" class="dropdown-item">Deactivate</a></li>
-                    <li><a href="#" class="dropdown-item">Activate</a></li>
+                    <li><a href="#" class="dropdown-item">Approve</a></li>
+                    <li><a href="#" class="dropdown-item">Disapprove</a></li>
                   </ul>
                   <button
                     class="btn rounded-circle p-0 d-flex justify-content-center align-items-center"
@@ -152,6 +152,7 @@
                     ✖
                   </button>
                 </div>
+
               </div>
             </div>
           </td>

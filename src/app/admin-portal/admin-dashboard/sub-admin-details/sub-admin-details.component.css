@@ -20,14 +20,14 @@ table thead{
   .dropdown-menu.show {
     display: block;
   }
-  .table .btn.rounded-circle {
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
+  .text-success {
+    color: green;
   }
-  
+  .text-warning {
+    color: yellow;
+  }
 @media (max-width:800px){
- .job-provided{
+ .sub-admin-details{
     padding-bottom: 25rem;
  }
  .togg-btn{
@@ -38,5 +38,4 @@ table thead{
     .cus-pad{
      padding-left: 12px!important;
   }
-
 }

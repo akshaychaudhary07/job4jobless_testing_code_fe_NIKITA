@@ -11,12 +11,15 @@ import { JobFinderProfileComponent } from './job-finder-profile/job-finder-profi
 import { JobProvidedComponent } from './job-provided/job-provided.component';
 import { CompanyDetailsComponent } from './company-details/company-details.component';
 import { EnquiryDetailsComponent } from './enquiry-details/enquiry-details.component';
+import { SubAdminDetailsComponent } from './sub-admin-details/sub-admin-details.component';
+import { CreateSubAdminComponent } from './create-sub-admin/create-sub-admin.component';
 
 @Component({
   selector: 'app-admin-dashboard',
   standalone: true,
   imports: [CommonModule,RouterLink,FormsModule,AdminPortalComponent,AdminLoginComponent,SubAdminLoginComponent,
-    SubAdminDashboardComponent,DashboardComponent,JobFinderProfileComponent,JobProvidedComponent,CompanyDetailsComponent,EnquiryDetailsComponent,],
+    SubAdminDashboardComponent,DashboardComponent,JobFinderProfileComponent,JobProvidedComponent,CompanyDetailsComponent,EnquiryDetailsComponent,
+  SubAdminDetailsComponent,CreateSubAdminComponent,],
   templateUrl: './admin-dashboard.component.html',
   styleUrl: './admin-dashboard.component.css'
 })

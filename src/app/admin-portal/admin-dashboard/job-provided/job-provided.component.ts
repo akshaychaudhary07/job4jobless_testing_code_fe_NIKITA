@@ -168,8 +168,5 @@ export class JobProvidedComponent {
       hideRow(item: any): void {
         item.hidden = true;
       }
-  meamsindwws(items:any){
-    
-  }
-
+ 
   }
