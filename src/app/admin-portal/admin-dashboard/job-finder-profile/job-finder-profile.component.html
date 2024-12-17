@@ -1,4 +1,4 @@
-<section class="job-finder">
+<section class="job-finder mt-5">
   <!-- Table Content -->
   <table class="table d-none d-md-table">
     <thead>
@@ -17,8 +17,13 @@
         <td>{{ item.Email }}</td>
         <td>
           <span
-            style="border: 2px solid #caced2; padding: 2px 4px;width: fit-content;"
-            class="bg-white d-block m-0 "
+            style="
+              border: 2px solid #caced2;
+              padding: 2px 4px;
+              width: fit-content;
+            "
+            class="bg-white d-block m-0"
+            (click)="openSendNotification()"
             >{{ item.Notification }}</span
           >
         </td>
@@ -56,7 +61,7 @@
     </tbody>
   </table>
 
-  <div class="table-responsive d-md-none" >
+  <div class="table-responsive d-md-none">
     <table class="table">
       <thead>
         <tr>
@@ -67,58 +72,64 @@
         </tr>
       </thead>
       <tbody>
-
         <tr *ngFor="let item of displayedItems; let i = index">
-            <td class="m-0 d-flex flex-wrap align-items-center" style="gap: 10px">
-              <span class="m-0 me-2">{{ item.Name }}</span>
-              <span class="m-0">{{ item.Phone }}</span>
-          
-              <!-- Inline Dropdown -->
-              <div class="dropdown m-0">
-                <button
-                  class="btn btn-sm dropdown-toggle"
-                  type="button"
-                  (click)="toggleDropdown(i)"
-                  aria-expanded="false"
+          <td class="m-0 d-flex flex-wrap align-items-center" style="gap: 10px">
+            <span class="m-0 me-2">{{ item.Name }}</span>
+            <span class="m-0">{{ item.Phone }}</span>
+
+            <!-- Inline Dropdown -->
+            <div class="dropdown m-0">
+              <button
+                class="btn btn-sm dropdown-toggle"
+                type="button"
+                (click)="toggleDropdown(i)"
+                aria-expanded="false"
+              ></button>
+              <div
+                *ngIf="currentOpenDropdown === i"
+                class="dropdown-content d-flex flex-wrap gap-2"
+              >
+                <span class="m-0">{{ item.Email }}</span>
+                <span
+                  class="m-0 bg-white"
+                  style="border: 2px solid #caced2; padding: 2px 4px"
+                  (click)="navigateToSendNotifications()"
                 >
-             
-                </button>
-                <div
-                  *ngIf="currentOpenDropdown === i"
-                  class="dropdown-content d-flex flex-wrap gap-2"
-                >
-                  <span class="m-0">{{ item.Email }}</span>
-                  <span class="m-0 bg-white" style="border: 2px solid #caced2; padding: 2px 4px">
-                    {{ item.Notification }}
-                  </span>
-                  <div class="dropdown">
-                    <button
-                      type="button"
-                      class="btn dropdown-toggle bg-white"
-                      style="border: 2px solid #caced2; padding: 0px 10px; border-radius: 0"
-                      data-bs-toggle="dropdown"
-                      aria-expanded="false"
+                  {{ item.Notification }}
+                </span>
+                <div class="dropdown">
+                  <button
+                    type="button"
+                    class="btn dropdown-toggle bg-white"
+                    style="
+                      border: 2px solid #caced2;
+                      padding: 0px 10px;
+                      border-radius: 0;
+                    "
+                    data-bs-toggle="dropdown"
+                    aria-expanded="false"
+                  >
+                    <span
+                      class="bg-white"
+                      style="border-right: 2px solid #caced2; border-radius: 0"
                     >
-                      <span class="bg-white"  style="border-right: 2px solid #caced2; border-radius: 0">
-                        Actions &nbsp;
-                      </span>
-                    </button>
-                    <ul class="dropdown-menu ms-2">
-                      <li><a href="#" class="dropdown-item">Deactivate</a></li>
-                      <li><a href="#" class="dropdown-item">Activate</a></li>
-                    </ul>
-                  </div>
+                      Actions &nbsp;
+                    </span>
+                  </button>
+                  <ul class="dropdown-menu ms-2">
+                    <li><a href="#" class="dropdown-item">Deactivate</a></li>
+                    <li><a href="#" class="dropdown-item">Activate</a></li>
+                  </ul>
                 </div>
               </div>
-            </td>
-          </tr>
-          
-          
+            </div>
+          </td>
+        </tr>
       </tbody>
     </table>
   </div>
 
-  <div class="d-flex justify-content-between align-items-center mb-3 ">
+  <div class="d-flex justify-content-between align-items-center mb-3">
     <span class="m-0">
       Showing {{ totalItems }} of {{ tableData.length }}
     </span>
@@ -144,4 +155,3 @@
     </button>
   </div>
 </section>
-

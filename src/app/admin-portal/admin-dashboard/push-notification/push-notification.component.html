@@ -1,0 +1,83 @@
+<section class="push-notification mt-5">
+  <div class="container m-0 bg-white" style="border-radius: 17px">
+    <div class="modal-body p-5">
+      <form [formGroup]="subAdminForm" (ngSubmit)="onSubmit()">
+        <!--  Heading -->
+        <div class="mb-4">
+          <input
+            type="text"
+            class="form-control"
+            id="subAdminHeading"
+            placeholder="Heading*"
+            formControlName="Heading"
+            style="padding: 26px"
+          />
+          <div
+            *ngIf="
+              subAdminForm.get('Heading')?.touched &&
+              subAdminForm.get('Heading')?.invalid
+            "
+            class="text-danger"
+          >
+            Heading is required.
+          </div>
+        </div>
+
+        <!-- Description -->
+        <div class="mb-4 bg-white">
+          <textarea
+            class="form-control"
+            id="subAdminDescription"
+            formControlName="Description"
+            rows="5"
+            placeholder="Description*"
+            style="padding: 26px; resize: none"
+          ></textarea>
+          <div
+            *ngIf="
+              subAdminForm.get('Description')?.touched &&
+              subAdminForm.get('Description')?.invalid
+            "
+            class="text-danger"
+          >
+            Description is required.
+          </div>
+        </div>
+
+        <!-- SelectToken -->
+
+        <div class="mb-4 bg-white">
+          <textarea
+            class="form-control"
+            id="subAdminSelectToken"
+            formControlName="SelectToken"
+            placeholder="SelectToken*"
+            rows="3"
+            style="padding: 26px; resize: none"
+          ></textarea>
+          <div
+            *ngIf="
+              subAdminForm.get('SelectToken')?.touched &&
+              subAdminForm.get('SelectToken')?.invalid
+            "
+            class="text-danger"
+          >
+            SelectToken is required.
+          </div>
+        </div>
+
+        <!-- Submit Button -->
+        <div class="btn-sub d-flex justify-content-center mt-4">
+          <button
+            type="submit"
+            class="btn text-white fw-bold text-center"
+            style="background-color: var(--primary-color); width: 40%"
+            [disabled]="subAdminForm.invalid"
+          >
+            Submit
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>

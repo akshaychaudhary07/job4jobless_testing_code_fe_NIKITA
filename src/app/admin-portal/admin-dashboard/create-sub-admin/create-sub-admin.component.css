@@ -1,0 +1,13 @@
+.cus-top{
+    top: 18%;
+}
+@media (max-width:800px){
+    .create-sub-admin{
+       padding-bottom: 25rem;
+    }
+   }
+   @media (max-width:500px){
+    .col-6 {
+        width: 100%;
+    }
+   }

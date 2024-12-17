@@ -1,0 +1,109 @@
+<section class="send-notification">
+  <h1 class="fw-bold mb-4 pt-3 pb-5  m-0" style="color: var(--primary-color)">
+    {{ selectedHeading }}
+  </h1>
+
+  <div class="container m-0 bg-white" style="border-radius: 17px">
+    <div class="modal-body p-5">
+      <form [formGroup]="subAdminForm">
+        <!--  Heading -->
+        <div class="mb-4">
+          <input
+            type="text"
+            class="form-control"
+            id="subAdminHeading"
+            placeholder="Heading*"
+            formControlName="Heading"
+            style="padding: 26px"
+          />
+          <div
+            *ngIf="
+              subAdminForm.get('Heading')?.touched &&
+              subAdminForm.get('Heading')?.invalid
+            "
+            class="text-danger"
+          >
+            Heading is required.
+          </div>
+        </div>
+
+        <!-- Sub Heading -->
+        <div class="mb-4">
+          <input
+            type="text"
+            class="form-control"
+            id="subAdminSubHeading"
+            placeholder="Sub Heading*"
+            formControlName="SubHeading"
+            style="padding: 26px"
+          />
+          <div
+            *ngIf="
+              subAdminForm.get('SubHeading')?.touched &&
+              subAdminForm.get('SubHeading')?.invalid
+            "
+            class="text-danger"
+          >
+            Sub Heading is required.
+          </div>
+        </div>
+
+        <!-- Description -->
+        <div class="mb-4 bg-white">
+          <textarea
+            class="form-control"
+            id="subAdminDescription"
+            formControlName="Description"
+            rows="5"
+            placeholder="Description*"
+            style="padding: 26px; resize: none"
+          ></textarea>
+          <div
+            *ngIf="
+              subAdminForm.get('Description')?.touched &&
+              subAdminForm.get('Description')?.invalid
+            "
+            class="text-danger"
+          >
+            Description is required.
+          </div>
+        </div>
+
+        <!-- Notification Send -->
+
+        <div class="mb-4 bg-white">
+          <textarea
+            class="form-control"
+            id="subAdminNotificationSend"
+            formControlName="NotificationSend"
+            placeholder="Notification Send*"
+            rows="3"
+            style="padding: 26px; resize: none"
+          ></textarea>
+          <div
+            *ngIf="
+              subAdminForm.get('NotificationSend')?.touched &&
+              subAdminForm.get('NotificationSend')?.invalid
+            "
+            class="text-danger"
+          >
+            Notification Send is required.
+          </div>
+        </div>
+
+        <!-- Submit Button -->
+        <div class="btn-sub d-flex justify-content-center mt-4">
+          <button
+            type="submit"
+            (click)="submitForm()"
+            class="btn text-white fw-bold text-center"
+            style="background-color: var(--primary-color); width: 40%"
+            [disabled]="subAdminForm.invalid"
+          >
+            Send
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>

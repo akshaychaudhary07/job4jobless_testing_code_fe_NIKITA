@@ -8,12 +8,16 @@ import { JobProvidedComponent } from './admin-dashboard/job-provided/job-provide
 import { EnquiryDetailsComponent } from './admin-dashboard/enquiry-details/enquiry-details.component';
 import { SubAdminDetailsComponent } from './admin-dashboard/sub-admin-details/sub-admin-details.component';
 import { CreateSubAdminComponent } from './admin-dashboard/create-sub-admin/create-sub-admin.component';
+import { PushNotificationComponent } from './admin-dashboard/push-notification/push-notification.component';
+import { BlogsComponent } from '../blogs/blogs.component';
+import { AdminLogoutComponent } from './admin-dashboard/admin-logout/admin-logout.component';
+import { SendNotificationComponent } from './admin-dashboard/send-notification/send-notification.component';
 
 @Component({
   selector: 'app-admin-portal',
   standalone: true,
   imports: [CommonModule,RouterLink,AdminLoginComponent,SubAdminLoginComponent,CompanyDetailsComponent,JobProvidedComponent,
-    EnquiryDetailsComponent,SubAdminDetailsComponent,CreateSubAdminComponent,],
+    EnquiryDetailsComponent,SubAdminDetailsComponent,CreateSubAdminComponent,PushNotificationComponent,BlogsComponent,AdminLogoutComponent,SendNotificationComponent,],
   templateUrl: './admin-portal.component.html',
   styleUrl: './admin-portal.component.css'
 })

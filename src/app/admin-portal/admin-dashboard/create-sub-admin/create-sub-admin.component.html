@@ -1,104 +1,126 @@
-<div class="container">
-  <div class="modal-header">
-    <h5 class="modal-title">Sub Admin Details</h5>
-    <button
-      type="button"
-      class="btn-close"
-      data-bs-dismiss="modal"
-      aria-label="Close"
-    ></button>
-  </div>
-  <div class="modal-body">
-    <form [formGroup]="subAdminForm" (ngSubmit)="onSubmit()">
-      <!-- Sub Admin Name Input -->
-      <div class="mb-3">
-        <label for="subAdminName" formControlName="name" class="form-label">Sub Admin Name*</label>
-        <input
-          type="text"
-          class="form-control"
-          id="subAdminName"
-          [(ngModel)]="subAdmin.name"
-          name="name"
-          required
-        />
-        <div *ngIf="subAdminForm.get('name')?.invalid && subAdminForm.get('name')?.touched" class="text-danger">
+<section class="create-sub-admin mt-5">
+  <div class="container m-0 bg-white" style="border-radius: 17px">
+    <div class="modal-body p-5">
+      <form [formGroup]="subAdminForm" (ngSubmit)="onSubmit()">
+        <!-- Sub Admin Name Input -->
+        <div class="mb-3">
+          <input
+            type="text"
+            class="form-control"
+            id="subAdminName"
+            placeholder="Sub Admin Name*"
+            formControlName="name"
+            style="padding: 26px"
+          />
+          <div
+            *ngIf="
+              subAdminForm.get('name')?.touched &&
+              subAdminForm.get('name')?.invalid
+            "
+            class="text-danger"
+          >
             Name is required.
           </div>
-      </div>
-
-      <!-- Sub Admin Email Input -->
-      <div class="mb-3">
-        <label for="subAdminEmail" formControlName="email" class="form-label">Sub Admin Email*</label>
-        <input
-          type="email"
-          class="form-control"
-          id="subAdminEmail"
-          [(ngModel)]="subAdmin.email"
-          name="email"
-          required
-          email
-        />
-        <div *ngIf="subAdminForm.get('email')?.invalid && subAdminForm.get('email')?.touched" class="text-danger">
-            Invalid email format.
-          </div>
-        
         </div>
-      
-
-      <!-- Password Input with Show/Hide Toggle -->
-      <div class="mb-3 position-relative">
-        <label for="subAdminPassword" formControlName="password" class="form-label">Password*</label>
-        <input 
-          type="{{ passwordVisible ? 'text' : 'password' }}" 
-          class="form-control" 
-          id="subAdminPassword" 
-          [(ngModel)]="subAdmin.password" 
-          name="password" 
-          required 
-          minlength="8"
-        >
-        <span 
-          class="position-absolute top-0 end-0 p-2" 
-          style="cursor: pointer;" 
-          (click)="togglePasswordVisibility()"
-        >
-          <i *ngIf="passwordVisible" class="bi bi-eye"></i>
-          <i *ngIf="!passwordVisible" class="bi bi-eye-slash"></i>
-        </span>
-        <div *ngIf="subAdminForm.get('password')?.invalid && subAdminForm.get('password')?.touched" class="text-danger">
+  
+        <!-- Sub Admin Email Input -->
+        <div class="mb-3 bg-white">
+          <input
+            type="email"
+            class="form-control"
+            id="subAdminEmail"
+            formControlName="email"
+            placeholder="Sub Admin Email*"
+            style="padding: 26px"
+          />
+          <div
+            *ngIf="
+              subAdminForm.get('email')?.touched &&
+              subAdminForm.get('email')?.invalid
+            "
+            class="text-danger"
+          >
+            <div
+              *ngIf="subAdminForm.get('email')?.errors?.['required']"
+              class="text-danger"
+            >
+              Email is required.
+            </div>
+            <div
+              *ngIf="subAdminForm.get('email')?.errors?.['email']"
+              class="text-danger"
+            >
+              Invalid email format.
+            </div>
+          </div>
+        </div>
+  
+        <!-- Password Input with Show/Hide Toggle -->
+        <div class="mb-3 position-relative bg-white">
+          <input
+            [type]="passwordVisible ? 'text' : 'password'"
+            class="form-control"
+            id="subAdminPassword"
+            formControlName="password"
+            placeholder="Password*"
+            style="padding: 26px"
+          />
+          <span
+            class="position-absolute cus-top end-0 p-2"
+            style="cursor: pointer"
+            (click)="togglePasswordVisibility()"
+          >
+            <i *ngIf="passwordVisible" class="bi bi-eye"></i>
+            <i *ngIf="!passwordVisible" class="bi bi-eye-slash"></i>
+          </span>
+          <div
+            *ngIf="
+              subAdminForm.get('password')?.touched &&
+              subAdminForm.get('password')?.invalid
+            "
+            class="text-danger"
+          >
             Password must be at least 8 characters long.
           </div>
-      </div>
-      
-
-      <!-- Permissions Checkboxes -->
-      <div class="mb-3">
-        <label class="form-label">Permissions*</label>
-        <div class="row">
+        </div>
+  
+        <!-- Permissions Checkboxes -->
+        <div class="mb-3" formGroupName="permissions">
+          <div class="row mt-5 mb-5">
+            <div class=" col-6 col-md-4 col-lg-3 d-flex align-items-start m-0" *ngFor="let permission of permissionsList">
+              <input
+                type="checkbox"
+                [id]="permission.key"
+                class="me-3"
+                [formControlName]="permission.key"
+              />
+              <label [for]="permission.key" class="m-0">
+                {{ permission.label }}
+              </label>
+            </div>
+          </div>
+  
+          <!-- Validation Message -->
           <div
-            class="col-md-3"
-            *ngFor="
-              let permission of subAdmin.permissions | keyvalue;
-              let i = index
-            "
+            *ngIf="subAdminForm.get('permissions')?.errors?.['atLeastOneRequired'] && subAdminForm.get('permissions')?.touched"
+            class="text-danger"
           >
-            <input
-              type="checkbox"
-              id="{{ 'permission' + i }}"
-              [(ngModel)]="subAdmin.permissions[permission.key]"
-              name="{{ permission.key }}"
-            />
-            <label for="{{ 'permission' + i }}">{{ permission.key }}</label>
+            At least one permission must be selected.
           </div>
         </div>
-      </div>
-
-      <!-- Submit Button -->
-      <button type="submit" class="btn btn-primary" [disabled]="subAdminForm.invalid">
-        Submit
-      </button>
-    </form>
+  
+        <!-- Submit Button -->
+        <div class="btn-sub d-flex justify-content-center mt-4">
+          <button
+            type="submit"
+            class="btn text-white fw-bold text-center"
+            style="background-color: var(--primary-color); width: 40%"
+            [disabled]="subAdminForm.invalid"
+          >
+            Submit
+          </button>
+        </div>
+      </form>
+    </div>
   </div>
-</div>
-
-
+</section>

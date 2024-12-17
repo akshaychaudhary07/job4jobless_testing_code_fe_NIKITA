@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { AdminPortalComponent } from '../../admin-portal.component';
 import { AdminDashboardComponent } from '../admin-dashboard.component';
@@ -175,6 +175,12 @@ export class CompanyDetailsComponent {
       // Otherwise, set the clicked dropdown as open
       this.currentOpenDropdown = index;
     }
+  }
+  @Output() changeComponent = new EventEmitter<string>();
+
+  // Emit event to show SendNotificationComponent
+  openSendNotification() {
+    this.changeComponent.emit('SendNotification');
   }
 
 }

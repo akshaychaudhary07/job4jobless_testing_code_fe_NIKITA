@@ -1,16 +1,19 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
-import { RouterLink } from '@angular/router';
+import { Component, EventEmitter, Output } from '@angular/core';
+import { Router, RouterLink } from '@angular/router';
 import { AdminPortalComponent } from '../../admin-portal.component';
 import { AdminDashboardComponent } from '../admin-dashboard.component';
 import { DashboardComponent } from '../dashboard/dashboard.component';
 import { FormsModule } from '@angular/forms';
 import { CompanyDetailsComponent } from '../company-details/company-details.component';
+import { SendNotificationComponent } from '../send-notification/send-notification.component';
 
 @Component({
   selector: 'app-job-finder-profile',
   standalone: true,
-  imports: [CommonModule,RouterLink,AdminPortalComponent,AdminDashboardComponent,DashboardComponent,FormsModule,CompanyDetailsComponent,],
+  imports: [CommonModule,RouterLink,AdminPortalComponent,AdminDashboardComponent,DashboardComponent,FormsModule,CompanyDetailsComponent,
+    SendNotificationComponent,
+  ],
   templateUrl: './job-finder-profile.component.html',
   styleUrl: './job-finder-profile.component.css'
 })
@@ -154,6 +157,11 @@ export class JobFinderProfileComponent {
       this.currentOpenDropdown = index;
     }
   }
-  
+  @Output() changeComponent = new EventEmitter<string>();
+
+  // Emit event to show SendNotificationComponent
+  openSendNotification() {
+    this.changeComponent.emit('SendNotification');
+  }
 
 }

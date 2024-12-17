@@ -1,4 +1,4 @@
-<section class="company-details">
+<section class="company-details mt-5">
   <!-- Table Content -->
   <div class="table overflow-auto">
     <table class="table d-none d-md-table w-100">
@@ -28,6 +28,7 @@
                 width: fit-content;
               "
               class="bg-white d-block m-0"
+              (click)="openSendNotification()"
               >{{ item.Notification }}</span
             >
           </td>
