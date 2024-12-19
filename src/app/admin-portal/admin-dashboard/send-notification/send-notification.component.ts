@@ -6,7 +6,6 @@ import { AdminDashboardComponent } from '../admin-dashboard.component';
 import { JobFinderProfileComponent } from '../job-finder-profile/job-finder-profile.component';
 import { CompanyDetailsComponent } from '../company-details/company-details.component';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { Button } from 'bootstrap';
 
 @Component({
   selector: 'app-send-notification',
@@ -42,7 +41,4 @@ export class SendNotificationComponent {
         this.subAdminForm.markAllAsTouched(); // Trigger validation errors
       }
     }
-  
-
-
   }

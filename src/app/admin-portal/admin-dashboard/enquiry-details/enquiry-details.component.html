@@ -16,7 +16,7 @@
           *ngFor="let item of displayedItems; let i = index"
           [hidden]="item.hidden"
         >
-        <td>{{ item.HelpType }}</td>
+          <td>{{ item.HelpType }}</td>
           <td>{{ item.Name }}</td>
           <td>{{ item.Email }}</td>
           <td>{{ item.Company }}</td>
@@ -60,8 +60,6 @@
               <span class="m-0">{{ item.Email }}</span>
                 <span class="m-0">{{ item.Company }}</span>
                 <span class="m-0">{{ item.Phone }}</span>
-
-            
               </div>
             </div>
           </td>
@@ -95,4 +93,5 @@
       NEXT
     </button>
   </div>
+  
 </section>
