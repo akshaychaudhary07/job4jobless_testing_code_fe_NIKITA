@@ -83,12 +83,6 @@
             ></i>
           </div>
         </div>
-
-
-
-
-
-
         <div *ngIf="selectedItem === 'Dashboard'">
           <!-- Dashboard Profile Component -->
           <app-dashboard></app-dashboard>
@@ -111,9 +105,6 @@
         </div>
 
         <!-- Company Details Component -->
-
-
-
         <div *ngIf="selectedItem === 'Company Details' && currentComponent1 === 'CompanyDetails' ">
           <app-company-details  (changeComponent)="switchComponent1($event)"></app-company-details>
         </div>
@@ -121,8 +112,6 @@
        <div *ngIf="currentComponent1 === 'SendNotification'">
         <app-send-notification></app-send-notification>
       </div>
-
-
         <div *ngIf="selectedItem === 'Jobs Provided'">
           <!-- Jobs Provided Component -->
           <app-job-provided></app-job-provided>
