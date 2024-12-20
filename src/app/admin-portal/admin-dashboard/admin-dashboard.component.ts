@@ -17,13 +17,18 @@ import { PushNotificationComponent } from './push-notification/push-notification
 import { BlogsComponent } from './blogs/blogs.component';
 import { AdminLogoutComponent } from './admin-logout/admin-logout.component';
 import { SendNotificationComponent } from './send-notification/send-notification.component';
+import { EditAccountComponent } from './edit-account/edit-account.component';
+import { DeleteConfirmationModalComponent } from './delete-confirmation-modal/delete-confirmation-modal.component';
 
 @Component({
   selector: 'app-admin-dashboard',
   standalone: true,
   imports: [CommonModule,RouterLink,FormsModule,AdminPortalComponent,AdminLoginComponent,SubAdminLoginComponent,
     SubAdminDashboardComponent,DashboardComponent,JobFinderProfileComponent,JobProvidedComponent,CompanyDetailsComponent,EnquiryDetailsComponent,
-  SubAdminDetailsComponent,CreateSubAdminComponent,PushNotificationComponent,BlogsComponent,AdminLogoutComponent,SendNotificationComponent,],
+  SubAdminDetailsComponent,CreateSubAdminComponent,PushNotificationComponent,BlogsComponent,AdminLogoutComponent,SendNotificationComponent,
+  EditAccountComponent,DeleteConfirmationModalComponent,
+
+],
   templateUrl: './admin-dashboard.component.html',
   styleUrl: './admin-dashboard.component.css'
 })
@@ -49,12 +54,14 @@ export class AdminDashboardComponent {
       if (item) {
           this.selectedItem = item.title;
           this.selectedHeading = item.heading; // Update heading based on selected item
+         
       }
   }
 
  // State variable to toggle between components
   currentComponent: string = 'JobFinderProfile'; // Default is 'JobFinderProfile'
   currentComponent1: string = 'CompanyDetails';
+  currentComponent2: string = 'SubAdminDetails';
 // Method to switch between components
 switchComponent(componentName: string) {
   this.currentComponent = componentName;
@@ -62,8 +69,13 @@ switchComponent(componentName: string) {
 switchComponent1(componentName: string) {
   this.currentComponent1 = componentName;
 }
-
+switchComponent2(componentName: string) {
+  this.currentComponent2 = componentName;
+}
 
 
 
 }
+
+
+

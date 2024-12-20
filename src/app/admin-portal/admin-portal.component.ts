@@ -15,13 +15,14 @@ import { SendNotificationComponent } from './admin-dashboard/send-notification/s
 import { SubAdminDashboardComponent } from './sub-admin-dashboard/sub-admin-dashboard.component';
 import { SubDashboardComponent } from './sub-admin-dashboard/sub-dashboard/sub-dashboard.component';
 import { SubEnquiryDetailsComponent } from './sub-admin-dashboard/sub-enquiry-details/sub-enquiry-details.component';
+import { EditAccountComponent } from './admin-dashboard/edit-account/edit-account.component';
 
 @Component({
   selector: 'app-admin-portal',
   standalone: true,
   imports: [CommonModule,RouterLink,AdminLoginComponent,SubAdminLoginComponent,CompanyDetailsComponent,JobProvidedComponent,
     EnquiryDetailsComponent,SubAdminDetailsComponent,CreateSubAdminComponent,PushNotificationComponent,BlogsComponent,AdminLogoutComponent,
-    SendNotificationComponent,SubAdminDashboardComponent,SubDashboardComponent,SubEnquiryDetailsComponent,],
+    SendNotificationComponent,SubAdminDashboardComponent,SubDashboardComponent,SubEnquiryDetailsComponent,EditAccountComponent,],
   templateUrl: './admin-portal.component.html',
   styleUrl: './admin-portal.component.css'
 })
