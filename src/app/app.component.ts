@@ -89,7 +89,8 @@ export class AppComponent implements OnInit {
     } else if (
       url.includes('/company') || 
       url.includes('/resume-builder') ||
-      url.includes('/job-seeker-chat')
+      url.includes('/job-seeker-chat')||
+      url.includes('/saved-jobs')
     ) {
       // Update for profile and job-seeker-chat URLs
       this.isSpecialRoute = true;
@@ -97,7 +98,7 @@ export class AppComponent implements OnInit {
       this.hideFooter = false;
       this.navItems = [
         { label: 'Find Jobs', link: '/find-jobs' },
-        { label: 'Company Reviews', link: '/company-reviews' },
+        { label: 'Company Reviews', link: '/company' },
         { label: 'Saved Jobs', link: '/saved-jobs' },
         { label: 'Resume Builder', link: '/resume-builder' },
       ]; // Set specific labels

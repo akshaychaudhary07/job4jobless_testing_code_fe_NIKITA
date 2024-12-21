@@ -48,6 +48,7 @@ import { JobFinderProfileComponent } from './admin-portal/admin-dashboard/job-fi
 import { JobProvidedComponent } from './admin-portal/admin-dashboard/job-provided/job-provided.component';
 import { EnquiryDetailsComponent } from './admin-portal/admin-dashboard/enquiry-details/enquiry-details.component';
 import { SendNotificationComponent } from './admin-portal/admin-dashboard/send-notification/send-notification.component';
+import { SavedJobsComponent } from './company/saved-jobs/saved-jobs.component';
 
 
 
@@ -101,6 +102,7 @@ export const routes: Routes = [
   {path: 'job-provided', component : JobProvidedComponent},
   {path: 'enquiry-details', component : EnquiryDetailsComponent},
   {path: 'send-notification', component : SendNotificationComponent},
+  {path: 'saved-jobs', component : SavedJobsComponent},
  
 
   // { path: 'applied-users', component: AppliedUsersComponent }, 

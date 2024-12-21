@@ -3,11 +3,12 @@ import { Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { CompanyPageComponent } from './company-page/company-page.component';
 import { CompanyDetailsComponent } from './company-details/company-details.component';
+import { SavedJobsComponent } from './saved-jobs/saved-jobs.component';
 
 @Component({
   selector: 'app-company',
   standalone: true,
-  imports: [CommonModule,RouterModule,CompanyPageComponent,CompanyDetailsComponent,],
+  imports: [CommonModule,RouterModule,CompanyPageComponent,CompanyDetailsComponent,SavedJobsComponent,],
   templateUrl: './company.component.html',
   styleUrl: './company.component.css'
 })
