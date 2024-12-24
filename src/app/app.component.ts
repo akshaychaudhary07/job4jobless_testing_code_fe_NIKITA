@@ -36,6 +36,7 @@ export class AppComponent implements OnInit {
     { label: 'Services', link: '/services' },
     { label: 'Blogs', link: '/blogs' },
     { label: 'Employer', link: '/employer' },
+    
   ];
 
   employerNavItems = [

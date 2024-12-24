@@ -49,6 +49,10 @@ import { JobProvidedComponent } from './admin-portal/admin-dashboard/job-provide
 import { EnquiryDetailsComponent } from './admin-portal/admin-dashboard/enquiry-details/enquiry-details.component';
 import { SendNotificationComponent } from './admin-portal/admin-dashboard/send-notification/send-notification.component';
 import { SavedJobsComponent } from './company/saved-jobs/saved-jobs.component';
+import { HelpDeskComponent } from './help-desk/help-desk.component';
+import { EmployerHelpDeskComponent } from './help-desk/employer-help-desk/employer-help-desk.component';
+import { JobseekerHelpDeskComponent } from './help-desk/jobseeker-help-desk/jobseeker-help-desk.component';
+import { ServicesComponent } from './services/services.component';
 
 
 
@@ -103,6 +107,12 @@ export const routes: Routes = [
   {path: 'enquiry-details', component : EnquiryDetailsComponent},
   {path: 'send-notification', component : SendNotificationComponent},
   {path: 'saved-jobs', component : SavedJobsComponent},
+  {path: 'help-desk', component : HelpDeskComponent},
+  {path:'help-desk-employer' , component:EmployerHelpDeskComponent},
+  {path:'jobseeker-help-desk' , component:JobseekerHelpDeskComponent},
+  {path:'services' , component:ServicesComponent},
+
+
  
 
   // { path: 'applied-users', component: AppliedUsersComponent }, 

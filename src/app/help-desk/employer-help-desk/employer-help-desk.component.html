@@ -1,0 +1,51 @@
+<section
+  class="help-desk py-5 pb-5 mb-5"
+  style="background-color: var(--background-color)"
+>
+  <h1
+    class="fw-bolder text-center fs-1 mb-4"
+    style="color: var(--primary-color)"
+  >
+    Employer Support Desk
+  </h1>
+  <div class="container mt-5">
+    <div class="row justify-content-center">
+      <!-- Four Boxes in Two Rows -->
+      <div class="col-12 col-md-6 col-lg-6 mb-4" *ngFor="let card of cardData">
+        <div
+          class="card h-100 p-0 pb-5 pt-3 border-0"
+          style="border: 1px solid var(--primary-color); background-color: #fff"
+        >
+          <h5
+            class="mb-3 m-0 fw-bolder px-3"
+            style="color: var(--primary-color)"
+          >
+            {{ card.title }}
+          </h5>
+          <ol class="text-start m-0">
+            <li *ngFor="let step of card.steps">{{ step }}</li>
+          </ol>
+        </div>
+      </div>
+    </div>
+    <!-- Centered Box Below -->
+    <div class="row justify-content-center mt-4">
+      <div class="col-12 col-md-8 col-lg-6">
+        <div
+          class="card p-0 pt-3 pb-5 border-0 pe-2"
+          style="border: 1px solid var(--primary-color); background-color: #fff"
+        >
+          <h5
+            class="mb-3 m-0 fw-bolder px-3"
+            style="color: var(--primary-color)"
+          >
+            {{ lastCard.title }}
+          </h5>
+          <ol class="text-start m-0">
+            <li *ngFor="let step of lastCard.steps">{{ step }}</li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
