@@ -53,6 +53,7 @@ import { HelpDeskComponent } from './help-desk/help-desk.component';
 import { EmployerHelpDeskComponent } from './help-desk/employer-help-desk/employer-help-desk.component';
 import { JobseekerHelpDeskComponent } from './help-desk/jobseeker-help-desk/jobseeker-help-desk.component';
 import { ServicesComponent } from './services/services.component';
+import { FormContactUsComponent } from './form-contact-us/form-contact-us.component';
 
 
 
@@ -111,6 +112,7 @@ export const routes: Routes = [
   {path:'help-desk-employer' , component:EmployerHelpDeskComponent},
   {path:'jobseeker-help-desk' , component:JobseekerHelpDeskComponent},
   {path:'services' , component:ServicesComponent},
+  {path:'form-contact-us' , component:FormContactUsComponent},
 
 
  

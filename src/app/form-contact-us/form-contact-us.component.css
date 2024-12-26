@@ -1,0 +1,24 @@
+.box {
+    transition: transform 0.3s ease;
+  }
+  
+  .box:hover {
+    transform: scale(1.05);
+  }
+  
+  .social-icons a {
+    font-size: 1.5rem;
+    text-decoration: none;
+  }
+  
+  .social-icons a:hover {
+    opacity: 0.8;
+  }
+  .box {
+    aspect-ratio: 1/0.8;
+}
+@media (max-width:1200px){
+    .box {
+        aspect-ratio: 1/0;
+    }
+}
